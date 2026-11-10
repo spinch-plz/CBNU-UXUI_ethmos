@@ -95,6 +95,8 @@ function ghost(el){if(el._gh||el.type==='hidden'||el.type==='checkbox'||el.type=
   /* select는 글자만 투명하게, 입력창은 placeholder를 CSS로 투명하게 */
   g.style.cssText='position:absolute;pointer-events:none;display:flex;align-items:'+(el.tagName==='TEXTAREA'?'flex-start':'center')+';overflow:hidden;white-space:'+(el.tagName==='TEXTAREA'?'pre-wrap':'nowrap')+';font:'+cs.font+';letter-spacing:'+cs.letterSpacing+';color:'+(ph?col:cs.color)+';padding:'+cs.padding+';border:'+cs.borderWidth+' solid transparent;line-height:'+(cs.lineHeight==='normal'?'normal':cs.lineHeight)+';text-align:'+cs.textAlign;
   if(!ph)el.style.color='transparent';
+  /* 스크롤 영역 안의 입력창: 스크롤 영역이 위치 기준(relative)이 아니면 글자가 안 따라 움직이므로 기준으로 지정 */
+  for(let a=el.parentElement;a&&a!==el.offsetParent&&a!==root;a=a.parentElement){const o=getComputedStyle(a);if(/(auto|scroll)/.test(o.overflowY+o.overflowX)&&o.position==='static')a.style.position='relative'}
   el.after(g);el._gh=g;place(el);ghostText(el);if(ro)ro.observe(el)}
 function ghosts(n){if(n.nodeType!==1)return;(n.matches('select,input,textarea')?[n]:[...n.querySelectorAll('select,input,textarea')]).forEach(ghost)}
 let mo=null,root=null;
