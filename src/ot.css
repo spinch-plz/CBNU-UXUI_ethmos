@@ -1,0 +1,13 @@
+/* --- 글자 아웃라인(글꼴 파일 없음): 글자를 SVG 글리프로 그림 ---
+   사용자 정의 태그를 써서 기존 CSS의 span/b/i 선택자에 걸리지 않게 함 */
+ot-t{display:inline}
+ot-m{display:inline}
+ot-w{display:inline-block;white-space:nowrap;vertical-align:top}
+ot-s{display:inline;font-size:0;line-height:0;letter-spacing:0}
+ot-s.ul{display:inline-block;vertical-align:top;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat}
+ot-r{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+ot-gh{position:absolute;pointer-events:none;z-index:1}
+#phone svg.og{vertical-align:top;overflow:visible;fill:currentColor!important;display:inline!important;margin:0!important;padding:0!important;flex:none!important;position:static!important;opacity:1!important;transform:none!important;max-width:none!important;border:0!important;background:none!important;filter:none!important;stroke:none!important}
+.bars button .bv{position:absolute;left:50%;transform:translateX(-50%);top:-20px;font-size:12px;font-weight:700;white-space:nowrap;color:var(--i1)}
+#phone input::placeholder,#phone textarea::placeholder{color:transparent!important}
+#phone select option{color:#2a3137;background:#fff}

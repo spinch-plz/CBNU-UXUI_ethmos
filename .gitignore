@@ -1,0 +1,10 @@
+dist/
+node_modules/
+__pycache__/
+.DS_Store
+# 글리프 아웃라인을 다시 뽑을 때만 쓰는 글꼴 원본 — 라이선스 때문에 저장소에 올리지 않아요
+fonts/
+*.otf
+*.ttf
+*.woff
+*.woff2
