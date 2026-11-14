@@ -201,9 +201,10 @@ function init(){
 
   const topPad=clamp(H*0.17,96,150), botPad=clamp(H*0.17,128,150);
   let hl=Math.min(H-topPad-botPad, H*0.68), wl=hl*LW/LH;
-  if(wl>W*0.76){ wl=W*0.76; hl=wl*LH/LW; }
+  if(wl>W*0.69){ wl=W*0.69; hl=wl*LH/LW; }
   const s=hl/LH;
-  G={s,wl,hl,ox:(W-wl)/2,oy:topPad+((H-topPad-botPad)-hl)/2};
+  /* 시각 보정: 로고는 오른쪽에 점이 있어 무게가 오른쪽으로 쏠려 보이므로, 앱 아이콘과 같은 비율(마크 폭의 약 16%)만큼 왼쪽으로 옮김 */
+  G={s,wl,hl,ox:(W-wl)/2-wl*0.162,oy:topPad+((H-topPad-botPad)-hl)/2};
 
   /* 로고 면적에서 육각 격자로 목표점 추출 */
   const off=document.createElement('canvas'); off.width=Math.ceil(wl); off.height=Math.ceil(hl);
