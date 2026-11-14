@@ -22,10 +22,11 @@ tools/              글리프 아웃라인을 다시 만들 때만 쓰는 스크
 
 ## 인트로 웹 (`/intro/`)
 
-앱과 연결되는 인터랙션 웹입니다. 떠다니는 글자를 마우스(터치)로 휘저으면 에스모스 로고로 정리되고, 로고를 누르면 앱으로 연결되는 QR이 뜹니다.
+앱과 연결되는 인터랙션 웹입니다. 떠다니는 글자를 마우스(터치)로 휘저으면 **마스크 → 알약 → 에스모스 로고** 순서로 3단계에 걸쳐 정리되고, 마지막 로고를 누르면 앱으로 연결되는 QR이 뜹니다.
 
 - 배포 주소: `https://spinch-plz.github.io/CBNU-UXUI_ethmos/intro/` (QR은 앱 프로토타입 주소로 연결)
 - 결과물은 `public/intro/index.html` 한 장입니다(외부 요청·별도 글꼴 파일 없음). `build.py`가 `public/`을 그대로 `dist/`에 복사하므로 기존 배포 흐름은 그대로입니다.
+- 마스크·알약 형태는 `intro-src/shapes/*.png`(투명 PNG)를 글자가 모일 자리로 사용합니다. 이미지를 바꾸면 모양이 바뀝니다.
 - 소스는 `intro-src/` 에 있습니다. 문구·색·크기를 고치려면 `intro-src/index.template.html`을 수정한 뒤 다시 빌드하세요.
   ```bash
   pip install segno fonttools brotli
