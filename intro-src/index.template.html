@@ -10,6 +10,7 @@
 <link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="../favicon-48.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
 <style>
 /* 앱(에스모스 프로토타입)과 같은 토큰 */
 :root{--ink:#2a3137;--sub:#66727a;--main:#80e4eb;--deep:#0b4a50;--teal:#0e747c;--brown:#4a2606;
@@ -36,6 +37,10 @@ body.clear{--fg:var(--ink);--fg2:var(--sub);--halo:rgba(255,255,255,.0)}
 #veil::after{opacity:.4}
 #c{position:fixed;inset:0;width:100%;height:100%;touch-action:none;display:block;z-index:2}
 
+.steps{position:fixed;right:clamp(16px,2.4vw,32px);top:clamp(18px,2.6vw,32px);display:flex;gap:8px;z-index:4;pointer-events:none}
+.steps i{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--deep);opacity:.45;transition:background .5s,opacity .5s,transform .5s}
+.steps i.cur{opacity:1;transform:scale(1.15)}
+.steps i.done{background:var(--deep);opacity:1}
 .brand{position:fixed;left:clamp(16px,2.4vw,32px);top:clamp(14px,2.2vw,28px);display:flex;align-items:center;gap:10px;pointer-events:none;z-index:4;color:var(--deep)}
 .brand svg{height:22px;width:auto;fill:var(--deep)}
 .brand b{font-weight:600;letter-spacing:.14em;font-size:13px}
@@ -95,6 +100,7 @@ body.clear{--fg:var(--ink);--fg2:var(--sub);--halo:rgba(255,255,255,.0)}
   <b>ETHMOS</b><span>한눈에 보는 비염</span>
 </div>
 
+<div class="steps" id="steps" role="img" aria-label="1/3 단계"><i></i><i></i><i></i></div>
 <div class="msg" id="msg"><h1 id="h1"></h1><p id="h2"></p></div>
 <div class="cta" id="cta"><span>로고를 눌러 앱 연결하기</span></div>
 <button class="ghost" id="ghost" type="button"></button>
@@ -127,6 +133,10 @@ const INFO=['#4a2606','#4a2606','#4a2606','#6f4c1f','#6f4c1f','#9a6f38','#fff1d6
 const LETTERS='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const WORDS=['콧물','재채기','미세먼지','꽃가루','비염','코막힘','초미세먼지','알레르기','마스크','공기','오늘','정보','습도','기온','환기','황사','자작나무','소나무','잡초','예보','농도','지수','날씨','증상','두통','눈물','가려움','바람','먼지','오존','점막','약','병원','외출','일정','데이터','알림','수치'];
 const LW=124, LH=199;
+const IMG={mask:new Image(),pill:new Image()};
+IMG.mask.src='data:image/png;base64,{{MASK_PNG}}'; IMG.pill.src='data:image/png;base64,{{PILL_PNG}}';
+await Promise.all(Object.values(IMG).map(i=>i.decode?i.decode():new Promise(r=>{i.onload=r})));
+const LAST=2, HOLD=2.6;          // 0 마스크 → 1 알약 → 2 브랜드 로고 (마지막)
 const LOGO1=new Path2D('{{LOGO1}}');
 const LOGO2=new Path2D('{{LOGO2}}');
 
@@ -139,7 +149,7 @@ const clamp=(v,a,b)=>v<a?a:v>b?b:v;
 const isTouchDevice=matchMedia('(pointer:coarse)').matches;
 
 /* ───────── 상태 ───────── */
-let W,H,DPR,G,P=[],T=[];
+let W,H,DPR,G,P=[],T=[],stage=0,GS=[],SHT=[];
 let mode='float';              // float → forming → assembling → ready
 let settled=0, readyT=0, hoverAmt=0, hover=false, modalOpen=false;
 const ptr={x:0,y:0,vx:0,vy:0,t:0,has:false,touch:false};
@@ -205,23 +215,39 @@ function init(){
   const s=hl/LH;
   /* 시각 보정: 로고는 오른쪽에 점이 있어 무게가 오른쪽으로 쏠려 보이므로, 앱 아이콘과 같은 비율(마크 폭의 약 16%)만큼 왼쪽으로 옮김 */
   G={s,wl,hl,ox:(W-wl)/2-wl*0.162,oy:topPad+((H-topPad-botPad)-hl)/2};
+  const LG={ox:G.ox,oy:G.oy,wl:G.wl,hl:G.hl};
 
-  /* 로고 면적에서 육각 격자로 목표점 추출 */
+  /* 도형(마스크·알약·로고)마다 육각 격자로 목표점 추출 — 글자 간격 d는 로고 기준으로 통일 */
+  const sample=(off,ox,oy,d)=>{
+    const g=off.getContext('2d',{willReadFrequently:true}), data=g.getImageData(0,0,off.width,off.height).data, out=[]; let row=0;
+    const inside=(x,y)=>{x=x|0;y=y|0;return x>=0&&y>=0&&x<off.width&&y<off.height&&data[(y*off.width+x)*4+3]>128};
+    for(let y=d*0.45;y<off.height;y+=d*0.866,row++)
+      for(let x=(row%2?d*0.5:0)+d*0.3;x<off.width;x+=d) if(inside(x,y)) out.push({x:ox+x,y:oy+y,owner:-1});
+    return out;
+  };
   const off=document.createElement('canvas'); off.width=Math.ceil(wl); off.height=Math.ceil(hl);
-  const g=off.getContext('2d'); g.scale(s,s); g.fillStyle='#000'; g.fill(LOGO1); g.fill(LOGO2);
-  const data=g.getImageData(0,0,off.width,off.height).data;
-  let area=0; for(let i=3;i<data.length;i+=4) if(data[i]>128) area++;
+  const g=off.getContext('2d',{willReadFrequently:true}); g.scale(s,s); g.fillStyle='#000'; g.fill(LOGO1); g.fill(LOGO2);
+  const ldata=g.getImageData(0,0,off.width,off.height).data;
+  let area=0; for(let i=3;i<ldata.length;i+=4) if(ldata[i]>128) area++;
   const goal=W<700?560:760;
   const d=Math.sqrt(area/(goal*0.866));
-  const inside=(x,y)=>{x=x|0;y=y|0;return x>=0&&y>=0&&x<off.width&&y<off.height&&data[(y*off.width+x)*4+3]>128};
-  T=[]; let row=0;
-  for(let y=d*0.45;y<hl;y+=d*0.866,row++){
-    for(let x=(row%2?d*0.5:0)+d*0.3;x<wl;x+=d){ if(inside(x,y)) T.push({x:G.ox+x,y:G.oy+y,owner:-1}); }
-  }
   G.d=d; G.gs=Math.round(d*1.16);
+  const avail=H-topPad-botPad;
+  const shapeOf=(img,w,strokePx)=>{                      // 래스터 도형 → 얇은 선은 글자 2줄 두께로 부풀려 읽히게
+    const h=w*img.naturalHeight/img.naturalWidth, ox=(W-w)/2, oy=topPad+(avail-h)/2;
+    const c=document.createElement('canvas'); c.width=Math.ceil(w); c.height=Math.ceil(h); const x=c.getContext('2d',{willReadFrequently:true});
+    const r=Math.max(0,(d*(W<700?1.6:2.4)-strokePx*w/img.naturalWidth)/2);
+    x.drawImage(img,0,0,w,h); if(r>.3) for(let a=0;a<6.283;a+=.5236) x.drawImage(img,Math.cos(a)*r,Math.sin(a)*r,w,h);
+    return {T:sample(c,ox,oy,d),geo:{ox,oy,wl:w,hl:h}};
+  };
+  const mw=Math.min(W*(W<700?.94:.56),avail*.8*IMG.mask.naturalWidth/IMG.mask.naturalHeight);
+  const pw=Math.min(W*(W<700?.78:.4),avail*.74);
+  const sm=shapeOf(IMG.mask,mw,14.3), sp=shapeOf(IMG.pill,pw,19);
+  GS=[sm.geo,sp.geo,{ox:G.ox,oy:G.oy,wl:G.wl,hl:G.hl}];
+  SHT=[sm.T,sp.T,sample(off,G.ox,G.oy,d)];
 
   /* 떠다니는 글자 */
-  const n=Math.min(1500,Math.round(T.length*1.55));
+  const n=Math.min(1600,Math.round(Math.max(...SHT.map(t=>t.length))*1.55));
   P=[];
   for(let i=0;i<n;i++){
     const isL=Math.random()<0.5;
@@ -234,19 +260,20 @@ function init(){
       st:0,ti:-1,ft:0,fdur:0,sk:0,q:0});
   }
   settled=0; mode='float'; readyT=0; hover=false; hoverAmt=0;
+  setStage(0);
   /* 먼지 베일 · 글로우 · 블롭 위치 */
-  veil.cx=G.ox+G.wl/2; veil.cy=G.oy+G.hl/2; veil.e=Math.max(W,H)*.4;
+  veil.cx=LG.ox+LG.wl/2; veil.cy=LG.oy+LG.hl/2; veil.e=Math.max(W,H)*.4;
   veil.max=Math.hypot(Math.max(veil.cx,W-veil.cx),Math.max(veil.cy,H-veil.cy))+4;
   veil.c=-veil.e; veil.on=true; veil.dirty=true;
   veilEl.style.visibility='visible'; veilEl.style.setProperty('--e',veil.e+'px');
   veilEl.style.setProperty('--cx',veil.cx+'px'); veilEl.style.setProperty('--cy',veil.cy+'px');
-  const gs=Math.max(G.wl,G.hl)*1.9; Object.assign(glowEl.style,{width:gs+'px',height:gs+'px',left:(veil.cx-gs/2)+'px',top:(veil.cy-gs/2)+'px',opacity:0});
+  const gs=Math.max(LG.wl,LG.hl)*1.9; Object.assign(glowEl.style,{width:gs+'px',height:gs+'px',left:(veil.cx-gs/2)+'px',top:(veil.cy-gs/2)+'px',opacity:0});
   blob('#b1',W*.5,H*1.02,Math.max(W*1.0,H*1.25),'radial-gradient(closest-side,#3cc4ce 0%,#6fd6dd 38%,#c4f1f4 74%,rgba(240,251,252,0))',.9);
   blob('#b2',W*.9,H*.05,Math.max(W,H)*.5,'radial-gradient(closest-side,rgba(196,208,255,.75),rgba(196,208,255,.3) 50%,rgba(196,208,255,0))',1);
   blob('#b3',W*.06,H*.72,Math.max(W,H)*.4,'radial-gradient(closest-side,rgba(128,228,235,.55),rgba(128,228,235,.2) 50%,rgba(128,228,235,0))',1);
   initDust();
   document.body.classList.remove('clear');
-  ui();
+  uiKey=''; ui();
 }
 
 /* ───────── 장(field): 소용돌이 + 잔물결 ───────── */
@@ -301,14 +328,26 @@ function onMove(x,y,touch){
   ptr.vx=lerp(ptr.vx,dx/dt,.35); ptr.vy=lerp(ptr.vy,dy/dt,.35);
   if(Math.hypot(dx,dy)>1.5) captureAlong(ptr.x,ptr.y,x,y);
   ptr.x=x; ptr.y=y; ptr.t=now;
-  hover=(mode==='ready'&&!modalOpen&&inLogo(x,y));
+  hover=(mode==='ready'&&stage===LAST&&!modalOpen&&inLogo(x,y));
   cv.style.cursor=hover?'pointer':'default';
 }
 addEventListener('pointermove',e=>{ if(!modalOpen) onMove(e.clientX,e.clientY,e.pointerType==='touch'); },{passive:true});
 addEventListener('pointerdown',e=>{ if(modalOpen) return; ptr.x=e.clientX; ptr.y=e.clientY; ptr.t=performance.now(); ptr.has=true; ptr.touch=e.pointerType==='touch'; ptr.vx=ptr.vy=0;
-  hover=(mode==='ready'&&inLogo(e.clientX,e.clientY)); },{passive:true});
+  hover=(mode==='ready'&&stage===LAST&&inLogo(e.clientX,e.clientY)); },{passive:true});
 document.documentElement.addEventListener('mouseleave',()=>{ptr.has=false;hover=false});
-cv.addEventListener('click',e=>{ if(mode==='ready'&&!modalOpen&&inLogo(e.clientX,e.clientY)) openModal(); });
+cv.addEventListener('click',e=>{ if(mode==='ready'&&stage===LAST&&!modalOpen&&inLogo(e.clientX,e.clientY)) openModal(); });
+
+/* ───────── 단계 ───────── */
+function setStage(n){ stage=n; T=SHT[n]; T.forEach(t=>{t.owner=-1}); Object.assign(G,GS[n]); }
+function release(power){                                   // 모여 있던 글자를 사방으로 흩뜨림
+  for(const p of P){ const a=rnd(0,6.28), v=rnd(160,420)*power; p.st=0;p.ti=-1;p.q=0;p.vx=Math.cos(a)*v;p.vy=Math.sin(a)*v;p.rot=rnd(-.7,.7); }
+}
+function nextStage(){
+  setStage(stage+1); release(1.7); mode='float'; settled=0; readyT=0; hover=false; ui();
+}
+function restart(){
+  setStage(0); release(1.3); mode='float'; settled=0; readyT=0; hover=false; cv.style.cursor='default'; ui();
+}
 
 /* ───────── 조립 / 리셋 ───────── */
 function startAssemble(){
@@ -319,12 +358,6 @@ function startAssemble(){
     for(const p of P){ if(p.st!==0) continue; const d=Math.hypot(p.x-T[i].x,p.y-T[i].y)+rnd(0,60); if(d<bd){bd=d;best=p} }
     if(best){ T[i].owner=1; best.ti=i; best.st=2; best.sk=0; }
   }
-}
-function scatter(){
-  mode='float'; settled=0; readyT=0; hover=false; cv.style.cursor='default';
-  T.forEach(t=>t.owner=-1);
-  for(const p of P){ const a=rnd(0,6.28), v=rnd(160,420); p.st=0;p.ti=-1;p.q=0;p.vx=Math.cos(a)*v;p.vy=Math.sin(a)*v;p.rot=rnd(-.7,.7); }
-  ui();
 }
 
 /* ───────── 업데이트 ───────── */
@@ -374,23 +407,23 @@ function update(dt,t){
   }
   if(mode==='forming'&&settled>=T.length*.88) startAssemble();
   if(mode==='assembling'&&settled>=T.length){ mode='ready'; readyT=0; ui(); }
-  document.body.classList.toggle('clear',mode==='assembling'||mode==='ready');
-  if(mode==='ready') readyT+=dt;
+  document.body.classList.toggle('clear',stage===LAST&&(mode==='assembling'||mode==='ready'));
+  if(mode==='ready'){ readyT+=dt; if(stage<LAST&&readyT>HOLD) nextStage(); }
   hoverAmt+=((hover?1:0)-hoverAmt)*(1-Math.exp(-dt*8));
-  /* 베일: 정리된 비율만큼 로고 중심에서부터 걷힘 */
-  const prog=T.length?clamp(settled/T.length,0,1):0;
-  const tgtC=(mode==='assembling'||mode==='ready')?veil.max+4:-veil.e+(veil.max+veil.e)*.9*Math.pow(clamp(prog/.88,0,1),.85);
+  /* 베일: 전체 3단계 중 정리된 비율만큼 걷힘 (마지막 단계가 끝나면 완전히 걷힘) */
+  const stProg=(mode==='assembling'||mode==='ready')?1:(T.length?clamp(settled/T.length/.88,0,1):0);
+  const overall=(stage+stProg)/(LAST+1);
+  const tgtC=(stage===LAST&&(mode==='assembling'||mode==='ready'))?veil.max+4:-veil.e+(veil.max+veil.e)*.9*Math.pow(overall,.85);
   veil.c+=(tgtC-veil.c)*(1-Math.exp(-dt*(mode==='float'||mode==='forming'?3:1.6)));
   if(Math.abs(veil.c-veil._c)>.6||veil._c===undefined){ veil._c=veil.c; veilEl.style.setProperty('--c',veil.c+'px'); }
   const done=veil.c>veil.max+1; if(done===veil.on){ veil.on=!done; veilEl.style.visibility=done?'hidden':'visible'; }
-  glowEl.style.opacity=clamp(prog*prog*.8+hoverAmt*.2*(mode==='ready'?1:0),0,1).toFixed(3);
+  glowEl.style.opacity=clamp((stage===LAST?stProg*stProg*.8:0)+hoverAmt*.2*(mode==='ready'?1:0),0,1).toFixed(3);
 }
 
 /* ───────── 그리기 ───────── */
 let tNow=0;
 function render(){
   ctx.setTransform(1,0,0,1,0,0); ctx.clearRect(0,0,cv.width,cv.height);
-  const prog=T.length?clamp(settled/T.length,0,1):0;
   drawDust(tNow);
   /* 포인터 링 */
   if(ptr.has&&!ptr.touch&&(mode==='float'||mode==='forming')){
@@ -427,23 +460,32 @@ function render(){
 /* ───────── UI 텍스트 / 버튼 ───────── */
 const msg=$('#msg'),h1=$('#h1'),h2=$('#h2'),cta=$('#cta'),ghost=$('#ghost');
 let uiKey='',ghostOn=false;
+const COPY={
+  float:[[isTouchDevice?'글자들을 손가락으로 휘저어 보세요':'글자들을 마우스로 휘저어 보세요','어지럽게 흩어진 정보, 지나간 자리부터 정리돼요.'],
+         ['한 번 더 휘저어 보세요','이번에는 무엇이 될까요?'],
+         ['마지막이에요','한 번만 더 휘저어 보세요.']],
+  mid:['정리되는 중…','계속 휘저어 보세요. 하나하나 옮기는 건 꽤 번거롭죠.'],
+  hold:[['오늘은 마스크 챙기면 괜찮아요','에스모스는 오늘 챙길 것부터 알려줘요.'],
+        ['챙길 것, 하나씩 체크해요','마스크, 약… 오늘 챙길 것을 기록으로 남겨요.']],
+  ready:['한눈에 보이죠?','일일이 정리하지 않아도, 에스모스는 한눈에 보여줘요.']
+};
+const stepsEl=$('#steps');
 function ui(){
-  const key=mode==='ready'?'ready':(mode==='float'?'float':'mid');
-  if(key===uiKey) return; uiKey=key;
+  const phase=mode==='ready'?(stage===LAST?'ready':'hold'):(mode==='float'?'float':'mid');
+  const key=phase+stage;
+  if(key===uiKey) return; const first=!uiKey; uiKey=key;
+  const t=phase==='float'?COPY.float[stage]:phase==='hold'?COPY.hold[stage]:phase==='ready'?COPY.ready:COPY.mid;
   msg.classList.add('swap');
-  setTimeout(()=>{
-    if(key==='float'){ h1.textContent=isTouchDevice?'글자들을 손가락으로 휘저어 보세요':'글자들을 마우스로 휘저어 보세요'; h2.textContent='어지럽게 흩어진 정보, 지나간 자리부터 정리돼요.'; }
-    else if(key==='mid'){ h1.textContent='정리되는 중…'; h2.textContent='계속 휘저어 보세요. 하나하나 옮기는 건 꽤 번거롭죠.'; }
-    else { h1.textContent='한눈에 보이죠?'; h2.textContent='일일이 정리하지 않아도, 에스모스는 한눈에 보여줘요.'; }
-    msg.classList.remove('swap');
-  },key==='float'&&!h1.textContent?0:280);
-  cta.style.top=(G.oy+G.hl+16)+'px'; cta.classList.toggle('on',key==='ready');
-  ghost.classList.toggle('on',ghostOn||key==='ready');
-  ghost.textContent=key==='ready'?'↺ 다시 흩트리기':'정리하기 귀찮다면 → 한눈에 보기';
-  ghost.dataset.mode=key;
+  setTimeout(()=>{ h1.textContent=t[0]; h2.textContent=t[1]; msg.classList.remove('swap'); },first?0:280);
+  cta.style.top=(GS[LAST].oy+GS[LAST].hl+16)+'px'; cta.classList.toggle('on',phase==='ready');
+  ghost.classList.toggle('on',(ghostOn&&phase!=='hold')||phase==='ready'); ghost.style.pointerEvents=phase==='hold'?'none':'';
+  ghost.textContent=phase==='ready'?'↺ 처음부터 다시':'정리하기 귀찮다면 → 한눈에 보기';
+  ghost.dataset.mode=phase;
+  [...stepsEl.children].forEach((e,i)=>{ e.className=(i<stage||(i===stage&&mode==='ready'))?'done':(i===stage?'cur':''); });
+  stepsEl.setAttribute('aria-label',(Math.min(stage+1,LAST+1))+'/3 단계');
 }
-ghost.addEventListener('click',()=>{ if(mode==='ready') scatter(); else startAssemble(); ui(); });
-setTimeout(()=>{ghostOn=true;ghost.classList.add('on')},3500);
+ghost.addEventListener('click',()=>{ if(mode==='ready'&&stage===LAST) restart(); else if(mode==='float'||mode==='forming') startAssemble(); ui(); });
+setTimeout(()=>{ghostOn=true;ui();ghost.classList.toggle('on',ghost.dataset.mode!=='hold')},3500);
 
 /* ───────── QR 모달 ───────── */
 const modal=$('#modal'),closeBtn=$('#close'),card=$('.card');
@@ -451,7 +493,7 @@ function openModal(){ modalOpen=true; hover=false; cv.style.cursor='default'; mo
 function closeModal(){ modalOpen=false; modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }
 closeBtn.addEventListener('click',closeModal);
 modal.addEventListener('click',e=>{ if(e.target===modal) closeModal(); });
-addEventListener('keydown',e=>{ if(e.key==='Escape'&&modalOpen) closeModal(); if((e.key==='Enter'||e.key===' ')&&mode==='ready'&&!modalOpen&&document.activeElement===document.body){ openModal(); } });
+addEventListener('keydown',e=>{ if(e.key==='Escape'&&modalOpen) closeModal(); if((e.key==='Enter'||e.key===' ')&&mode==='ready'&&stage===LAST&&!modalOpen&&document.activeElement===document.body){ openModal(); } });
 
 /* ───────── 루프 ───────── */
 init();
@@ -464,7 +506,7 @@ requestAnimationFrame(loop);
 
 let rz; addEventListener('resize',()=>{ clearTimeout(rz); rz=setTimeout(()=>{ if(Math.abs(innerWidth-W)>2||Math.abs(innerHeight-H)>120){ uiKey=''; init(); } },220); });
 
-window.__ethmos={get mode(){return mode},get settled(){return settled},get total(){return T.length},get count(){return P.length},get logo(){return G},get veil(){return veil.c},startAssemble,scatter,openModal,closeModal};
+window.__ethmos={get mode(){return mode},get settled(){return settled},get total(){return T.length},get count(){return P.length},get logo(){return G},get veil(){return veil.c},get stage(){return stage},startAssemble,scatter:restart,restart,nextStage,openModal,closeModal};
 })();
 </script>
 </body>
