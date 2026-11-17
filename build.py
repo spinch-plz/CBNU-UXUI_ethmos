@@ -2,7 +2,7 @@
 """src/ + data/ → dist/index.html (단일 파일, 외부 요청·글꼴 파일 없음).
 사용: python3 build.py          (파이썬 3 표준 라이브러리만 사용)
 """
-import json, os, shutil
+import base64, glob, json, os, shutil
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 rd = lambda p: open(os.path.join(ROOT, p), encoding='utf8').read()
@@ -11,7 +11,10 @@ t = rd('src/template.html')
 t = t.replace('{{OTX_CSS}}', rd('src/ot.css'))
 t = t.replace('{{OTX_JS}}', rd('src/ot.js').replace('{{GLYPHS_JSON}}', rd('data/glyphs.json')))
 t = t.replace('{{ICONS_JSON}}', json.dumps(json.load(open(os.path.join(ROOT, 'data/icons.json'), encoding='utf8')), separators=(',', ':'), ensure_ascii=False))
-assert '{{' not in t.split('<style>')[0] and '{{OTX' not in t and '{{ICONS' not in t and '{{GLYPHS' not in t, '치환되지 않은 자리표시자가 남아 있어요'
+# 카드 그림(WebP) → data URI. src/art/<이름>.webp 가 ART.<이름> 으로 들어가요
+art = {os.path.basename(f)[:-5]: 'data:image/webp;base64,' + base64.b64encode(open(f, 'rb').read()).decode() for f in sorted(glob.glob(os.path.join(ROOT, 'src/art/*.webp')))}
+t = t.replace('{{ART_JSON}}', json.dumps(art, separators=(',', ':')))
+assert '{{' not in t.split('<style>')[0] and '{{OTX' not in t and '{{ICONS' not in t and '{{GLYPHS' not in t and '{{ART' not in t, '치환되지 않은 자리표시자가 남아 있어요'
 
 # 템플릿은 <title> … </style> 까지가 head, 그 뒤가 body인 조각 형태
 head, body = t.split('</style>', 1)

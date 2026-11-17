@@ -27,7 +27,9 @@ function tokens(s,keep){if(keep)return [s];const out=[];let cur='';
 const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
 function html(text,cs){
   const f=/EthSerif/.test(cs.fontFamily)?'serif':'pret';
-  const w=pickW(f,parseInt(cs.fontWeight)||400),fs=parseFloat(cs.fontSize),ls=parseFloat(cs.letterSpacing)||0;
+  let w=pickW(f,parseInt(cs.fontWeight)||400);const fs=parseFloat(cs.fontSize),ls=parseFloat(cs.letterSpacing)||0;
+  /* 격동고딕 10 Bd(700)에 아직 없는 글자가 한 덩어리 안에 섞여 있으면, 굵기가 들쭉날쭉해지지 않도록 그 덩어리는 09 Sb(600)→07 Lt(400) 순으로 통째로 내려써요 */
+  if(f==='serif')while(w>400&&[...text].some(c=>c.trim()&&!GLY.serif.w[w][c]))w=w===700?600:400;
   const [ra,rd]=MET(f,fs);
   let LH=parseFloat(cs.lineHeight);if(!(LH>0))LH=NLH(f,fs);
   const by=f3((LH-(ra+rd))/2+ra);

@@ -83,11 +83,6 @@ input,select,textarea{font:inherit;color:inherit;letter-spacing:inherit}
 .sl .tn .i{width:20px;height:20px}
 
 /* 하단 바 */
-.nav{position:absolute;left:24px;top:748px;width:345px;height:72px;z-index:6;border-radius:32px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;
-  background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.75);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 6px 18px rgba(0,0,0,.06)}
-.nav button{width:129px;height:40px;border-radius:99px;display:grid;place-items:center;color:#fff;transition:background .4s,color .4s}
-.nav button.on{background:#fff}
-.nav.r{flex-direction:row-reverse}
 
 /* 홈 */
 .top{display:flex;justify-content:space-between;align-items:center;gap:6px}.top>div:first-child{min-width:0}
@@ -295,9 +290,6 @@ textarea.memo::placeholder,input.nz::placeholder{color:rgba(255,255,255,.75)}
 .hdr.glass{color:var(--i1);background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.2));backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
 /* 슬라이더 */
 /* 하단 바 */
-.nav{background:rgba(255,255,255,.4);border:1.5px solid rgba(255,255,255,.96);box-shadow:0 0 0 1px #e1e7e9,0 6px 18px rgba(20,40,46,.08)}
-.nav button,.nav button.on{color:var(--i2)}
-.nav button.on{background:var(--i2);color:#fff}
 /* 바깥 유리 패널 */
 .panel,.wpanel{color:var(--i1);text-shadow:none;border:1.5px solid #fff;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
   background:linear-gradient(180deg,rgba(255,255,255,.66),rgba(255,255,255,.24) 42%,rgba(255,255,255,.14));box-shadow:0 8px 28px rgba(20,40,46,.07),inset 0 1px 0 #fff}
@@ -463,7 +455,7 @@ textarea.memo::placeholder{color:var(--i5)}
 /* ===== v005 타이포·간격 (Figma 값 기준) ===== */
 :root{--serif:"EthSerif","Noto Serif KR","Noto Serif CJK KR","Nanum Myeongjo",serif}
 .hero .hl{top:18px;height:21px;line-height:21px;font-weight:400;letter-spacing:-.03em;padding:0 8px}
-.hero .hbig{left:20px;top:44px;font-family:var(--serif);font-size:40px;line-height:44px;font-weight:600;letter-spacing:-.03em}
+.hero .hbig{left:20px;top:44px;font-family:var(--serif);font-size:40px;line-height:44px;font-weight:700;letter-spacing:-.03em}
 .hero .hsub{left:20px;bottom:21px;font-weight:500;line-height:17px;letter-spacing:-.02em}
 .panel .scr{gap:var(--sg,35px)}
 .panel .scr>.hero{margin-bottom:-15px}
@@ -475,7 +467,7 @@ textarea.memo::placeholder{color:var(--i5)}
 .panel .obs b{margin-top:6px;font-size:16px;line-height:19px;font-weight:400;letter-spacing:-.05em}
 .panel .obs.sr b{font-family:var(--serif);line-height:18px}
 .panel .seg button{font-weight:500;letter-spacing:-.02em}
-.h18,.wpanel h2{font-family:var(--serif);font-weight:400;letter-spacing:-.03em}
+.h18,.wpanel h2{font-family:var(--font);font-weight:400;letter-spacing:-.03em}
 .hero .hsub,.hero .hl{text-shadow:none}
 
 /* --- 홈 (C_Home v005) --- */
@@ -490,13 +482,13 @@ textarea.memo::placeholder{color:var(--i5)}
 .panel .mini:not(.gl) .l2{margin-top:4px;font-family:var(--serif);font-weight:400;font-size:26px;line-height:39px;letter-spacing:-.02em;color:var(--i1);white-space:nowrap}
 
 /* --- 권한(A4) / 공통 버튼 --- */
-.dark,.panel .btnw{height:52px;border-radius:24px;font-family:var(--serif);font-weight:700;font-size:16px;line-height:20px;letter-spacing:.07em}
+.dark,.panel .btnw{height:52px;border-radius:24px;font-family:var(--font);font-weight:700;font-size:16px;line-height:20px;letter-spacing:.07em}
 .permst{top:167px;gap:24px}
-.permst .back{gap:10px;padding-left:8px;font-family:var(--serif);font-weight:400;font-size:18px;line-height:24px;letter-spacing:-.03em}
-.ph1{margin:0 0 10px;font-family:var(--serif);font-weight:700;font-size:26px;line-height:39px;letter-spacing:-.02em}
+.permst .back{gap:10px;padding-left:8px;font-family:var(--font);font-weight:400;font-size:18px;line-height:24px;letter-spacing:-.03em}
+.ph1{margin:0 0 10px;font-family:var(--font);font-weight:700;font-size:26px;line-height:39px;letter-spacing:-.02em}
 .pp{margin:0;color:var(--sub);font-size:18px;line-height:27px;letter-spacing:0}
 .permst .pcard{gap:16px;padding:16px;border:1px solid #edf1f2;box-shadow:none}
-.pcard h3{font-family:var(--serif);font-weight:400;font-size:20px;line-height:22px;letter-spacing:-.05em}
+.pcard h3{font-family:var(--font);font-weight:400;font-size:20px;line-height:22px;letter-spacing:-.05em}
 .pcard p{margin:4px 0 0;font-size:14px;line-height:18.2px;letter-spacing:-.03em}
 .pcard .pbrow{display:flex;gap:8px;align-items:center;margin:8px 0 0 -4px}
 .pbtn{height:27px;padding:0 8px;border-radius:13.5px;font-size:16px;line-height:27px;letter-spacing:-.05em}
@@ -505,7 +497,7 @@ textarea.memo::placeholder{color:var(--i5)}
 /* --- D4 시즌별 패턴 --- */
 .scr.d4{gap:0}
 .d4h{padding-left:12px;margin-top:15px;flex:none}
-.d4t{font-family:var(--serif);font-weight:600;font-size:32px;line-height:48px;letter-spacing:-.02em;white-space:pre-line}
+.d4t{font-family:var(--serif);font-weight:700;font-size:32px;line-height:48px;letter-spacing:-.02em;white-space:pre-line}
 .d4s{font-size:16px;line-height:19px;letter-spacing:-.05em;margin-top:4px}
 .d4k{display:flex;flex-direction:column;flex:none}
 .d4k.a{margin-top:32px}
@@ -554,7 +546,7 @@ textarea.memo::placeholder{color:var(--i5)}
 /* --- D2 최근 기록 요약 --- */
 .scr.d2{gap:0}
 .d2 .sum{height:auto;padding:0 24px;margin-top:16px;align-items:center}
-.d2 .sum .a{font-family:var(--serif);font-weight:600;font-size:36px;line-height:40px;letter-spacing:-.05em}
+.d2 .sum .a{font-family:var(--serif);font-weight:700;font-size:36px;line-height:40px;letter-spacing:-.05em}
 .d2 .sum .b{font-size:18px;line-height:27px;letter-spacing:-.05em;margin-top:0}
 .d2 .hash{height:22px;width:76px;padding:0;justify-content:center;font-size:12px;line-height:14px}
 .d2 .sec.s2{margin-top:32px}
@@ -661,6 +653,190 @@ textarea.memo::placeholder{color:var(--i5)}
 .avatar{width:66.5px;height:66.5px;border:0;border-radius:0;background:none;display:block;overflow:visible;margin:0 auto;color:inherit}
 .avatar svg{display:block;margin:0;position:relative;top:1.3px}
 {{OTX_CSS}}
+
+/* 슬라이드 드래그 중 선택 방지 */
+.pg{user-select:none;-webkit-user-select:none}.pg input,.pg textarea{user-select:text;-webkit-user-select:text}
+/* ===== v008 · 홈/상세(C) + 기록(D) 새 레이아웃 =====
+   본문은 유리 패널 없이 페이지 배경(#f5f8f8) 위에 바로 올리고, 카드 그림은 Figma 내보내기 래스터(.art) + 그 위 글자로 구성해요 */
+.pg{position:absolute;left:0;top:115px;width:393px;height:737px;padding:24px 48px 160px;overflow:hidden auto;display:flex;flex-direction:column;gap:20px;z-index:4;scrollbar-width:none;color:var(--i1);touch-action:pan-y}
+.pg::-webkit-scrollbar{display:none}
+.pg>*{flex:none}
+.pg.g12{gap:12px}
+.panel.pg{border:0;border-radius:0;background:none;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;top:115px;height:737px;padding:24px 48px 160px;gap:20px;overflow:hidden auto;user-select:auto;-webkit-user-select:auto}
+.panel.pg .scr{overflow:visible;flex:none;margin:0;padding:0;gap:20px;min-height:auto}
+.art{-webkit-mask-image:linear-gradient(90deg,transparent,#000 8px,#000 calc(100% - 8px),transparent),linear-gradient(180deg,transparent,#000 8px,#000 calc(100% - 8px),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 8px,#000 calc(100% - 8px),transparent),linear-gradient(180deg,transparent,#000 8px,#000 calc(100% - 8px),transparent);mask-composite:intersect;position:absolute;max-width:none;pointer-events:none;user-select:none;-webkit-user-drag:none;display:block}
+/* 서체 기본 */
+/* 격동(GD) 서체는 Figma에서 GD로 지정한 큰 숫자·제목에만, 나머지는 Pretendard */
+.nht,.nht b,.pg .gd,.pg .gd2,.pg .gd5{font-family:var(--serif)}
+/* 홈 */
+.ntop{height:44px;display:flex;justify-content:space-between;align-items:center}
+.ntop>div:first-child{padding-left:8px}
+.ndate{font-size:14px;line-height:20px;font-weight:500;letter-spacing:-.02em}
+.nloc{display:flex;align-items:center;gap:4px;font-size:20px;line-height:24px;font-weight:500;letter-spacing:-.03em;margin-left:-2px}
+.nchip{height:44px;border-radius:24px;padding:0 14px 0 12px;display:flex;align-items:center;gap:6px;font-size:14px;font-weight:500;letter-spacing:-.02em;border:1.5px solid rgba(255,255,255,.95);box-shadow:0 2px 8px rgba(20,40,46,.08),inset 0 1px 0 #fff;white-space:nowrap}
+.nmask{position:relative;width:297px;height:253px;border-radius:32px;cursor:pointer;margin-top:0}
+.nmask h3{position:absolute;left:24px;top:149px;margin:0;font-size:20px;line-height:24px;font-weight:500;letter-spacing:-.04em}
+.nmask p{position:absolute;left:24px;top:181px;margin:0;width:190px;font-size:16px;line-height:24px;color:var(--i2);white-space:pre-line;letter-spacing:-.04em;font-weight:400}
+.nmask .chk{left:225px;top:181px;right:auto;margin:0}
+.nmask .chk:not(.done) .c{color:#8a959b}
+.ngrid{display:grid;grid-template-columns:143px 143px;gap:12px}
+.ngrid:not(.r) .np{width:110.5px;gap:0}
+.ngrid.r .np{width:102.5px}
+.nrec .np{font-weight:500}
+.nm{position:relative;width:143px;height:120px;border-radius:24px;text-align:left;display:block;cursor:pointer}
+.ngrid.r .nm{height:121px}
+.np{position:absolute;left:16px;top:16px;height:24px;border-radius:99px;display:flex;align-items:center;justify-content:center;gap:4px;padding:0 8px;font-size:14px;line-height:24px;font-weight:400;letter-spacing:-.02em;white-space:nowrap;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.95);box-shadow:inset 0 1px 0 #fff,0 1px 4px rgba(20,40,46,.05);z-index:2}
+.np .i{margin-right:0;opacity:.8}
+.nm small{position:absolute;left:20px;top:46px;font-size:12px;line-height:14px;color:var(--i3);z-index:2}
+.nm b{position:absolute;left:20px;top:84px;font-size:16px;line-height:24px;font-weight:400;letter-spacing:-.02em;color:var(--i2);z-index:2;white-space:nowrap}
+.nm.gl{background:linear-gradient(135deg,rgba(255,255,255,.78),rgba(190,190,190,.10) 55%,rgba(255,255,255,.5));border:1.5px solid #fff;box-shadow:0 4px 14px rgba(20,40,46,.07),inset 0 1px 0 #fff}
+.nm.gl small{top:46px}
+.nm.gl b{top:66px;font-size:26px;line-height:39px;letter-spacing:-.02em}
+.nm.gl b i{font-style:normal;color:var(--teal)}
+/* 기록 홈 큰 카드 */
+.nrec{position:relative;width:297px;display:block;text-align:left;cursor:pointer;border-radius:32px}
+.nrec.s{height:253px}.nrec.p{height:192px}
+.nrec .s1{position:absolute;left:16px;top:131px;font-size:15px;line-height:23px;font-weight:400;color:var(--i1)}
+.nrec .s2{position:absolute;left:16px;top:160px;font-size:26px;line-height:39px;font-weight:400;letter-spacing:0;color:var(--i1)}
+.nrec.p p{position:absolute;left:24px;top:58px;margin:0;font-size:18px;line-height:27px;color:var(--i2);letter-spacing:-.05em;white-space:pre-line}
+.nrec .chk{left:225px;top:72px;right:auto;margin:0}
+/* 상세 히어로 */
+.nh{position:relative;width:297px;height:406px;color:#fff;margin-bottom:10px}
+.nhl{position:absolute;left:24px;top:24px;font-size:18px;line-height:22px;font-weight:400;letter-spacing:-.03em}
+.nht{position:absolute;left:20px;top:46px;display:flex;align-items:baseline;gap:8px;font-size:40px;line-height:56px;font-weight:700;letter-spacing:-.03em;white-space:nowrap}
+.nht b{font-size:24px;font-weight:400}
+.nhc{position:absolute;left:20px;top:350px;font-size:14px;line-height:21px;font-weight:500;letter-spacing:-.02em;white-space:pre-line;width:262px}
+.nch{position:absolute;top:182px;width:24px;height:24px;color:var(--i5);display:grid;place-items:center}
+.nch.l{left:-32px}.nch.r{right:-32px}.nch.r .i{transform:scaleX(-1)}
+.nh+.sec,.nh+.scr{margin-top:21px}
+.panel.pg .scr>.sec+.sec{margin-top:15px}
+.panel.pg .scr .sec .card:has(.hs){margin-top:-11px}
+.panel.pg .scr .fbk{margin-top:4px}
+.panel.pg .scr .prow{margin-top:13px}
+.panel.pg .lbl,.panel.pg .obs b,.panel.pg .obs.sr b{font-family:var(--font)}
+.panel.pg .lbl{font-weight:400}
+.panel.pg .bars button.f,.panel.pg .xl .f{opacity:1}
+.panel.pg .sts{margin-top:20px}
+/* 공통 제목 */
+.nt{font-size:18px;line-height:24px;font-weight:400;letter-spacing:-.03em;color:var(--i1)}
+.nb{height:204px;display:flex;flex-direction:column;justify-content:center;gap:4px;padding-bottom:8px}
+.nb .b1{font-size:32px;line-height:48px;font-weight:500;letter-spacing:-.02em;color:var(--i1)}
+.nb .b1 .gd{font-size:40px;font-weight:700;color:var(--teal);letter-spacing:-.03em}
+.nb .b2{font-size:16px;line-height:24px;letter-spacing:-.02em}
+.nb .b2.bq{font-size:18px;font-weight:400}
+.nb.k{padding-bottom:0}
+.nb .b3{font-size:18px;line-height:27px;letter-spacing:-.05em;margin-top:-11px}
+.nb .gd2{font-size:36px;line-height:48px;font-weight:700;letter-spacing:-.05em}
+.nb .gd5{font-size:48px;font-weight:700;color:var(--teal);line-height:48px}
+.nb .b4{font-size:32px;color:var(--i4);font-weight:400;font-family:var(--serif)}
+.nhr{width:263px;margin:-15px auto -5px;border:0;height:.5px;background:rgba(51,51,51,.2)}
+.ng{display:flex;flex-direction:column;gap:20px}
+.nseg{display:flex;gap:12px}
+.nseg button{width:91px;height:39px;border-radius:99px;border:1px solid var(--ol);text-align:center;font-size:14px;font-weight:500;color:var(--i1);transition:background .25s,color .25s}
+.nseg button.on{background:var(--i2);border-color:var(--i2);color:#fff}
+.ng.c{gap:2px;margin-top:14px}
+.nchart{padding:12px 21px 0;height:138px}
+.nchart .bars{height:92px;padding:0;gap:8px;justify-content:space-between}
+.nchart .xl{padding:8px 0 0;font-size:12px}
+.nchart .xl span{width:26px;margin:0}
+.nins{display:flex;align-items:center;gap:16px;padding:8px;height:58px;font-size:14px;line-height:21px;letter-spacing:-.02em;white-space:pre-line;color:var(--i1)}
+.nins>.i{color:#b4323a}.nins.ok>.i{color:var(--teal)}
+.nchart+.nins,.ng+.nins{margin-top:-9px}
+.nins+.nins{margin-top:-12px}
+/* D2 */
+.ndh{display:flex;align-items:center;gap:8px;font-size:14px;line-height:21px;margin-top:-4px}
+.nch2{display:flex;justify-content:space-between;align-items:center;height:28px;font-size:14px;padding-left:4px}
+.nch2 .cm{display:flex;align-items:center;gap:6px}
+.nch2 .cm button{width:16px;height:24px;display:grid;place-items:center;color:var(--i1)}
+.nch2 .clg{display:flex;gap:12px;font-size:12px;white-space:nowrap}
+.nch2 .lg{display:flex;align-items:center;gap:4px}
+.ncal{width:297px;border-radius:12px;padding:8px 0 8px}
+.ncal .wk{display:grid;grid-template-columns:repeat(7,40px);justify-content:center;font-size:10px;font-weight:700;text-align:center;line-height:16px;height:20px}
+.ncal .rw{display:grid;grid-template-columns:repeat(7,40px);justify-content:center;height:48px;align-items:center}
+.ncal .dy{width:36px;height:36px;margin:0 auto;border-radius:24px;display:grid;place-items:center;font-size:14px;line-height:20px;position:relative}
+.ncal .dy.off{color:#c9d1d4}
+.ncal .dy.td{font-family:var(--serif);font-weight:600;color:var(--teal)}
+/* 오늘 = 글자 속을 비우고 외곽선만, 선택 = 글자 뒤 그라데이션 */
+#phone .ncal .dy.td svg.og{fill:none!important;stroke:var(--teal)!important;stroke-width:78;stroke-linejoin:round}
+.ncal .dy.sel{color:var(--teal);isolation:isolate}
+.ncal .dy.sel::before{content:'';position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px 0 0 -22px;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(14,116,124,.24),rgba(14,116,124,0))}
+.nsy{display:flex;flex-direction:column;gap:24px;margin-top:2px}
+.nl{font-size:14px;line-height:21px;font-weight:500;letter-spacing:-.02em;margin-bottom:11px}
+.nopt{display:flex;justify-content:space-between}
+.nopt button{width:60px;height:39px;border-radius:99px;border:1px solid var(--ol);text-align:center;font-size:14px;font-weight:400;transition:background .25s,color .25s}
+.nopt button.on{background:var(--i2);border-color:var(--i2);color:#fff}
+.nmemo{width:297px;height:97px;border-radius:24px;border:1px solid #c9d1d4;background:none;padding:12px 20px;font-size:12px;line-height:18px;resize:none;color:var(--i1);display:block}
+.nmemo::placeholder{color:#8a959b}
+.nsave{width:297px;height:52px;border-radius:24px;background:var(--i2);color:#fff;font-weight:700;font-size:16px;letter-spacing:.07em;text-align:center}
+/* D3 */
+.nhash{display:flex;gap:8px;margin-top:10px}
+.nhash span{height:22px;padding:0 10px;border-radius:24px;background:var(--teal);color:#fff;font-size:12px;line-height:22px;white-space:nowrap}
+.nrows{display:flex;flex-direction:column;gap:0}
+.nrow{display:flex;align-items:center;gap:12px;height:55px;padding:0 14px 0 14px;border-radius:32px;position:relative;margin-bottom:16px}
+.nrow:not(:last-child)::after{content:"";position:absolute;left:12px;right:12px;bottom:-8px;height:.5px;background:rgba(51,51,51,.18)}
+.nrow.hi{background:linear-gradient(100deg,#cfeaee,#e3f3f5 55%,#f3f9f9);border:1.5px solid #fff;box-shadow:0 4px 14px rgba(20,40,46,.07),inset 0 1px 0 #fff}
+.nrow .d{width:36px;text-align:center;display:flex;flex-direction:column;gap:2px}
+.nrow .d small{font-size:12px;line-height:14px;color:var(--i5)}.nrow .d b{font-size:14px;line-height:17px;font-weight:500}
+.nrow .v{width:1px;height:10px;background:rgba(21,26,31,.55)}
+.nrow .m{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.nrow .m b{font-size:14px;line-height:19px;font-weight:500}.nrow .m small{color:var(--i5);font-size:11px;line-height:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nrow button{color:var(--i5);width:24px;height:24px;display:grid;place-items:center}.nrow.hi button{color:var(--teal)}
+/* D4 */
+.ncl{width:297px;min-height:164px;padding:6px 0;display:flex;flex-direction:column;gap:16px}
+.ncl .it{display:flex;align-items:center;gap:4px;height:24px;font-size:14px;font-weight:400;color:var(--i1);text-align:left;width:100%;border:0;background:none;padding:0}
+.ncl .it .bx{display:grid;place-items:center;width:18px;height:18px;margin:3px;border:1.5px solid var(--i1);background:none;border-radius:3px;color:#fff;flex:none}
+.ncl .it.on .bx{background:var(--teal);border-color:var(--teal)}
+.ncl .it.add .bx,.ncl .addrow .bx{border:0;width:24px;height:24px;margin:0;color:var(--i1)}
+.ncl .it.add{color:var(--i1)}
+.ncl .addrow{display:flex;align-items:center;gap:4px;height:24px}
+.ncl .addrow input{flex:1;border:0;background:none;outline:0;font-size:14px}
+.ng.ncg{margin-top:-9px}
+.ncal.k .rw{height:60px;align-items:start;padding-top:6px}
+.ncal.k .dy{height:auto;width:36px;display:flex;flex-direction:column;gap:0;border-radius:0;font-size:14px;align-items:center}
+.ncal.k .dy>span{height:36px;display:grid;place-items:center}
+.ncal.k .dy .dot{display:block;width:12px;height:12px;border-radius:50%;border:1.5px solid var(--i1);box-sizing:border-box}
+.ncal.k .dy .dot.f{background:var(--teal);border-color:var(--teal)}.ncal.k .dy .dot.fu{border:1.5px dashed #b6c0c4}.ncal.k .dy .dot.n{visibility:hidden}
+.ncal.k .dy.td{background:none;width:36px;height:auto}
+.ncal.k .dy.td>span{font-family:var(--serif);font-weight:600;color:var(--teal)}
+.nch2 .lg .dot{display:inline-block;width:12px;height:12px;border-radius:50%;border:1.5px solid var(--i1);box-sizing:border-box}.nch2 .lg .dot.f{background:var(--teal);border-color:var(--teal)}
+/* D 하단 서브 내비 */
+/* 하단 내비: 홈 ⇄ 기록(D) 사이를 하나의 요소로 이어서 움직여요 (피그마 스마트 애니메이트 느낌). 좌표는 피그마 프레임(345×72) 기준이에요 */
+#unav{position:absolute;left:24px;top:748px;width:345px;height:72px;z-index:4;border-radius:32px;background:rgba(255,255,255,.4);
+  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.96),0 0 0 1px #e1e7e9,0 6px 18px rgba(20,40,46,.08);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  opacity:0;pointer-events:none;transition:opacity .22s ease;--e:cubic-bezier(.32,.72,.24,1);--pi:0}
+#unav.show{opacity:1;pointer-events:auto}
+#unav .pl,#unav button{position:absolute;top:16px;height:40px;border-radius:99px;display:grid;place-items:center;box-sizing:border-box;color:rgba(21,26,31,.3);background:none;padding:0}
+#unav button.on{color:#fff}
+#unav .pl{left:24px;width:129px;background:var(--i2);z-index:2;transition:left .38s var(--e),width .38s var(--e)}
+#unav[data-s=r] .pl{left:192px}
+#unav[data-m=sub] .pl{left:calc(48px + 57px * var(--pi));width:45px}
+#unav.drg .pl{transition:none}
+#unav .uh{left:24px;width:129px;z-index:3;transition:opacity .3s ease .02s,transform .42s var(--e),color .3s}
+#unav[data-m=sub] .uh{opacity:0;transform:translateX(-16px);pointer-events:none;transition:opacity .22s ease,transform .42s var(--e),color .3s}
+#unav .u0{left:192px;width:129px;z-index:3;transition:left .44s var(--e),width .44s var(--e),color .3s}
+#unav[data-m=sub] .u0{left:48px;width:45px}
+#unav .ut{left:48px;width:45px;z-index:1;opacity:0;pointer-events:none;transition:left .38s var(--e),opacity .22s ease,color .3s}
+#unav[data-m=sub] .ut{left:calc(48px + 57px * var(--j));opacity:1;pointer-events:auto;z-index:3;
+  transition:left .42s var(--e) calc(.03s + var(--j) * .012s),opacity .24s ease .05s,color .3s,z-index 0s linear .5s}
+#unav .ub{left:8px;width:32px;z-index:3;color:var(--i1);opacity:0;transform:translateX(-14px);pointer-events:none;transition:opacity .26s ease,transform .42s var(--e)}
+#unav[data-m=sub] .ub{opacity:1;transform:none;pointer-events:auto;transition:opacity .3s ease .04s,transform .42s var(--e) .02s}
+/* 카드 배경 애니메이션 */
+.dust{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.dust.lg{animation:dfade 3.4s ease .5s both}
+@keyframes dfade{from{opacity:0}to{opacity:1}}
+.glow{position:absolute;inset:2px;overflow:hidden;pointer-events:none}
+.glow>u{position:absolute;display:block;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,var(--c),transparent);opacity:.5;will-change:transform;animation:gl 12s ease-in-out infinite alternate}
+@keyframes gl{from{transform:translate(0,0) scale(.85)}to{transform:translate(var(--gx),var(--gy)) scale(1.25)}}
+.dust>i{position:absolute;display:block;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff 0,var(--c) 55%,transparent 100%);opacity:0;will-change:transform,opacity;animation:dst 12s linear infinite}
+.dust>i.bk{filter:blur(1.4px);background:radial-gradient(circle,var(--c) 0,transparent 70%)}
+@keyframes dst{0%{opacity:0;transform:translate(0,0) scale(.8)}14%{opacity:var(--o)}86%{opacity:var(--o)}100%{opacity:0;transform:translate(var(--x),var(--y)) scale(1.12)}}
+@keyframes flo{0%,100%{transform:none}50%{transform:scale(calc(1 + var(--s))) rotate(calc(var(--r) * -1deg))}}
+.artw{position:absolute;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8px,#000 calc(100% - 8px),transparent),linear-gradient(180deg,transparent,#000 8px,#000 calc(100% - 8px),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 8px,#000 calc(100% - 8px),transparent),linear-gradient(180deg,transparent,#000 8px,#000 calc(100% - 8px),transparent);mask-composite:intersect}
+.a2{position:absolute;inset:0;width:100%;height:100%;max-width:none;display:block;user-select:none;-webkit-user-drag:none}
+.a2.flo{animation:flo 7s ease-in-out infinite;will-change:transform}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.lgn>svg:first-child{animation:bob 6s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.glow>u,.dust>i,.a2.flo,.lgn>svg:first-child{animation:none!important}.dust>i{opacity:0}}
 </style>
 
 <div class="stage">
@@ -669,6 +845,7 @@ textarea.memo::placeholder{color:var(--i5)}
     <div class="island"></div>
     <div class="sb"><span>9:41</span><span class="r" id="sbr"></span></div>
     <div id="view"></div>
+    <nav id="unav" data-m="main" data-s="h"></nav>
     <div class="scrim" id="scrim"></div>
     <div class="drawer" id="drawer"></div>
     <div class="sheet" id="sheet"></div>
@@ -814,6 +991,7 @@ return {weather,air,face,WEATHER_NAMES,GRADES,C};
 
 /* ============ 데이터·상태 ============ */
 const ICONS={{ICONS_JSON}};
+const ART={{ART_JSON}};
 const I=(n,s=24)=>`<svg class="i" width="${s}" height="${s}" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="${ICONS[n]||''}"/></svg>`;
 const MARK=`<svg width="__W__" height="__H__" viewBox="12 6 39 60" fill="currentColor" aria-hidden="true"><path d="M43.2775 43.4071C47.5426 43.4071 51.0002 40.0907 51.0002 35.9997C51.0002 31.9087 47.5426 28.5923 43.2775 28.5923C39.0123 28.5923 35.5547 31.9087 35.5547 35.9997C35.5547 40.0907 39.0123 43.4071 43.2775 43.4071Z"/><path d="M18.9505 42.6668C22.7891 42.6668 25.901 39.6821 25.901 36.0002C25.901 32.3183 22.7891 29.3335 18.9505 29.3335C15.1118 29.3335 12 32.3183 12 36.0002C12 39.6821 15.1118 42.6668 18.9505 42.6668Z"/><path d="M43.2772 66.0003C47.1158 66.0003 50.2276 63.0156 50.2276 59.3337C50.2276 55.6518 47.1158 52.667 43.2772 52.667C39.4385 52.667 36.3267 55.6518 36.3267 59.3337C36.3267 63.0156 39.4385 66.0003 43.2772 66.0003Z"/><path d="M43.2772 19.3333C47.1158 19.3333 50.2276 16.3486 50.2276 12.6667C50.2276 8.98477 47.1158 6 43.2772 6C39.4385 6 36.3267 8.98477 36.3267 12.6667C36.3267 16.3486 39.4385 19.3333 43.2772 19.3333Z"/><path d="M25.9012 35.9998C25.9012 25.9998 36.3269 19.3332 43.2774 19.3332L36.3269 12.6665C36.3269 19.3332 25.9012 29.3332 18.9507 29.3332L25.9012 35.9998Z"/><path d="M25.9012 36C25.9012 46 36.3269 52.6667 43.2774 52.6667L36.3269 59.3333C36.3269 52.6667 25.9012 42.6667 18.9507 42.6667L25.9012 36Z"/></svg>`;
 const WORD=`<svg width="__W__" height="__H__" viewBox="12 14 249 44" fill="currentColor" aria-hidden="true"><path d="M23.7361 15.3648H40.3143V22.7908H24.661C22.1894 22.7908 20.2308 24.8522 20.2308 27.3912C20.2308 29.9302 22.1894 31.928 24.661 31.928H38.3635V39.3539H25.0108C22.3604 39.3539 20.2308 41.5905 20.2308 44.3046C20.2308 47.0187 22.3604 49.1995 25.0108 49.1995H40.3221V56.6255H24.0314C17.3551 56.6255 12 51.1416 12 44.3046C12 41.0015 13.5 38.0009 15.855 35.82C13.4923 33.6392 12 30.6306 12 27.3912C12 20.7293 17.2385 15.3648 23.7439 15.3648H23.7361Z"/><path d="M80.7612 56.6255V15.3648H88.9921V31.928H106.604V15.3648H114.835V56.6255H106.604V39.3539H88.9921V56.6255H80.7612Z"/><path d="M122.312 56.6263V26.9782C122.312 20.1969 127.091 14.6573 134.281 14.6573C141.47 14.6573 146.312 20.1969 146.312 26.9782V45.953C146.312 48.0781 147.983 49.8451 150.051 49.8451C152.118 49.8451 153.851 48.0781 153.851 45.953V26.9782C153.851 20.1969 158.686 14.6573 165.883 14.6573C173.08 14.6573 177.852 20.1969 177.852 26.9782V56.6263H169.621V25.9753C169.621 23.8502 167.95 22.0832 165.883 22.0832C163.815 22.0832 162.082 23.8502 162.082 25.9753V44.9501C162.082 52.1373 156.898 57.271 150.051 57.271C143.203 57.271 138.081 52.0816 138.081 44.9501V25.9753C138.081 23.8502 136.356 22.0832 134.281 22.0832C132.206 22.0832 130.542 23.8502 130.542 25.9753V56.6263H122.312Z"/><path d="M204.146 14.6653C216.978 14.6653 225.271 24.2164 225.271 36.0041C225.271 47.7917 216.985 57.3428 204.146 57.3428C191.306 57.3428 183.021 47.7917 183.021 36.0041C183.021 24.2164 191.306 14.6653 204.146 14.6653ZM204.146 49.9088C211.568 49.9088 217.04 43.9553 217.04 35.9961C217.04 28.0369 211.568 22.0833 204.146 22.0833C196.723 22.0833 191.251 28.0369 191.251 35.9961C191.251 43.9553 196.723 49.9088 204.146 49.9088Z"/><path d="M248.222 49.2003C250.694 49.2003 252.823 47.0195 252.823 44.4248C252.823 41.8301 250.694 39.5935 248.222 39.5935H241.492C234.699 39.5935 229.289 35.1762 229.289 27.6308C229.289 20.0855 234.473 15.3736 240.916 15.3736H258.412V22.7996H241.717C239.354 22.7996 237.512 24.861 237.512 27.2806C237.512 29.7002 239.354 31.698 241.717 31.698H248.681C256.103 31.698 261 36.4099 261 43.4856C261 51.8587 255.707 56.6263 249.256 56.6263H230.952V49.2003H248.222Z"/><path d="M75.8795 15.3648H64.6019H56.4177H45.1479V22.7987H56.4177V56.6255H64.6019V22.7987H75.8795V15.3648Z"/></svg>`;
@@ -823,18 +1001,19 @@ const pad=n=>String(n).padStart(2,'0');
 const dk=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
 const addD=(d,n)=>new Date(d.getFullYear(),d.getMonth(),d.getDate()+n);
 const WD=['일','월','화','수','목','금','토'];
-const TODAY=new Date(2026,9,6), TK=dk(TODAY);
+const TODAY=new Date(2026,9,7), TK=dk(TODAY);
 const START='2026-10-01';
 const SYM=['코막힘','콧물','재채기','호흡기 내부 건조함'], SYMS=['코막힘','콧물','재채기','호흡기 건조'];
 const LV=['없음','약함','보통','심함'];
 const GN=['좋음','보통','나쁨','매우 나쁨'], GK=['good','normal','bad','worst'], PN=['낮음','보통','높음','매우 높음'];
 const TH={domestic:{pm10:[30,80,150],pm25:[15,35,75]},who:{pm10:[15,45,100],pm25:[5,15,37]},sensitive:{pm10:[20,50,100],pm25:[8,20,50]}};
 const STD={domestic:['국내 환경부 기준','에어코리아 기본값'],who:['WHO 권고 기준','국내보다 더 엄격해요'],sensitive:['민감군 기준','어린이·호흡기 질환자용']};
-const SCN={bad:{n:'나쁨 (디자인 기본)',pollen:2,fc:[2,1,0],pm10:158,pm25:73},normal:{n:'보통',pollen:1,fc:[1,1,0],pm10:55,pm25:22},good:{n:'좋음',pollen:0,fc:[0,0,1],pm10:18,pm25:9}};
+const SCN={bad:{n:'나쁨 (디자인 기본)',pollen:1,fc:[2,1,0],pm10:158,pm25:73},normal:{n:'보통',pollen:1,fc:[1,1,0],pm10:55,pm25:22},good:{n:'좋음',pollen:0,fc:[0,0,1],pm10:18,pm25:9}};
 const FACE=['sentiment_very_satisfied','sentiment_satisfied','sentiment_dissatisfied','sentiment_extremely_dissatisfied'];
 const ACC={good:'#5a74ec',normal:'#2e9e62',bad:'#d9792f',worst:'#d63c58',teal:'#0e8f99',home:'#d8648a'};
 const SEED={
-  '2026-10-06':{v:[3,1,0,0],memo:'',ctx:'꽃가루 지수 높음'},
+  '2026-10-07':{v:[3,1,0,0],memo:'',ctx:'꽃가루 지수 높음'},
+  '2026-10-06':{v:[2,1,0,0],memo:'',ctx:'마스크 착용함'},
   '2026-10-05':{v:[0,2,0,0],memo:'',ctx:'마스크 착용함'},
   '2026-10-04':{v:[0,0,0,0],memo:'',ctx:'실내에서 보낸 날'},
   '2026-10-03':{v:[0,0,0,0],memo:'',ctx:'실내에서 보낸 날'},
@@ -842,10 +1021,10 @@ const SEED={
   '2026-10-01':{v:[0,0,3,0],memo:'',ctx:'꽃가루 지수 및 미세먼지 높음'}};
 const DEF={nick:'김재민',email:'example@email.com',region:'청주시 흥덕구',sev:'보통',std:'domestic',push:true,lvl:'bad',from:'08:00',to:'21:00',scn:'bad',
   list:[{t:'마스크 착용',d:true},{t:'외출 후 코·눈 세척',d:false},{t:'30분 환기하기',d:false}],
-  done:['2026-09-30','2026-10-01','2026-10-03','2026-10-04','2026-10-05'],rec:SEED,
+  done:['2026-09-30','2026-10-01','2026-10-03','2026-10-04','2026-10-05','2026-10-06'],rec:SEED,
   pr:{types:['꽃가루','미세먼지'],times:['아침'],it:'',vol:1,reduce:true},perm:{loc:false,noti:false}};
-let S;try{S=Object.assign({},DEF,JSON.parse(localStorage.getItem('ethmos-proto-2')||'{}'))}catch(e){S=Object.assign({},DEF)}
-const save=()=>{try{localStorage.setItem('ethmos-proto-2',JSON.stringify(S))}catch(e){}};
+let S;try{S=Object.assign({},DEF,JSON.parse(localStorage.getItem('ethmos-proto-3')||'{}'))}catch(e){S=Object.assign({},DEF)}
+const save=()=>{try{localStorage.setItem('ethmos-proto-3',JSON.stringify(S))}catch(e){}};
 const U={editing:false,tip:null,bar:null,cal:0,rng:'월',editD:TK,draft:null,adding:false,form:{},sugOpen:false};
 
 const t12=v=>{const [h,m]=v.split(':').map(Number);return `${h<12?'오전':'오후'} ${pad(h%12||12)}:${pad(m)}`};
@@ -903,7 +1082,6 @@ const hdrLight=()=>`<header class="hdr light">${brand()}</header>`;
 const slider=(icons,i,cls='')=>{const n=icons.length,tw=n===3?117:67,W=tw+12.36,r=13.5;
  const sv=`<svg viewBox="0 0 ${W} 27" aria-hidden="true"><path class="wl" d="M0 22C3.69 22 6.18 17.19 6.18 13.5L19.7 13.5L19.7 22Z"/><path class="wr" d="M${W} 22C${W-3.69} 22 ${W-6.18} 17.19 ${W-6.18} 13.5L${W-19.7} 13.5L${W-19.7} 22Z"/><rect x="6.18" y="0" width="${tw}" height="27" rx="${r}"/></svg>`;
  return `<div class="sl ${n===3?'n3':''} ${cls}" style="--n:${n};--i:${i}"><span class="sh"><span class="trk"></span><span class="tb">${sv}</span></span>${icons.map((n,j)=>`<button class="tn ${j===i?'on':''}" style="left:calc(5px + ${j} * var(--p))" data-a="tab" data-v="${j}" aria-label="탭 ${j+1}">${I(n,20)}</button>`).join('')}</div>`};
-const navbar=(on)=>`<nav class="nav"><button class="${on===0?'on':''}" data-a="go" data-v="c:0" aria-label="홈">${I('home-fill',20)}</button><button class="${on===1?'on':''}" data-a="go" data-v="d:0" aria-label="기록">${I('record-fill',20)}</button></nav>`;
 const prov=()=>'';
 const R={n:'splash',t:0};
 const showSb=()=>{document.getElementById('sbr').innerHTML=`<svg width="19" height="12" viewBox="0 0 19 12"><path d="M1 8h2v3H1zM6 6h2v5H6zM11 3.5h2V11h-2zM16 1h2v10h-2z"/></svg><svg width="17" height="12" viewBox="0 0 17 12"><path d="M8.5 2.3c2.3 0 4.4.9 6 2.4l1-1.1A10.4 10.4 0 0 0 8.5.7 10.4 10.4 0 0 0 1.5 3.6l1 1.1a8.8 8.8 0 0 1 6-2.4zm0 3.4c1.4 0 2.6.5 3.6 1.4l1-1.1a7.2 7.2 0 0 0-9.2 0l1 1.1c1-.9 2.2-1.4 3.6-1.4zm0 3.3c-.7 0-1.3.3-1.8.7l1.8 1.9 1.8-1.9c-.5-.4-1.1-.7-1.8-.7z"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.8" fill="none" stroke="#000" opacity=".4"/><rect x="2" y="2" width="20" height="9" rx="2.5"/><rect x="24.5" y="4.5" width="1.5" height="4" rx=".7" opacity=".5"/></svg>`};
@@ -911,7 +1089,7 @@ const showSb=()=>{document.getElementById('sbr').innerHTML=`<svg width="19" heig
 /* ============ 화면 ============ */
 const V={};
 V.splash=()=>{setPal('wh');return `<div class="sp"><div class="cen splogo" style="justify-content:flex-start;padding-top:358px;gap:21px">${mk(39,60)}${wd(249,44)}</div><canvas id="spc" width="786" height="1704"></canvas></div>`};
-V.login=()=>{setPal('wh');return `<div class="cen" style="justify-content:flex-start;padding-top:264px;color:#0b4a50;gap:21px">${mk(39,60)}${wd(249,44)}</div>
+V.login=()=>{setPal('wh');return `${dust('mark',0,'',26,'login',0,'lg')}<div class="cen lgn" style="justify-content:flex-start;padding-top:264px;color:#0b4a50;gap:21px">${mk(39,60)}${wd(249,44)}</div>
 <div class="lb" style="bottom:52px${V._sp?';animation:fi .8s ease .15s both':''}"><button class="dark" data-a="go" data-v="perm">시작하기</button></div>`};
 V.email=()=>{setPal('wh');return `${hdrLight()}<div class="st" style="top:139px">
  <div class="back"><button class="bk" data-a="go" data-v="login" aria-label="뒤로">${I('arrow_back_ios_new',20)}</button>이메일 로그인</div>
@@ -952,10 +1130,10 @@ V.perm=()=>{setPal('wh');const p=S.perm;
  </div><div class="lb" style="bottom:52px"><button class="dark" data-a="go" data-v="c:0">시작하기</button></div>`};
 
 /* --- 홈·날씨(C) · v003 --- */
-const homeTxt=()=>{const L=lvAll(),p=pol(),m=Math.max(g10(),g25());
-  if(L>=2){const t=(p>=2&&m>=2)?'꽃가루 농도 및\n미세먼지 지수가 높아요.\n외출 시 반드시\nKF94 마스크를 착용하세요!':p>=2?'꽃가루 농도가 높아요.\n외출 시 반드시\nKF94 마스크를 착용하세요!':'미세먼지 지수가 높아요.\n외출 시 반드시\nKF94 마스크를 착용하세요!';return{t,c:['report','취약한 시즌이에요']}}
-  if(L===1)return{t:'오늘은 마스크만 챙기면\n괜찮아요. 챙길 건\n세 가지뿐이에요.',c:['info','보통인 시즌이에요']};
-  return{t:'공기가 맑아요.\n지금이 환기하고\n침구를 털기 좋은 때예요.',c:['check_circle','안전한 시즌이에요']}};
+const homeTxt=()=>{const L=lvAll();
+  if(L>=2)return{t:'외출 시 반드시\nKF94 마스크를 착용하세요!',c:['report','취약한 시즌이에요']};
+  if(L===1)return{t:'오늘은 마스크만\n챙기면 괜찮아요.',c:['info','보통인 시즌이에요']};
+  return{t:'공기가 맑아요.\n환기하기 좋은 날이에요.',c:['check_circle','안전한 시즌이에요']}};
 /* Hero Surface / Home Card Surface (Figma 컴포넌트 값) */
 const rgba=(h,a)=>{const n=parseInt(h.slice(1),16);return `rgba(${n>>16},${n>>8&255},${n&255},${+a.toFixed(3)})`};
 const rad=(c,a,w,h,x,y)=>`<i style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;background:radial-gradient(closest-side,${rgba(c,a)} 0%,${rgba(c,a*.42)} 50%,${rgba(c,0)} 100%)"></i>`;
@@ -975,34 +1153,77 @@ const hero=(g,label,big,sub,icon)=>`<div class="hero"><div class="hbg">${heroBG(
 const CHC=[['#7e97fd','#2c44b5'],['#84ffa9','#0c7c40'],['#fed090','#a85400'],['#ff9d9f','#b4323a']];
 function mini(tab,tag,ic,l1,l2,icon,g,inTag){return `<button class="mini" data-a="go" data-v="c:${tab}"><div class="mbg">${hcBG(g)}</div><div class="gi" style="left:62px;top:37px">${icon}</div><div class="mt"><div class="t"><span class="tag"${tag==='미세먼지'?' style="margin-left:11px"':''}>${tag}${I(ic,24)}</span></div><div class="l1">${l1}</div><div class="l2">${l2}</div></div></button>`}
 const WCOND='sunny';
+/* v008: 카드 그림은 Figma에서 내보낸 래스터. 기본 상태(미세먼지 매우나쁨·꽃가루 보통·초미세먼지 나쁨) 그림을 색상만 돌려서 다른 등급에도 써요 */
+const HUE={mask:[-115,150,45,0],pollen:[90,0,-105,-150],fine:[-115,150,45,0],ultra:[200,105,0,-40]};
+const hueF=(k,L)=>k&&HUE[k]&&HUE[k][L]?`filter:hue-rotate(${HUE[k][L]}deg)`:'';
+/* 카드 그림 속 주인공(해·꽃·먼지·마스크·연필·차트)만 둥글게 오려 한 겹 더 얹어 천천히 떠다니게 해요: [중심x, 중심y, 가로반경, 세로반경] (카드 좌표) */
+const FLO={hero_weather:[172,272,215,205,32],hero_pollen:[180,268,175,160,32],hero_fine:[185,262,190,170,32],hero_ultra:[180,245,175,160,32],home_weather:[100,80,88,76,24],home_pollen:[102,82,86,74,24],home_fine:[92,80,100,80,24],home_ultra:[96,80,100,80,24],mask:[145,115,200,125,32],rec_season:[208,172,170,140,32],rec_pencil:[225,75,150,125,32]};
+/* 카드 테두리 안쪽(8px 안)을 부드럽게 도려낸 모양을 SVG 마스크로 만들어요. inv=true면 정확히 반대 모양(테두리 띠) */
+const rrPath=(x,y,w,h,r)=>`M${x+r} ${y}H${x+w-r}A${r} ${r} 0 0 1 ${x+w} ${y+r}V${y+h-r}A${r} ${r} 0 0 1 ${x+w-r} ${y+h}H${x+r}A${r} ${r} 0 0 1 ${x} ${y+h-r}V${y+r}A${r} ${r} 0 0 1 ${x+r} ${y}Z`;
+const insetMask=(W,H,m,r,inv)=>{const i=9,d=rrPath(m+i,m+i,W-2*(m+i),H-2*(m+i),Math.max(0,r-i)),p=inv?`M-80 -80H${W+80}V${H+80}H-80Z${d}`:d;
+  return `url('data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='${W}' height='${H}' viewBox='0 0 ${W} ${H}'><filter id='b' x='-30%' y='-30%' width='160%' height='160%'><feGaussianBlur stdDeviation='4.5'/></filter><path d='${p}' fill='#000' fill-rule='evenodd' filter='url(#b)'/></svg>`).replace(/'/g,'%27')}')`};
+const ANC={home:[.82,1,.06,1.6],hero:[.62,1,.03,.8],mask:[.5,1,.035,.9],rec:[.8,1,.045,1.2]};
+const artImg=(n,w,h,m,st='')=>{const W=w+2*m,H=h+2*m,box=`left:${-m}px;top:${-m}px;width:${W}px;height:${H}px;`,f=FLO[n];
+  if(!f)return `<img class="art" src="${ART[n]}" alt="" draggable="false" style="${box}${st}">`;
+  /* 같은 그림 한 장을 둘로 나눠 써요: 테두리·그림자 띠는 가만히, 안쪽 전체가 한 덩어리로 아주 천천히 숨 쉬듯 움직여요. 두 마스크가 서로 정확히 반대 모양이라 겹쳐 보이는 곳이 없고,
+     움직임의 중심을 아이콘이 테두리와 만나는 아래쪽에 두어서 그 부근은 거의 어긋나지 않아요 */
+  const i=Object.keys(FLO).indexOf(n),[ax,ay,sc,rt]=ANC[n.split('_')[0]]||ANC.rec,mIn=insetMask(W,H,m,f[4],false),mOut=insetMask(W,H,m,f[4],true);
+  return `<span class="artw" style="${box}"><img class="a2" src="${ART[n]}" alt="" draggable="false" style="${st};-webkit-mask-image:${mOut};mask-image:${mOut}">`+
+  `<img class="a2 flo" src="${ART[n]}" alt="" draggable="false" style="${st};-webkit-mask-image:${mIn};mask-image:${mIn};--s:${sc};--r:${rt};transform-origin:${(m+ax*w).toFixed(0)}px ${(m+ay*h).toFixed(0)}px;animation-duration:${(6.5+(i%4)*.9).toFixed(1)}s;animation-delay:-${((performance.now()-T0)/1000).toFixed(2)}s"></span>`};
+/* ===== 카드 배경 애니메이션: 먼지·입자가 천천히 떠다녀요. 다시 그려져도 끊기지 않도록 시작 시각을 기준으로 위상을 이어 붙여요 ===== */
+const T0=performance.now();
+const DUSTK={weather:['#fff3bf','#ffe08a','#ffffff'],pollen:['#f3c24a','#ffe7a0','#ffffff'],fine:['#e5667a','#f6a3ae','#ffffff'],ultra:['#e6c284','#fff0cf','#ffffff'],mask:['#e77f90','#f6b6bf','#ffffff'],season:['#e77f90','#f6b6bf','#ffffff'],pencil:['#79d3dc','#bff0f4','#ffffff'],mark:['#7fd3d9','#c9f1f3','#ffffff']};
+const GLOW={weather:['#8fa0ff','#c4a0ff','#9fd4ff'],pollen:['#6fe0ad','#9fe8c8','#c6f0a8'],fine:['#ff6f8d','#ffb3c1','#d79bff'],ultra:['#ffcf8a','#ffb08a','#ffe6b0'],mask:['#ff6f8d','#ffb3c1','#ff9a8a'],season:['#ff6f8d','#ffb3c1','#d79bff'],pencil:['#4fd0dc','#7bb4ff','#a8f0f5']};
+const hueRot=(hex,deg)=>{if(!deg)return hex;let r=parseInt(hex.slice(1,3),16)/255,g=parseInt(hex.slice(3,5),16)/255,b=parseInt(hex.slice(5,7),16)/255;const mx=Math.max(r,g,b),mn=Math.min(r,g,b),l=(mx+mn)/2,d=mx-mn;let h=0,sa=0;if(d){sa=d/(1-Math.abs(2*l-1));h=mx===r?((g-b)/d+6)%6:mx===g?(b-r)/d+2:(r-g)/d+4;h*=60}h=(h+deg+360)%360;const c=(1-Math.abs(2*l-1))*sa,x=c*(1-Math.abs((h/60)%2-1)),m=l-c/2,[R,G,B]=h<60?[c,x,0]:h<120?[x,c,0]:h<180?[0,c,x]:h<240?[0,x,c]:h<300?[x,0,c]:[c,0,x];return '#'+[R,G,B].map(v=>Math.round((v+m)*255).toString(16).padStart(2,'0')).join('')};
+/* 뒤쪽 그라데이션: 크고 부드러운 색 덩이가 천천히 흘러 다녀요. 소프트라이트 블렌딩이라 배경 색만 일렁이고 아이콘 그림은 뿌예지지 않아요 */
+function glow(kind,r,flt,seed,fk){const gc=GLOW[kind];if(!gc)return '';const R=rngOf('g'+kind+seed),now=(performance.now()-T0)/1000,deg=+((flt||'').match(/(-?[\d.]+)deg/)||[])[1]||0;let h='';
+  for(let i=0;i<4;i++){const d=9+R()*7,sz=70+R()*40;
+    h+=`<u style="left:${(R()*70-20).toFixed(0)}%;top:${(R()*70-20).toFixed(0)}%;width:${sz.toFixed(0)}%;--c:${hueRot(gc[i%3],deg)};--gx:${(R()*70-35).toFixed(0)}%;--gy:${(R()*70-35).toFixed(0)}%;animation-duration:${d.toFixed(1)}s;animation-delay:-${(now+R()*d).toFixed(2)}s"></u>`}
+  /* 아이콘 자리는 비워 두어서(가운데가 뚫린 마스크) 그림 색은 그대로 두고 배경만 변해요 */
+  const f=FLO[fk],mk=f?`radial-gradient(ellipse ${(f[2]*.95).toFixed(0)}px ${(f[3]*.95).toFixed(0)}px at ${f[0]-2}px ${f[1]-2}px,transparent 50%,#000 100%)`:'';
+  return `<span class="glow" aria-hidden="true" style="border-radius:${r}px;${mk?`-webkit-mask-image:${mk};mask-image:${mk}`:''}">${h}</span>`}
+const rngOf=seed=>{let a=0;for(const c of seed)a=(a*31+c.charCodeAt(0))>>>0;return()=>(a=(a*1664525+1013904223)>>>0)/4294967296};
+function dust(kind,r,flt,n,seed,ins=0,cls='',fk=''){
+  const R=rngOf(kind+seed),col=DUSTK[kind]||DUSTK.mark,now=(performance.now()-T0)/1000;let h='';
+  for(let i=0;i<n;i++){
+    const big=R()<.25,sz=big?22+R()*30:3+R()*5,d=big?10+R()*6:5.5+R()*5;
+    const c=col[Math.floor(R()*col.length)],ph=R()*d,o=big?.38+R()*.2:.75+R()*.25;
+    h+=`<i class="${big?'bk':'dp'}" style="left:${(R()*100).toFixed(1)}%;top:${(R()*100).toFixed(1)}%;width:${sz.toFixed(1)}px;height:${sz.toFixed(1)}px;--c:${c};--o:${o.toFixed(2)};--x:${(24+R()*60).toFixed(0)}px;--y:${(-70+R()*60).toFixed(0)}px;animation-duration:${d.toFixed(1)}s;animation-delay:-${(now+ph).toFixed(2)}s"></i>`}
+  /* 카드 테두리 선 위로 지나가지 않도록: 선보다 안쪽 영역에만 두고, 가장자리에 가까워지면 그 안에서 서서히 사라지게 해요 */
+  const f=Math.round(ins*2.4),ed=ins?`linear-gradient(90deg,transparent,#000 ${f}px,#000 calc(100% - ${f}px),transparent),linear-gradient(180deg,transparent,#000 ${f}px,#000 calc(100% - ${f}px),transparent)`:'',mk=ins?`-webkit-mask-image:${ed};mask-image:${ed};-webkit-mask-composite:source-in;mask-composite:intersect;`:'';
+  return (cls?'':glow(kind,Math.max(0,r-2),flt,seed,fk))+`<span class="dust ${cls}" aria-hidden="true" style="inset:${ins}px;border-radius:${Math.max(0,r-ins)}px;${mk}${flt||''}">${h}</span>`}
+const kindOf=img=>img.replace(/^(home|hero|rec)_/,'').replace(/^(mask)$/,'mask');
+const nmini=(to,img,hk,L,tag,ic,l1,l2)=>`<button class="nm" data-a="go" data-v="c:${to}">${artImg(img,143,120,10,hueF(hk,L))}${dust(kindOf(img),24,hueF(hk,L),12,'m'+to,7,'',img)}<span class="np">${tag}${I(ic,24)}</span><small>${l1}</small><b>${l2}</b></button>`;
+const CHEV=(d)=>`<button class="nch ${d<0?'l':'r'}" data-a="cgo" data-v="${d}" aria-label="${d<0?'이전':'다음'} 화면">${I('arrow_back_ios_new',24)}</button>`;
+/* 상세 히어로: 그림 위에 글자를 올리고, 양옆 화살표로 이웃 상세 화면으로 넘어가요 */
+const nhero=(img,hk,L,label,title,cap)=>`<div class="nh">${artImg(img,297,406,30,hueF(hk,L))}${dust(kindOf(img),32,hueF(hk,L),32,'h'+R.t,9,'',img)}<div class="nhl">${label}</div><div class="nht">${title}</div><div class="nhc">${cap}</div>${CHEV(-1)}${CHEV(1)}</div>`;
 V.c=()=>{
   setPal('cd');
   const k=['good','good',GK[pol()],GK[g10()],GK[g25()]][R.t];
-  let body='',ph=566;
-  const sl=slider(['home-fill','device_thermostat-fill','local_florist-fill','grain','snowing'],R.t,'b');
-  if(R.t===0){ph=566;const h=homeTxt(),L=lvAll(),cc=CHC[L];
-   body=`<div class="top"><div><div class="date">10월 06일 화요일</div><div class="loc">${I('location_on',24)}${S.region}</div></div><div class="chip" style="color:${cc[1]};background:linear-gradient(135deg,rgba(255,255,255,.3),${rgba(cc[0],.38)} 55%,rgba(255,255,255,.1))">${I(h.c[0],24)}${h.c[1]}</div></div>
-   <div class="act g" data-a="card"><div><h3>${I('masks',24)}오늘의 비염 관리</h3><p>${h.t}</p></div>
+  let body='';
+  if(R.t===0){const h=homeTxt(),L=lvAll(),cc=CHC[L];
+   body=`<div class="ntop"><div><div class="ndate">10월 07일 수요일</div><div class="nloc">${I('location_on',18)}${S.region}</div></div><div class="nchip" style="color:${cc[1]};background:linear-gradient(135deg,rgba(255,255,255,.55),${rgba(cc[0],.3)} 60%,rgba(255,255,255,.3))">${I(h.c[0],24)}${h.c[1]}</div></div>
+   <div class="nmask" data-a="card" role="button" tabindex="0">${artImg('mask',297,253,10,hueF('mask',L))}${dust('mask',32,hueF('mask',L),20,'k',9,'','mask')}<h3>오늘의 비염 관리</h3><p>${h.t}</p>
     <button class="chk ${allDone()?'done':''}" data-a="chk" aria-label="오늘 챙김 완료 ${allDone()?'취소':'체크'}"><span class="rg a"></span><span class="rg b"></span><span class="c">${I('check',26)}</span></button></div>
-   <div class="grid">${mini(1,'오늘의 날씨','device_thermostat','24.5°C','맑음',GI.weather(WCOND,85),'good',true)}${mini(2,'꽃가루지수','local_florist','24.5°C',PN[pol()].replace(' ',''),GI.air('pollen',GK[pol()],85),GK[pol()])}${mini(3,'미세먼지','grain',sc().pm10+'㎍/m³',GN[g10()].replace(' ',''),GI.air('fine-dust',GK[g10()],85),GK[g10()])}${mini(4,'초미세먼지','snowing',sc().pm25+'㎍/m³',GN[g25()].replace(' ',''),GI.air('ultra-fine-dust',GK[g25()],85),GK[g25()])}</div>`}
+   <div class="ngrid">${nmini(1,'home_weather',null,0,'오늘의 날씨','device_thermostat','24.5°C','맑음')}${nmini(2,'home_pollen','pollen',pol(),'꽃가루지수','local_florist','24.5°C',PN[pol()].replace(' ',''))}${nmini(3,'home_fine','fine',g10(),'미세먼지','grain',sc().pm10+'㎍/m³',PN[g10()].replace(' ',''))}${nmini(4,'home_ultra','ultra',g25(),'초미세먼지','snowing',sc().pm25+'㎍/m³',PN[g25()].replace(' ',''))}</div>`}
   else if(R.t===1)body=wthr();
   else if(R.t===2)body=pollenV();
   else body=pmV(R.t===3?'pm10':'pm25',k);
-  return `${hdrGlass()}${sl}<section class="panel fade" style="height:${ph}px">${body}</section>${navbar(0)}`};
+  return `${hdrGlass()}<section class="panel pg fade">${body}</section>`};
 const HC24=['sunny','partly-cloudy-day','clear-night','partly-cloudy-night','partly-cloudy-night','cloudy','cloudy','cloudy','cloudy','partly-cloudy-night','partly-cloudy-night','clear-night','clear-night','clear-night','sunny','sunny','sunny','partly-cloudy-day','partly-cloudy-day','cloudy','cloudy','cloudy','rain','rain'];
 const HR=(()=>{const T=[24.5,23,22,21,19,18,17.5,17,16,16,16,16,16,16,16,18,18,19,21,24,26,27,24,24];const o=[];for(let i=0;i<24;i++){const h=(17+i)%24;o.push({t:T[i],l:i===0?'지금':`${h<12?'오전':'오후'} ${h%12||12}시`,c:HC24[i]})}return o})();
 const tipV=(k,txt)=>U.tip===k?`<div class="tip">${txt}</div>`:'';
 const lbl=(t,k,m)=>`<div class="lbl ${m?'m':''}">${t}${k?`<button data-a="tip" data-v="${k}" aria-label="출처 보기">${I('info',16)}</button>`:''}</div>`;
 const sec=(l,c)=>`<div class="sec">${l}${c}</div>`;
 function wthr(){const d=['오늘','내일'];for(let i=2;i<14;i++)d.push(addD(TODAY,i).getDate()+'일');const dc=['sunny','partly-cloudy-day','cloudy','cloudy','partly-cloudy-day','sunny','sunny','partly-cloudy-day','cloudy','sunny','sunny','partly-cloudy-day','rain','sunny'];
- return `<div class="scr wx">${hero('good','오늘의 날씨','<span>맑음</span><span>24.5°</span>','일교차가 크니 겉옷을 챙기세요\n▲ 최고 : 28°  ▼ 최저 : 16°',GI.weather(WCOND,112))}
+ return `<div class="scr wx">${nhero('hero_weather',null,0,'오늘의 날씨','<span>맑음</span><b>24.5°</b>','일교차가 크니 겉옷을 챙기세요\n▲ 최고 : 28°  ▼ 최저 : 16°')}
  ${sec(lbl('관측 현황'),`<div class="row3"><div class="obs sr"><small>체감온도</small><b>23.8°</b></div><div class="obs sr"><small>습도</small><b>48%</b></div><div class="obs sr"><small>풍속</small><b>2.1m/s</b></div></div>`)}
  ${sec(lbl('시간대별 날씨예보','w1')+tipV('w1','기상청 단기예보 · 3분 전 갱신 · 예보값이에요.'),`<div class="card"><div class="hs">${HR.map(h=>`<div><span class="tt">${h.t}°</span><div class="ic">${GI.weather(h.c,36)}</div><span class="tt">${h.l}</span></div>`).join('')}</div></div>`)}
  <div class="fbk"><span class="kma"><svg aria-label="기상청" role="img" width="59" height="15" viewBox="0 0 59 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M39.0986 7.61464L36.3952 3.73362L33.7066 7.71095L32.4111 6.86829L36.3952 1.14307L40.3891 6.73828L39.0986 7.60983V7.61464ZM42.6721 11.3512C42.6721 11.7798 42.5841 12.1842 42.4032 12.5598C42.2223 12.9354 41.9877 13.2676 41.6992 13.5566C41.3913 13.8406 41.0295 14.067 40.6189 14.2355C40.2034 14.404 39.7732 14.4859 39.3186 14.4859C38.8639 14.4859 38.4289 14.404 38.0133 14.2355C37.5978 14.067 37.2312 13.8406 36.9232 13.5566C36.6201 13.2676 36.3855 12.9402 36.2046 12.5598C36.0237 12.1794 35.9357 11.7798 35.9357 11.3512C35.9357 10.9227 36.0237 10.5182 36.2046 10.1426C36.3855 9.7622 36.625 9.43477 36.9232 9.14586C37.2312 8.86177 37.5978 8.63064 38.0133 8.46693C38.4289 8.2984 38.8639 8.21654 39.3186 8.21654C39.7732 8.21654 40.2083 8.2984 40.6189 8.46693C41.0295 8.63546 41.3913 8.86177 41.6992 9.14586C41.9877 9.43477 42.2223 9.7622 42.4032 10.1426C42.5841 10.5182 42.6721 10.9227 42.6721 11.3512ZM41.1029 11.3368C41.1029 10.8601 40.922 10.4508 40.5651 10.1041C40.2083 9.7622 39.783 9.58886 39.299 9.58886C38.815 9.58886 38.3946 9.7622 38.0427 10.1041C37.6858 10.446 37.5098 10.8601 37.5098 11.3368C37.5098 11.8135 37.6858 12.2372 38.0427 12.5743C38.3946 12.9113 38.815 13.0798 39.299 13.0798C39.783 13.0798 40.2034 12.9113 40.5651 12.5743C40.922 12.2324 41.1029 11.8231 41.1029 11.3368ZM43.3271 3.57472H45.1896V5.13483H43.3271V7.84096H41.7286V1.29715H43.3271V3.57472Z" fill="#595857"/><path d="M47.5459 3.69022V2.35642H50.5816V1.13818H52.2975V2.35642H55.1915V3.69022H52.0384L55.3088 6.9549L54.2627 7.92756L51.442 5.03365L48.6507 8.15387L47.5752 7.16676L50.8603 3.69022H47.5459ZM57.8948 11.3511C57.8948 11.7797 57.8068 12.1842 57.6259 12.5597C57.4451 12.9353 57.2055 13.2676 56.9073 13.5565C56.6091 13.8406 56.2523 14.0669 55.8417 14.2354C55.431 14.404 54.9911 14.4858 54.5266 14.4858C54.0622 14.4858 53.6369 14.404 53.2165 14.2354C52.801 14.0669 52.4442 13.8406 52.1411 13.5565C51.838 13.2676 51.6033 12.9401 51.4225 12.5597C51.2416 12.1793 51.1536 11.7797 51.1536 11.3511C51.1536 10.9226 51.2416 10.5181 51.4225 10.1425C51.6033 9.76695 51.838 9.43471 52.1411 9.1458C52.4442 8.8617 52.801 8.63057 53.2165 8.46686C53.6321 8.29833 54.072 8.21647 54.5266 8.21647C54.9813 8.21647 55.431 8.29833 55.8417 8.46686C56.2523 8.63539 56.6091 8.8617 56.9073 9.1458C57.2104 9.43471 57.45 9.76214 57.6259 10.1425C57.8068 10.5181 57.8948 10.9226 57.8948 11.3511ZM56.3109 11.3367C56.3109 10.86 56.135 10.4507 55.783 10.104C55.4261 9.76214 55.0057 9.58879 54.512 9.58879C54.0182 9.58879 53.6125 9.76214 53.2605 10.104C52.9135 10.4459 52.7375 10.86 52.7375 11.3367C52.7375 11.8134 52.9135 12.2371 53.2605 12.5742C53.6076 12.9113 54.028 13.0798 54.512 13.0798C54.9959 13.0798 55.431 12.9113 55.783 12.5742C56.135 12.2323 56.3109 11.823 56.3109 11.3367ZM57.3864 8.1009V5.66925H55.1182V4.30656H57.3864V1.3019H58.9996V8.1009H57.3864Z" fill="#595857"/><path d="M24.824 12.3961H23.2255V3.52179H18.2539V2.09169H24.824V12.4009V12.3961ZM27.6691 1.302H29.2823V14.0718H27.6691V1.302Z" fill="#595857"/><path d="M11.2393 6.84292C9.97518 5.99647 8.35599 6.34173 7.5057 7.61587C6.79561 8.67839 5.72369 8.81205 5.30758 8.81205C3.95525 8.81205 3.03032 7.87426 2.75443 6.90529C2.75443 6.90529 2.7499 6.88747 2.74764 6.87856C2.74538 6.86743 2.74086 6.85629 2.7386 6.84515C2.63005 6.44197 2.60517 6.24818 2.60517 5.81827C2.60517 3.49942 5.02038 0.915508 8.50073 0.915508C11.9811 0.915508 14.1023 3.5863 14.6269 5.07205C14.6179 5.04532 14.6089 5.02082 14.5998 4.99409C13.5889 2.08718 10.7938 0 7.50117 0C3.36049 0 0 3.30786 0 7.39089C0 11.0396 2.67075 14.1625 6.37724 14.1625C9.33293 14.1625 11.3185 12.5298 12.2298 10.2822C12.7296 9.05262 12.3746 7.60696 11.2416 6.84738" fill="#003668"/><path d="M14.6747 5.21442C14.236 3.76653 12.1826 0.913086 8.50102 0.913086C5.02068 0.913086 2.60547 3.49477 2.60547 5.81584C2.60547 6.24575 2.63261 6.43955 2.73889 6.84496C2.69366 6.66898 2.66879 6.49078 2.66879 6.31704C2.66879 3.90241 5.1247 2.22732 7.64846 2.22732C11.0655 2.22732 13.8335 4.95602 13.8335 8.31957C13.8335 10.9569 12.2912 13.2401 10.0524 14.3383C12.938 13.3114 15.0004 10.5872 15.0004 7.38847C15.0004 6.63111 14.8964 5.96509 14.6702 5.21442" fill="#E6002D"/></svg></span><button data-a="fb">오늘 예보와 달랐나요?</button></div></div>`}
 function rangeTxt(kind,L){const t=TH[S.std][kind],u=kind==='pm10'?'㎍/㎥':'㎍/㎥';return L===0?`${t[0]}${u} 이하`:L===1?`${t[0]+1}~${t[1]}${u}`:L===2?`${t[1]+1}~${t[2]}${u}`:`${t[2]+1}${u} 이상`}
 function pollenV(){const L=pol(),fc=sc().fc,g=GK[L];
- return `<div class="scr">${hero(g,'꽃가루지수',`<span>${PN[L].replace(' ','')}</span>`,`잡초 꽃가루 관측기간입니다\n${L>=2?'꽃가루 지수가 높으니 마스크를 챙기세요':L===1?'마스크만 챙기면 충분해요':'지금은 꽃가루 걱정이 적어요'}`,GI.air('pollen',g,112))}
- ${sec(lbl('관측 현황'),`<div class="row3"><div class="obs"><small>소나무</small><b>관측 X</b></div><div class="obs"><small>참나무</small><b>관측 X</b></div><div class="obs"><small>잡초</small><b>${PN[L].replace(' ','')}</b></div></div>`)}
+ return `<div class="scr">${nhero('hero_pollen','pollen',L,'꽃가루지수',`<span>${PN[L].replace(' ','')}</span>`,`잡초 꽃가루 관측기간입니다\n${L>=2?'꽃가루 지수가 높으니 마스크를 챙기세요':L===1?'마스크만 챙기면 충분해요':'지금은 꽃가루 걱정이 적어요'}`)}
+ ${sec(lbl('관측 현황'),`<div class="row3"><div class="obs"><small>소나무</small><b>관측 X</b></div><div class="obs"><small>참나무</small><b>관측 X</b></div><div class="obs"><small>잡초</small><b>${PN[fc[0]].replace(' ','')}</b></div></div>`)}
  ${sec(lbl('꽃가루지수 3일 예보','p1')+tipV('p1','기상청 생활기상지수 · 오늘 06시 발표 · 실측이 아닌 예보값이에요.'),`<div class="tbl"><span></span><span>오늘</span><span>내일</span><span>모레</span><span class="rn">${I('park',20)}소나무</span><span>-</span><span>-</span><span>-</span><span class="rn">${I('nature',20)}참나무</span><span>-</span><span>-</span><span>-</span><span class="rn">${I('grass',20)}잡초</span>${fc.map(x=>`<span>${PN[x].replace(' ','')}</span>`).join('')}</div>`)}
  <div class="prow"><span class="pl0">관측기간</span><div class="pit"><span>${I('park',20)}3~6월</span><span>${I('nature',20)}3~6월</span><span>${I('grass',20)}8월~10월</span></div></div>
 </div>`}
@@ -1010,41 +1231,53 @@ function pmV(kind,k){const v=sc()[kind],L=grade(kind,v),nm=kind==='pm10'?'미세
  const mult=[.62,.75,.9,1,.88,.78],tm=['AM<br>09:00','AM<br>11:00','PM<br>01:00','PM<br>03:00','PM<br>05:00','PM<br>07:00'];
  const top=Math.max(v*1.05,kind==='pm10'?60:30),col={worst:'#ff8288,#ffe5e6',bad:'#fed090,#fff3df',normal:'#5fdc8c,#e8fff0',good:'#7e97fd,#e6eaff'}[k];
  const bars=mult.map((m,i)=>{const val=Math.round(v*m),h=Math.max(14,Math.round(val/top*72));return `<button class="${i>2?'f':''} ${U.bar===i?'sel':''}" data-a="bar" data-v="${i}" data-val="${val}" style="height:${h}px;background:linear-gradient(180deg,${col})" aria-label="${val}${unit}">${U.bar===i?`<span class="bv">${val}</span>`:''}</button>`}).join('');
- return `<div class="scr">${hero(k,nm,`<span>${GN[L].replace(' ','')}</span>`,`${v}${u2}\n${GN[L]} 기준치는 ${rangeTxt(kind,L)} 입니다`,GI.air(kind==='pm10'?'fine-dust':'ultra-fine-dust',k,112))}
+ return `<div class="scr">${nhero(kind==='pm10'?'hero_fine':'hero_ultra',kind==='pm10'?'fine':'ultra',L,nm,`<span>${GN[L].replace(' ','')}</span>`,`${v}${unit}\n${GN[L].replace(' ','')} 기준치는 ${rangeTxt(kind,L)} 입니다`)}
  ${sec(lbl('적용 기준'),`<div class="seg">${[['domestic','국내'],['who','WHO'],['sensitive','민감군']].map(([a,b])=>`<button class="${S.std===a?'on':''}" data-a="std" data-v="${a}">${b}</button>`).join('')}</div>`)}
  ${sec(lbl('시간대별 추이','m1')+tipV('m1','에어코리아 실측 · 3분 전 갱신. 흐린 막대는 아직 오지 않은 시간대의 예상 흐름이에요.'),`<div class="card pmc" style="padding:12px 4px 0"><div class="bars">${bars}</div><div class="xl">${tm.map((x,i)=>`<span class="${i>2?'f':''}">${x}</span>`).join('')}</div></div>`)}
  <div class="sts">${I('location_on',24)}가장 가까운 측정소 · 흥덕구 측정소 · 1.2km</div></div>`}
 
-/* --- 기록(D) · v003 --- */
-const dpanel=(h,b)=>`<section class="panel p16 fade" style="height:${h}px">${b}</section>`;
-V.d=()=>{setPal('cd');
- const sl=slider(['record-fill','edit-ul','article_shortcut-fill','check_box-fill','waterfall_chart'],R.t,'b');let b='',ph=544,p16=true;
- if(R.t===0){ph=563;p16=false;b=`<div class="rec1 g" data-a="tab" data-v="1"><div><h3>${I('edit',24)}증상 기록하기</h3><p>오늘 겪었던 불편함을\n기록해요\n꾸준히 적을수록\n내 패턴이 더 잘 보여요</p></div><span class="chk"><span class="rg a"></span><span class="rg b"></span><span class="c">${I('add',30)}</span></span></div>
- <div class="grid"><button class="mini gl" data-a="tab" data-v="2"><div class="mt"><div class="t"><span class="tag">기록 요약${I('article_shortcut',24)}</span></div><div class="l1">최근 7일 평균 증상</div><div class="big2">${avg7()}</div></div></button>
-  <button class="mini gl" data-a="tab" data-v="3"><div class="mt"><div class="t"><span class="tag">챙김 기록${I('check_box',24)}</span></div><div class="l1">이번 주 체크</div><div class="big2"><span style="color:#0e747c">${weekN()}</span>/7일</div></div></button></div>
- <button class="wide sea" data-a="tab" data-v="4"><div class="mbg"><div class="hb" style="background:linear-gradient(160deg,#e5cfd0,#eedee1 48%,#f3ecee)"></div><div class="hsh2"></div></div><div class="gi">${GI.air('fine-dust','worst',85)}</div><div class="mt"><div class="t"><span class="tag">시즌별 패턴${I('waterfall_chart',24)}</span></div><div class="sub">환절기 시즌이에요</div><div class="big2">이맘때쯤<br>증상이 심해져요</div></div></button>`}
- else if(R.t===1){ph=574;const e=U.editD,dd=new Date(+e.slice(0,4),+e.slice(5,7)-1,+e.slice(8)),r=U.draft||(U.editing&&S.rec[e]?{v:[...S.rec[e].v],memo:S.rec[e].memo}:{v:[null,null,null,null],memo:''});U.draft=r;
-  b=`<div class="h18">증상 기록</div><div class="scr d1"><div class="d1h">${I('calendar_month',24)}<div>${dd.getFullYear()}년 ${dd.getMonth()+1}월 ${pad(dd.getDate())}일 느낀 증상을 선택해주세요.</div></div>
-  <div class="d1l">${SYM.map((s,i)=>`<div><div class="lbl m">${s}</div><div class="opt">${[3,2,1,0].map(x=>`<button class="${r.v[i]===x?'on':''}" data-a="sym" data-v="${i}:${x}">${LV[x]}</button>`).join('')}</div></div>`).join('')}</div>
-  <div class="d1m"><div class="lbl m">메모 (선택)</div><textarea class="memo" id="memo" data-in="memo" placeholder="예시 : 저녁부터 코막힘이 심해졌어요.">${r.memo}</textarea></div>
-  <button class="btnw" data-a="saveRec">저장하기</button></div>`}
- else if(R.t===2){ph=531;const days=[];for(let i=0;i<7;i++){const k=dk(addD(TODAY,-i));if(S.rec[k])days.push(k)}
-  b=`<div class="h18">최근 기록 요약</div><div class="scr d2"><div class="sum"><div><div class="a">${avg7()}</div><div class="b">최근 7일 평균 증상</div></div><div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end"><span class="hash">#꽃가루주의</span><span class="hash">#마스크필수</span></div></div>
-  <div class="sec s2">${lbl('일별 기록',null,true)}<div class="lis">${days.slice(0,6).map(k=>{const r=S.rec[k],d=new Date(+k.slice(0,4),+k.slice(5,7)-1,+k.slice(8));return `<div class="li"><div class="d"><small>${pad(d.getMonth()+1)}/${pad(d.getDate())}</small><b>${WD[d.getDay()]}</b></div><span class="v"></span><div class="m"><b>${dayTop(r)}</b><small>${r.memo||r.ctx}</small></div><button data-a="editRec" data-v="${k}" aria-label="기록 수정">${I('edit',22)}</button></div>`}).join('')}</div></div></div>`}
- else if(R.t===3){ph=548;const e0=addD(TODAY,-TODAY.getDay()+U.cal*7-7);const cells=[];for(let i=0;i<14;i++)cells.push(addD(e0,i));const last=cells[13];
-  b=`<div class="h18">챙김 기록</div><div class="scr d3"><div class="d3n"><div class="a"><span>${weekN()}</span> / 7일</div><div class="b">이번 주 챙김</div></div>
-  <div class="sec s2">${lbl('오늘의 체크리스트',null,true)}<div class="cl">${S.list.map((x,i)=>`<button class="it ${x.d?'on':''}" data-a="item" data-v="${i}"><span class="bx">${x.d?I('check',18):''}</span>${x.t}</button>`).join('')}
-   ${U.adding?`<div style="display:flex;gap:10px;align-items:center">${I('add',20)}<input id="newit" placeholder="새 항목 입력 후 Enter" maxlength="20" autocomplete="off"></div>`:`<button class="it" data-a="addIt" style="font-weight:400">${I('add',20)}체크리스트 추가하기</button>`}</div></div>
-  <div class="d3c"><div class="chd"><div class="cm"><button data-a="calp" aria-label="이전 주">${I('chevron_left',16)}</button><span>${last.getFullYear()}년 ${last.getMonth()+1}월</span><button data-a="caln" aria-label="다음 주">${I('chevron_right',16)}</button></div><div class="clg"><span class="lg"><i class="dot f"></i>챙김 완료</span><span class="lg"><i class="dot"></i>미완료</span></div></div>
-  <div class="cal"><div class="wk">${WD.map(w=>`<span>${w[0]==='일'?'S':w==='월'?'M':w==='화'?'T':w==='수'?'W':w==='목'?'T':w==='금'?'F':'S'}</span>`).join('')}</div>${[0,7].map(o=>`<div class="rw">${cells.slice(o,o+7).map(d=>{const k=dk(d),fu=k>TK,dn=!fu&&isDone(k),inr=k>=START||dn;return `<div class="dy ${k===TK?'td':''} ${!inr&&!fu?'dim':''}"><span>${d.getDate()}</span><i class="dot ${fu?'fu':dn?'f':inr?'':'n'}"></i></div>`}).join('')}</div>`).join('')}</div></div></div>`}
- else{ph=544;const D={'주':{x:['1주','2주','3주','4주','5주','이번주'],h:[.5,.6,.78,.95,.72,.6],t:'4주 전에 코막힘 · 재채기가 가장 잦았어요.\n꽃가루지수가 높았던 날과 겹쳐요.',s:'환절기에\n가장 심해져요'},
-   '월':{x:['5월','6월','7월','8월','9월','10월'],h:[.49,.61,.78,1,.83,.68],t:'8월에 코막힘 · 재채기가 가장 잦았어요.\n꽃가루지수가 높았던 날과 겹쳐요.',s:'환절기에\n가장 심해져요'},
-   '년':{x:['2022','2023','2024','2025','2026','올해'],h:[.55,.62,.7,.8,.9,.72],t:'해마다 봄·가을 환절기에\n증상 기록이 늘고 있어요.',s:'해마다 조금씩\n늘고 있어요'}}[U.rng];
-  b=`<div class="h18">시즌별 패턴</div><div class="scr d4"><div class="d4h"><div class="d4t">${D.s}</div><div class="d4s">최근 6개월 기록을 바탕으로 분석했어요.</div></div>
-  <div class="d4k a"><div class="lbl d4l">적용 기준</div><div class="seg">${['주','월','년'].map(x=>`<button class="${U.rng===x?'on':''}" data-a="rng" data-v="${x}">${x}</button>`).join('')}</div></div>
-  <div class="d4k b"><div class="lbl m">${(U.rng==='주'?'주별':U.rng==='년'?'연도별':'월별')+' 추이'}</div><div class="card" style="padding:15px 12px 0"><div class="bars" style="height:91px">${D.h.map((h,i)=>`<button class="${U.bar===i?'sel':''}" data-a="bar" data-v="${i}" data-val="${Math.round(h*18)}회" style="height:${Math.round(h*90)}px;background:linear-gradient(180deg,#3cc4ce,#e3f8fa)" aria-label="${D.x[i]} ${Math.round(h*18)}회">${U.bar===i?`<span class="bv">${Math.round(h*18)}회</span>`:''}</button>`).join('')}</div><div class="xl">${D.x.map(x=>`<span>${x}</span>`).join('')}</div></div></div>
-  <div class="ins i1">${I('report',24)}<span style="white-space:pre-line">${D.t}</span></div><div class="ins dk">${I('check',24)}<span style="white-space:pre-line">마스크를 착용한 날은\n증상 기록이 32% 적었어요.</span></div></div>`}
- return `${hdrGlass()}${sl}<section class="panel dd ${p16?'p16':''} fade" style="height:${ph}px${R.t===0?';gap:12px':''}">${b}</section>${navbar(1)}`};
+/* --- 기록(D) · v008 --- */
+const SNI=[['record-fill','기록 홈'],['waterfall_chart','시즌별 패턴'],['edit-ul','증상 기록'],['article_shortcut','기록 요약'],['check_box-fill','챙김 기록']];
+const KO=['','한','두','세','네','다섯','여섯','일곱'];
+const dayObj=k=>new Date(+k.slice(0,4),+k.slice(5,7)-1,+k.slice(8));
+const WK=['S','M','T','W','T','F','S'];
+/* 주 단위 달력 2줄(지난주+이번주). D2·D4가 같이 써요 */
+const calCells=()=>{const e0=addD(TODAY,-TODAY.getDay()+U.cal*7-7);const c=[];for(let i=0;i<14;i++)c.push(addD(e0,i));return c};
+const calHead=(cells,legend)=>{const last=cells[13];return `<div class="nch2"><div class="cm"><button data-a="calp" aria-label="이전 주">${I('chevron_left',16)}</button><span>${last.getFullYear()}년 ${last.getMonth()+1}월</span><button data-a="caln" aria-label="다음 주">${I('chevron_right',16)}</button></div>${legend?`<div class="clg"><span class="lg"><i class="dot f"></i>챙김 완료</span><span class="lg"><i class="dot"></i>미완료</span></div>`:''}</div>`};
+V.d=()=>{setPal('cd');let b='';
+ if(R.t===0){
+  b=`<button class="nrec s" data-a="tab" data-v="1">${artImg('rec_season',297,253,10)}${dust('season',32,'',20,'s',9,'','rec_season')}<span class="np" style="left:16px;top:16px">시즌별 패턴${I('waterfall_chart',24)}</span><span class="s1">환절기 시즌이에요</span><span class="s2">이맘때쯤<br>증상이 심해져요</span></button>
+  <div class="nrec p" data-a="tab" data-v="2" role="button" tabindex="0">${artImg('rec_pencil',297,192,10)}${dust('pencil',32,'',18,'p',9,'','rec_pencil')}<span class="np" style="left:22px;top:22px">증상 기록하기${I('edit-ul',24)}</span><p>오늘 겪었던 불편함을\n기록해요\n꾸준히 적을수록\n내 패턴이 더 잘 보여요</p><span class="chk"><span class="rg a"></span><span class="rg b"></span><span class="c">${I('add',30)}</span></span></div>
+  <div class="ngrid r"><button class="nm gl" data-a="tab" data-v="3"><span class="np">기록 요약${I('article_shortcut',24)}</span><small>최근 7일 평균 증상</small><b>${avg7()}</b></button>
+  <button class="nm gl" data-a="tab" data-v="4"><span class="np">챙김 기록${I('check_box',24)}</span><small>이번 주 체크</small><b><i>${weekN()}</i>/7일</b></button></div>`}
+ else if(R.t===1){
+  const D={'주':{x:['1주','2주','3주','4주','5주','이번주'],h:[.5,.6,.78,.95,.72,.6],t:'4주 전에 코막힘 · 재채기가 가장 잦았어요.\n꽃가루지수가 높았던 날과 겹쳐요.',hd:'환절기',tl:'에',l2:'가장 심해져요'},
+   '월':{x:['5월','6월','7월','8월','9월','10월'],h:[.49,.61,.78,1,.83,.68],t:'8월에 코막힘 · 재채기가 가장 잦았어요.\n꽃가루지수가 높았던 날과 겹쳐요.',hd:'환절기',tl:'에',l2:'가장 심해져요'},
+   '년':{x:['2022','2023','2024','2025','2026','올해'],h:[.55,.62,.7,.8,.9,.72],t:'해마다 봄·가을 환절기에\n증상 기록이 늘고 있어요.',hd:'해마다',tl:' 조금씩',l2:'늘고 있어요'}}[U.rng];
+  b=`<div class="nt">시즌별 패턴</div><div class="nb"><div class="b1"><span class="gd">${D.hd}</span>${D.tl}<br>${D.l2}</div><div class="b2">최근 6개월 기록을 바탕으로 분석했어요.</div></div><hr class="nhr">
+  <div class="ng"><div class="nt">적용 기준</div><div class="nseg">${['주','월','년'].map(x=>`<button class="${U.rng===x?'on':''}" data-a="rng" data-v="${x}">${x}</button>`).join('')}</div></div>
+  <div class="ng c"><div class="nt">${(U.rng==='주'?'주별':U.rng==='년'?'연도별':'월별')+' 추이'}</div><div class="nchart"><div class="bars">${D.h.map((h,i)=>`<button class="${U.bar===i?'sel':''}" data-a="bar" data-v="${i}" data-val="${Math.round(h*18)}회" style="height:${Math.round(h*92)}px;background:linear-gradient(180deg,#3cc4ce,#e3f8fa)" aria-label="${D.x[i]} ${Math.round(h*18)}회">${U.bar===i?`<span class="bv">${Math.round(h*18)}회</span>`:''}</button>`).join('')}</div><div class="xl">${D.x.map(x=>`<span>${x}</span>`).join('')}</div></div></div>
+  <div class="nins">${I('report',24)}<span>${D.t}</span></div><div class="nins ok">${I('check',24)}<span>마스크를 착용한 날은\n증상 기록이 32% 적었어요.</span></div>`}
+ else if(R.t===2){
+  const e=U.editD,r=U.draft||(U.editing&&S.rec[e]?{v:[...S.rec[e].v],memo:S.rec[e].memo}:{v:[null,null,null,null],memo:''});U.draft=r;
+  const cells=calCells();
+  b=`<div class="nt">증상 기록</div><div class="ndh">${I('calendar_month',24)}<span>느낀 증상을 선택해주세요.</span></div>
+  <div class="ng" style="gap:4px">${calHead(cells,false)}<div class="ncal"><div class="wk">${WK.map(w=>`<span>${w}</span>`).join('')}</div>${[0,7].map(o=>`<div class="rw">${cells.slice(o,o+7).map(d=>{const k=dk(d),off=d.getMonth()!==cells[13].getMonth();return `<button class="dy ${k===TK?'td':''} ${k===e?'sel':''} ${off?'off':''}" data-a="pickDay" data-v="${k}" aria-label="${d.getMonth()+1}월 ${d.getDate()}일${k===TK?' 오늘':''}${k===e?' 선택됨':''}"><span>${d.getDate()}</span></button>`}).join('')}</div>`).join('')}</div></div>
+  <hr class="nhr">
+  <div class="nsy">${SYM.map((x,i)=>`<div><div class="nl">${x}</div><div class="nopt">${[3,2,1,0].map(v=>`<button class="${r.v[i]===v?'on':''}" data-a="sym" data-v="${i}:${v}">${LV[v]}</button>`).join('')}</div></div>`).join('')}</div>
+  <div><div class="nl">메모 (선택)</div><textarea class="nmemo" id="memo" data-in="memo" placeholder="예시 : 저녁부터 코막힘이 심해졌어요.">${r.memo}</textarea></div>
+  <button class="nsave" data-a="saveRec">저장하기</button>`}
+ else if(R.t===3){
+  const days=[];for(let i=0;i<7;i++){const k=dk(addD(TODAY,-i));if(S.rec[k])days.push(k)}
+  b=`<div class="nt">최근 기록 요약</div><div class="nb"><div class="b1 gd2">${avg7()}</div><div class="b3">최근 7일 평균 증상</div><div class="nhash"><span>#꽃가루주의</span><span>#마스크필수</span></div></div><hr class="nhr">
+  <div class="ng"><div class="nt" style="padding-left:12px">일별 기록</div><div class="nrows">${days.slice(0,6).map((k,i)=>{const r=S.rec[k],d=dayObj(k);return `<div class="nrow ${i===0?'hi':''}"><div class="d"><small>${pad(d.getMonth()+1)}/${pad(d.getDate())}</small><b>${WD[d.getDay()]}</b></div><span class="v"></span><div class="m"><b>${dayTop(r)}</b><small>${r.memo||r.ctx}</small></div><button data-a="editRec" data-v="${k}" aria-label="기록 수정">${I('edit-ul',20)}</button></div>`}).join('')}</div></div>`}
+ else{
+  const cells=calCells(),n=weekN();
+  b=`<div class="nt">챙김 기록</div><div class="nb k"><div class="b1"><span class="gd5">${n}</span><span class="b4"> / 7일</span></div><div class="b2 bq">${n?`이번 주에 ${KO[n]} 번 챙겼어요`:'이번 주는 아직 챙기지 못했어요'}</div></div><hr class="nhr">
+  <div class="ng"><div class="nt">오늘의 체크리스트</div><div class="ncl">${S.list.map((x,i)=>`<button class="it ${x.d?'on':''}" data-a="item" data-v="${i}"><span class="bx">${x.d?I('check',16):''}</span>${x.t}</button>`).join('')}
+   ${U.adding?`<div class="addrow"><span class="bx">${I('add',24)}</span><input id="newit" placeholder="새 항목 입력 후 Enter" maxlength="20" autocomplete="off"></div>`:`<button class="it add" data-a="addIt"><span class="bx">${I('add',24)}</span>체크리스트 추가하기</button>`}</div></div>
+  <div class="ng ncg" style="gap:4px">${calHead(cells,true)}<div class="ncal k"><div class="wk">${WK.map(w=>`<span>${w}</span>`).join('')}</div>${[0,7].map(o=>`<div class="rw">${cells.slice(o,o+7).map(d=>{const k=dk(d),fu=k>TK,pre=k<START,dn=!fu&&isDone(k),off=d.getMonth()!==cells[13].getMonth();return `<div class="dy ${k===TK?'td':''} ${off?'off':''}"><span>${d.getDate()}</span><i class="dot ${pre?'n':fu?'fu':dn?'f':''}"></i></div>`}).join('')}</div>`).join('')}</div></div>`}
+ return `${hdrGlass()}<section class="pg dpg fade ${R.t===0?'g12':''}">${b}</section>`};
 
 /* --- 설정(B) --- */
 V.b=()=>{setPal('wh');const sl=slider(['notifications_active-fill','computer-fill','account_circle-fill'],R.t,'b');let b='';
@@ -1068,7 +1301,7 @@ V.promise=()=>{setPal('dg');const p=S.pr;const chip=(g,x)=>`<button class="${p[g
  <div style="display:flex;align-items:center;gap:12px;padding:0 4px"><div style="flex:1;font-size:14px;line-height:19px">같은 등급이 이어지면 줄이기<br><span style="color:var(--mute);font-size:12px">끄는 대신 알림 수만 줄여요</span></div><button class="sw ${p.reduce?'on':''}" data-a="reduce" role="switch" aria-checked="${p.reduce}" aria-label="알림 줄이기"></button></div>
  <button class="dark" data-a="prSave">저장하기</button></section>${prov()}`};
 V.widgets=()=>{const L=lvAll(),k=GK[L];setPal(k);const ac=['환기하기','마스크 챙기기','KF94 착용','KF94 착용'][L];
- return `<div class="wg"><div class="tm">9:41</div><div class="cap" style="margin-top:-4px">10월 6일 화요일</div>
+ return `<div class="wg"><div class="tm">9:41</div><div class="cap" style="margin-top:-4px">10월 7일 수요일</div>
  <div class="row" style="margin-top:8px;align-items:center"><div class="wgt g" style="width:158px;flex:none"><small>${S.region}</small><div><b>${GN[L].replace(' ','')}</b></div><div class="ac">${I('masks',20)}${ac}</div></div><div class="cap" style="flex:1;text-align:left;font-size:13px;line-height:20px">소형<br>상태 1 + 행동 1</div></div>
  <div class="wgt g" style="width:100%;flex-direction:row;align-items:center;gap:16px;height:128px"><div style="flex:1;min-width:0"><small>꽃가루 ${PN[pol()].replace(' ','')} · 미세먼지 ${GN[g10()].replace(' ','')}</small><b>${GN[L].replace(' ','')}</b></div><div class="ac" style="flex:1;min-width:0">${I('masks',22)}<span>${ac}</span></div></div>
  <div class="cap" style="margin-top:6px">위젯에는 상태 하나와 행동 하나만 담아요.<br>작은 면적에서는 그레인 대신 색조로 줄여서 보여줘요.</div>
@@ -1077,8 +1310,7 @@ V.widgets=()=>{const L=lvAll(),k=GK[L];setPal(k);const ac=['환기하기','마�
 /* ============ 서랍·시트·토스트·푸시 ============ */
 function drawerHTML(){return `<button class="x" data-a="menuX" aria-label="닫기">${I('close',26)}</button><div class="pf"><div style="width:40px;height:40px;border-radius:50%;background:#fff;color:#1d6a70;display:grid;place-items:center;overflow:hidden">${I('person',34)}</div><div><b>${S.nick}님</b><span>${S.region} · ${S.sev} 단계</span></div></div>
  <div class="mg">설정</div><button class="mr" data-a="go" data-v="b:0">${I('notifications',22)}<span class="n">알림 설정</span>${I('chevron_right',22)}</button><button class="mr" data-a="go" data-v="b:1">${I('laptop_mac',22)}<span class="n">표시 기준 설정</span>${I('chevron_right',22)}</button><button class="mr" data-a="go" data-v="b:2">${I('account_circle',22)}<span class="n">회원 정보 변경</span>${I('chevron_right',22)}</button>
- <button class="mr" data-a="go" data-v="promise">${I('edit_note',22)}<span class="n">내 대처 약속</span>${I('chevron_right',22)}</button>
- <div class="mg" style="margin-top:28px">기타</div><div class="mr">${I('check_circle',22)}<span class="n">버전 정보</span><em>1.0.0</em></div><button class="mr" data-a="logout">${I('logout',22)}<span class="n">로그아웃</span></button>`}
+  <div class="mg" style="margin-top:28px">기타</div><div class="mr">${I('check_circle',22)}<span class="n">버전 정보</span><em>1.0.0</em></div><button class="mr" data-a="logout">${I('logout',22)}<span class="n">로그아웃</span></button>`}
 function sheet(t){const e=document.getElementById('sheet');if(!t){e.classList.remove('on');document.getElementById('scrim').classList.remove('on');return}
  e.innerHTML=t;e.classList.add('on');document.getElementById('scrim').classList.add('on')}
 function cardSheet(){return `<div class="gp"></div><h3>오늘 챙길 건 세 가지뿐이에요</h3><p>KF94는 꽃가루 대부분을 걸러줍니다. 아래 세 가지만 챙기면 충분해요.</p>${S.list.map((x,i)=>`<button class="it ${x.d?'on':''}" data-a="item" data-v="${i}"><span class="bx">${x.d?I('check',18):''}</span>${x.t}</button>`).join('')}<button class="dark" data-a="sheetX" style="margin-top:18px">닫기</button>`}
@@ -1090,21 +1322,40 @@ function pushPrev(){const L=lvAll(),p=document.getElementById('push');const t=L>
 /* ============ 라우터 ============ */
 const view=document.getElementById('view');
 let lastP={n:null,t:null};
+/* ===== 하단 내비(홈·기록 공용): 상태 h=홈, r=기록(홈 화면 안), s0~s4=기록 안의 탭 ===== */
+const unav=document.getElementById('unav');
+unav.innerHTML=`<span class="pl"></span><button class="uh" data-k="h" data-a="uhome" aria-label="홈">${I('home-fill',20)}</button><button class="u0" data-k="r" data-a="urec" aria-label="기록">${I('record-fill',20)}</button>${SNI.slice(1).map(([n,l],j)=>`<button class="ut" data-k="s${j+1}" style="--j:${j+1}" data-a="utab" data-v="${j+1}" aria-label="${l}">${I(n,20)}</button>`).join('')}<button class="ub" data-a="uhome" aria-label="홈으로">${I('arrow_back_ios_new',24)}</button>`;
+const navSt=(n,t)=>n==='c'?'h':n==='d'?'s'+(+t||0):null;
+function setNav(st){unav.dataset.s=st;unav.classList.remove('drg');const sub=st[0]==='s';unav.dataset.m=sub?'sub':'main';if(sub)unav.style.setProperty('--pi',st[1]);
+  unav.querySelectorAll('[data-k]').forEach(b=>{const k=b.dataset.k;b.classList.toggle('on',k===st||(k==='r'&&st==='s0'))})}
 function paint(){
   const same=lastP.n===R.n&&lastP.t===R.t;
-  const keep=same?[...view.querySelectorAll('.scr,.hs')].map(e=>[e.scrollTop,e.scrollLeft]):null;
+  const keep=same?[...view.querySelectorAll('.pg,.scr,.hs')].map(e=>[e.scrollTop,e.scrollLeft]):null;
   view.innerHTML=(V[R.n]||V.login)();
   if(same){/* 같은 화면 안에서 값만 바뀐 경우: 등장 애니메이션·스크롤 위치를 그대로 두어 깜빡이지 않게 */
     view.querySelectorAll('.fade,.fadein').forEach(e=>e.style.animation='none');
-    [...view.querySelectorAll('.scr,.hs')].forEach((e,i)=>{if(keep[i]){e.scrollTop=keep[i][0];e.scrollLeft=keep[i][1]}})}
+    [...view.querySelectorAll('.pg,.scr,.hs')].forEach((e,i)=>{if(keep[i]){e.scrollTop=keep[i][0];e.scrollLeft=keep[i][1]}})}
   lastP={n:R.n,t:R.t};
   if(R.n==='splash')splashRun();
   const f=view.querySelector('#newit');if(f)f.focus()}
-function nav(to,fast){clearTimeout(nav._sp);clearTimeout(nav._sp2);const [n,t]=to.split(':');const same=n===R.n;R.n=n;R.t=+t||0;U.bar=null;U.tip=null;
+function nav(to,fast){clearTimeout(nav._sp);clearTimeout(nav._sp2);(nav._mt||[]).forEach(clearTimeout);nav._mt=[];const [n,t]=to.split(':');const same=n===R.n;
+  if(!fast&&same&&['c','d','b'].includes(n)&&(+t||0)!==R.t&&slideTab(+t||0)){closeAll();return}
+  R.n=n;R.t=+t||0;U.bar=null;U.tip=null;
   if(n==='b'||n==='signup'||n==='profile'){if(!same||n!=='b')U.form=n==='signup'||n==='profile'?U.form:{}}
-  if(n==='d'&&R.t!==1)U.draft=null;
+  if(n==='d'&&R.t!==2)U.draft=null;
   closeAll();
-  if(fast||same){paint();syncDemo()}else{view.classList.add('out');setTimeout(()=>{paint();view.classList.remove('out');syncDemo()},200)}
+  const tgt=navSt(n,R.t),cur=unav.dataset.s,shown=unav.classList.contains('show');
+  const showNav=()=>{if(tgt){setNav(tgt);unav.classList.add('show')}else unav.classList.remove('show')};
+  const later=(ms,f)=>nav._mt.push(setTimeout(f,ms));
+  if(fast||same){showNav();paint();syncDemo()}
+  else if(shown&&tgt&&cur==='h'&&tgt[0]==='s'){/* 홈 → 기록: 검은 알약 이동과 메뉴 펼침이 한꺼번에 시작돼요(알약이 두세 프레임 먼저 도착) */
+    unav._busy=true;view.classList.add('out');setNav(tgt);
+    later(200,()=>{paint();view.classList.remove('out');syncDemo()});later(560,()=>{unav._busy=false})}
+  else if(shown&&tgt==='h'&&cur[0]==='s'){/* 기록 → 홈: 알약 이동, 메뉴 접힘, 화살표 사라짐, 홈 나타남이 한꺼번에 */
+    unav._busy=true;view.classList.add('out');setNav('h');
+    later(200,()=>{paint();view.classList.remove('out');syncDemo()});later(560,()=>{unav._busy=false})}
+  else{view.classList.add('out');if(!tgt)unav.classList.remove('show');
+    setTimeout(()=>{paint();view.classList.remove('out');showNav();syncDemo()},200)}
   if(n==='splash'){nav._sp=setTimeout(splashExit,SPLASH_MS+(fast?0:200))}}
 
 /* ===== 스플래시: 화면 가득 먼지 → 가운데부터 걷히며 로고 → 로그인 ===== */
@@ -1177,29 +1428,33 @@ function splashRun(){
 function closeAll(){document.getElementById('drawer').classList.remove('on');sheet(null)}
 function rp(){paint();syncDemo()}
 /* 탭 전환: 화면을 지우지 않고, 슬라이더가 미끄러지는 동안 패널이 옆으로 교차 이동 */
-function slideTab(to){
-  const oldP=view.querySelector('.panel,.wpanel'),oldS=view.querySelector('.sl');
-  if(!oldP||!oldS||!['c','d','b'].includes(R.n)||oldP.dataset.sliding)return false;
-  const dir=to>R.t?1:-1,st=getComputedStyle(oldP);
-  const from={transform:st.transform==='none'?'none':st.transform,opacity:st.opacity};
-  R.t=to;U.bar=null;U.tip=null;if(R.n==='d'&&R.t!==1){U.draft=null;U.editing=false;U.editD=TK}
-  const tmp=document.createElement('div');tmp.innerHTML=V[R.n]();
-  const newP=tmp.querySelector('.panel,.wpanel');if(!newP){rp();return true}
-  const keep=el=>el.matches('.panel,.wpanel,.sl,.hdr,.nav');
-  [...view.children].forEach(c=>{if(!keep(c))c.remove()});
-  [...tmp.children].forEach(c=>{if(!keep(c))view.appendChild(c)});
-  oldS.classList.remove('drg');oldS.style.setProperty('--i',to);
-  oldS.querySelectorAll('.tn').forEach((b,j)=>b.classList.toggle('on',j===to));
-  oldP.dataset.sliding='1';oldP.style.pointerEvents='none';oldP.style.transition='none';
-  newP.style.animation='none';newP.style.opacity='0';oldP.after(newP);
-  const o={duration:340,easing:'cubic-bezier(.22,.8,.3,1)',fill:'forwards'};
-  oldP.animate([from,{transform:`translateX(${-dir*56}px)`,opacity:0}],o).onfinish=()=>oldP.remove();
-  newP.animate([{transform:`translateX(${dir*56}px)`,opacity:0},{transform:'none',opacity:1}],o).onfinish=()=>{newP.style.opacity='';newP.style.transform=''};
+/* ===== 옆으로 넘기는 화면(홈·상세, 기록 탭, 설정 탭): 진짜 슬라이드 =====
+   본문 페이지(.pg / .wpanel)만 화면 폭만큼 밀려 나가고 이웃 화면이 바로 이어서 들어와요. 헤더·하단 바는 그대로 있어요. */
+const SLW=393,SL_PG='.pg,.wpanel',SL_KEEP='.pg,.wpanel,.sl,.hdr,.nav';
+function swapExtras(tmp){[...view.children].forEach(c=>{if(!c.matches(SL_KEEP))c.remove()});[...tmp.children].forEach(c=>{if(!c.matches(SL_KEEP))view.appendChild(c)})}
+function setTab(to){R.t=to;U.bar=null;U.tip=null;if(R.n==='d'&&R.t!==2){U.draft=null;U.editing=false;U.editD=TK}}
+function syncTabUI(to){if(R.n==='d')setNav('s'+to);
+  const sl=view.querySelector('.sl');if(sl){sl.classList.remove('drg');sl.style.setProperty('--i',to);sl.querySelectorAll('.tn').forEach((b,j)=>b.classList.toggle('on',j===to))}}
+function mkPage(n,t){const sr=R.t;R.t=t;let h;try{h=V[n]()}finally{R.t=sr}const tmp=document.createElement('div');tmp.innerHTML=h;return tmp}
+function slideTab(to,dir){
+  const oldP=view.querySelector(SL_PG);
+  if(!oldP||!['c','d','b'].includes(R.n)||oldP.dataset.sliding)return false;
+  dir=dir||(to>R.t?1:-1);
+  const st=getComputedStyle(oldP),from=st.transform==='none'?'none':st.transform;
+  setTab(to);
+  const tmp=mkPage(R.n,to),newP=tmp.querySelector(SL_PG);if(!newP){rp();return true}
+  R.t=to;swapExtras(tmp);syncTabUI(to);
+  oldP.dataset.sliding='1';oldP.style.pointerEvents='none';oldP.style.animation='none';
+  newP.style.animation='none';oldP.after(newP);
+  const o={duration:400,easing:'cubic-bezier(.32,.72,.24,1)',fill:'forwards'};
+  oldP.animate([{transform:from},{transform:`translateX(${-dir*SLW}px)`}],o).onfinish=()=>oldP.remove();
+  newP.animate([{transform:`translateX(${dir*SLW}px)`},{transform:'none'}],o).onfinish=()=>{newP.style.transform=''};
   lastP={n:R.n,t:R.t};syncDemo();return true}
 
 const A={
  go:v=>nav(v),
- tab:v=>{if(+v===R.t)return;if(slideTab(+v))return;R.t=+v;U.bar=null;U.tip=null;if(R.n==='d'&&R.t!==1){U.draft=null;U.editing=false;U.editD=TK}rp()},
+ uhome:()=>{if(!unav._busy)nav('c:0')},urec:()=>{if(unav._busy)return;if(R.n==='d')A.tab(0);else nav('d:0')},utab:v=>{if(!unav._busy)A.tab(v)},
+ tab:v=>{if(+v===R.t)return;if(slideTab(+v))return;R.t=+v;U.bar=null;U.tip=null;if(R.n==='d'&&R.t!==2){U.draft=null;U.editing=false;U.editD=TK}rp()},
  menu:()=>{document.getElementById('drawer').innerHTML=drawerHTML();document.getElementById('drawer').classList.add('on');document.getElementById('scrim').classList.add('on');scrim.dataset.k='d'},
  menuX:()=>closeAll(), sheetX:()=>closeAll(),
  logout:()=>{closeAll();toast('로그아웃했어요');nav('login')},
@@ -1212,8 +1467,10 @@ const A={
  bar:v=>{U.bar=U.bar===+v?null:+v;rp()},
  std:v=>{S.std=v;save();rp();toast(STD[v][0]+'으로 바꿨어요')},
  sym:v=>{const [i,x]=v.split(':').map(Number);U.draft.v[i]=x;rp()},
- saveRec:()=>{const r=U.draft;S.rec[U.editD]={v:r.v.map(x=>x??0),memo:r.memo,ctx:S.rec[U.editD]?.ctx||(pol()>=2&&lvAll()>=2&&Math.max(g10(),g25())>=2?'꽃가루 지수 및 미세먼지 높음':pol()>=2?'꽃가루 지수 높음':lvAll()===0?'공기가 맑았던 날':'마스크 착용함')};save();U.draft=null;U.editing=false;U.editD=TK;toast('기록을 저장했어요');R.t=2;rp()},
- editRec:v=>{U.editD=v;U.editing=true;U.draft=null;R.t=1;rp()},
+ saveRec:()=>{const r=U.draft;S.rec[U.editD]={v:r.v.map(x=>x??0),memo:r.memo,ctx:S.rec[U.editD]?.ctx||(pol()>=2&&lvAll()>=2&&Math.max(g10(),g25())>=2?'꽃가루 지수 및 미세먼지 높음':pol()>=2?'꽃가루 지수 높음':lvAll()===0?'공기가 맑았던 날':'마스크 착용함')};save();U.draft=null;U.editing=false;U.editD=TK;toast('기록을 저장했어요');R.t=3;rp()},
+ editRec:v=>{U.editD=v;U.editing=true;U.draft=null;R.t=2;rp()},
+ pickDay:v=>{if(v>TK){toast('오늘 이후는 기록할 수 없어요');return}U.editD=v;U.editing=!!S.rec[v];U.draft=null;rp()},
+ cgo:v=>{const n=((R.t-1+(+v))+4)%4+1;slideTab(n,+v)||nav('c:'+n,true)},
  calp:()=>{U.cal--;rp()},caln:()=>{if(U.cal<0)U.cal++;rp()},
  rng:v=>{U.rng=v;U.bar=null;rp()},
  push:()=>{S.push=!S.push;save();rp()},
@@ -1255,16 +1512,16 @@ view.addEventListener('focusout',e=>{if(e.target.id==='newit'){setTimeout(()=>{i
 /* ============ 시연 패널 ============ */
 const GO=[['A 로그인·가입',[['A1 로그인','login'],['이메일 로그인','email','p'],['A2 회원가입','signup'],['A3 회원정보','profile'],['A4 권한 설정','perm']]],
  ['C 홈·날씨',[['홈','c:0'],['오늘의 날씨','c:1'],['꽃가루','c:2'],['미세먼지','c:3'],['초미세먼지','c:4']]],
- ['D 기록',[['기록 홈','d:0'],['증상 기록','d:1'],['기록 요약','d:2'],['챙김 기록','d:3'],['시즌 패턴','d:4']]],
- ['B 설정',[['알림','b:0'],['표시 기준','b:1'],['회원 정보','b:2'],['내 대처 약속','promise','p']]],
+ ['D 기록',[['기록 홈','d:0'],['시즌 패턴','d:1'],['증상 기록','d:2'],['기록 요약','d:3'],['챙김 기록','d:4']]],
+ ['B 설정',[['알림','b:0'],['표시 기준','b:1'],['회원 정보','b:2']]],
  ['외부 표면',[['스플래시','splash','p'],['위젯 미리보기','widgets','p']]]];
 function syncDemo(){const d=document.getElementById('demo');if(!d)return;const cur=R.n+(['c','d','b'].includes(R.n)?':'+R.t:'');
- d.innerHTML=`<div><h1>에스모스 앱 프로토타입</h1><p style="margin-top:6px">Figma의 new design v003 화면 17개를 기준으로 만든 과제용 웹앱이에요.</p></div>
+ d.innerHTML=`<div><h1>에스모스 앱 프로토타입</h1><p style="margin-top:6px">Figma의 new design v008 화면을 기준으로 만든 과제용 웹앱이에요.</p></div>
  <div class="grp"><h2>화면 바로가기</h2>${GO.map(([t,a])=>`<div class="bt" style="align-items:center"><span style="font-size:12px;width:78px;color:var(--stage-sub)">${t}</span>${a.map(([l,v,p])=>`<button class="${v===cur?'on':''}" data-d="${v}">${l}</button>`).join('')}</div>`).join('')}</div>
  <div class="grp"><h2>오늘의 공기 (시연용)</h2><div class="bt">${Object.keys(SCN).map(k=>`<button class="${S.scn===k?'on':''}" data-s="${k}">${SCN[k].n}</button>`).join('')}</div><p>배경색·등급·행동 문구가 함께 바뀌어요.</p></div>
  <div class="grp"><button class="act" data-x="push">푸시 알림 미리보기</button><button class="act sec" data-x="reset">시연 데이터 초기화</button></div>`}
 document.getElementById('demo').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
- if(b.dataset.d)nav(b.dataset.d);else if(b.dataset.s){S.scn=b.dataset.s;save();rp()}else if(b.dataset.x==='push')pushPrev();else if(b.dataset.x==='reset'){try{localStorage.removeItem('ethmos-proto-2')}catch(_){}S=JSON.parse(JSON.stringify(DEF));U.form={};U.draft=null;nav('login')}});
+ if(b.dataset.d)nav(b.dataset.d);else if(b.dataset.s){S.scn=b.dataset.s;save();rp()}else if(b.dataset.x==='push')pushPrev();else if(b.dataset.x==='reset'){try{localStorage.removeItem('ethmos-proto-3')}catch(_){}S=JSON.parse(JSON.stringify(DEF));U.form={};U.draft=null;nav('login')}});
 
 /* ============ 크기 맞춤 ============ */
 function fit(){const w=innerWidth-32,h=innerHeight-32,narrow=innerWidth<=500;let s=narrow?Math.min(w+32,innerWidth)/393:Math.min(1,w/393,h/852);
@@ -1284,28 +1541,44 @@ document.addEventListener('pointerup',end);document.addEventListener('pointercan
 document.addEventListener('wheel',e=>{const h=e.target.closest&&e.target.closest('.hs');if(h&&Math.abs(e.deltaX)<Math.abs(e.deltaY)&&e.shiftKey){h.scrollLeft+=e.deltaY;e.preventDefault()}},{passive:false});
 })();
 
-/* 옆으로 밀어서 탭 이동: 화면이 따라 움직이고 상단 슬라이더가 같이 미끄러짐 */
+/* 옆으로 밀어서 이동: 손가락을 따라 현재 화면과 이웃 화면이 함께 움직이고, 놓으면 이어서 넘어가거나 제자리로 돌아가요 */
 (()=>{const N={c:5,d:5,b:3};let g=null;
 const sheetOn=()=>document.getElementById('sheet').classList.contains('on')||document.getElementById('drawer').classList.contains('on');
 document.addEventListener('pointerdown',e=>{
-  if(e.button>0||!N[R.n]||sheetOn())return;const p=e.target.closest&&e.target.closest('.panel,.wpanel');if(!p)return;
+  if(e.button>0||!N[R.n]||sheetOn())return;const p=e.target.closest&&e.target.closest(SL_PG);if(!p||p.dataset.sliding)return;
   if(e.target.closest('.hs,input,textarea,select'))return;
-  g={p,sl:view.querySelector('.sl'),x:e.clientX,y:e.clientY,dx:0,on:false,t:performance.now(),k:p.getBoundingClientRect().width/p.offsetWidth||1,n:N[R.n],i:R.t}});
+  g={p,sl:view.querySelector('.sl'),x:e.clientX,y:e.clientY,d:0,on:false,t:performance.now(),k:p.getBoundingClientRect().width/p.offsetWidth||1,n:N[R.n],i:R.t,nb:null,tmp:null,dir:0}});
 document.addEventListener('pointermove',e=>{if(!g)return;
   const dx=(e.clientX-g.x)/g.k,dy=(e.clientY-g.y)/g.k;
   if(!g.on){if(Math.abs(dy)>10&&Math.abs(dy)>Math.abs(dx)){g=null;return}
-    if(Math.abs(dx)>10&&Math.abs(dx)>Math.abs(dy)*1.2){g.on=true;g.p.style.transition='none';g.p.style.animation='none';g.sl&&g.sl.classList.add('drg')}}
+    if(Math.abs(dx)>10&&Math.abs(dx)>Math.abs(dy)*1.2){g.on=true;g.p.style.animation='none';g.sl&&g.sl.classList.add('drg')}}
   if(!g.on)return;e.preventDefault();
-  let d=dx;if((g.i===0&&d>0)||(g.i===g.n-1&&d<0))d*=.28;
-  g.dx=d;g.p.style.transform=`translateX(${d}px)`;g.p.style.opacity=1-Math.min(Math.abs(d)/320,.35);
-  if(g.sl){const v=Math.max(0,Math.min(g.n-1,g.i-Math.max(-1,Math.min(1,d/230))));g.sl.style.setProperty('--i',v)}});
+  const dir=dx<0?1:-1,to=g.i+dir;
+  if(dir!==g.dir){
+    if(g.nb){g.nb.remove();g.nb=null;g.tmp=null}
+    g.dir=dir;
+    if(to>=0&&to<g.n){g.tmp=mkPage(R.n,to);g.nb=g.tmp.querySelector(SL_PG);g.nb.style.animation='none';g.nb.style.pointerEvents='none';g.p.after(g.nb)}}
+  const d=g.nb?dx:dx*.28;g.d=d;
+  g.p.style.transform=`translateX(${d}px)`;
+  if(g.nb)g.nb.style.transform=`translateX(${d+dir*SLW}px)`;
+  const v=Math.max(0,Math.min(g.n-1,g.i-Math.max(-1,Math.min(1,d/230))));
+  if(g.sl)g.sl.style.setProperty('--i',v);
+  if(R.n==='d'){unav.classList.add('drg');unav.style.setProperty('--pi',v)}});
 function endSwipe(e){if(!g)return;const s=g;g=null;if(!s.on)return;
-  const dt=Math.max(1,performance.now()-s.t),v=Math.abs(s.dx)/dt,dir=s.dx<0?1:-1,to=s.i+dir;
-  const go=(Math.abs(s.dx)>70||(v>.45&&Math.abs(s.dx)>28))&&to>=0&&to<s.n&&e.type!=='pointercancel';
+  const dt=Math.max(1,performance.now()-s.t),v=Math.abs(s.d)/dt,dir=s.dir,to=s.i+dir,cur=s.d;
+  const go=!!s.nb&&e.type!=='pointercancel'&&(Math.abs(cur)>80||(v>.4&&Math.abs(cur)>28));
   const stop=ev=>{ev.stopPropagation();ev.preventDefault()};document.addEventListener('click',stop,{capture:true,once:true});setTimeout(()=>document.removeEventListener('click',stop,true),80);
-  if(s.sl){s.sl.classList.remove('drg');s.sl.style.setProperty('--i',go?to:s.i)}
-  if(go){s.p.style.transition='none';A.tab(to)}
-  else{s.p.style.transition='transform .22s ease,opacity .22s ease';s.p.style.transform='none';s.p.style.opacity='1'}}
+  const rest=go?(SLW-Math.abs(cur))/SLW:Math.abs(cur)/SLW,o={duration:Math.round(140+260*Math.min(1,rest)),easing:'cubic-bezier(.25,.8,.3,1)',fill:'forwards'};
+  if(go){
+    s.p.dataset.sliding='1';s.p.style.pointerEvents='none';
+    s.p.animate([{transform:`translateX(${cur}px)`},{transform:`translateX(${-dir*SLW}px)`}],o).onfinish=()=>s.p.remove();
+    s.nb.animate([{transform:`translateX(${cur+dir*SLW}px)`},{transform:'none'}],o).onfinish=()=>{s.nb.style.transform=''};
+    s.nb.style.pointerEvents='';setTab(to);swapExtras(s.tmp);syncTabUI(to);lastP={n:R.n,t:R.t};syncDemo()}
+  else{
+    if(s.sl){s.sl.classList.remove('drg');s.sl.style.setProperty('--i',s.i)}
+    if(R.n==='d'){unav.classList.remove('drg');unav.style.setProperty('--pi',s.i)}
+    s.p.animate([{transform:`translateX(${cur}px)`},{transform:'none'}],o).onfinish=()=>{s.p.style.transform=''};
+    if(s.nb){const nb=s.nb;nb.animate([{transform:`translateX(${cur+dir*SLW}px)`},{transform:`translateX(${dir*SLW}px)`}],o).onfinish=()=>nb.remove()}}}
 document.addEventListener('pointerup',endSwipe);document.addEventListener('pointercancel',endSwipe);
 })();
 </script>
