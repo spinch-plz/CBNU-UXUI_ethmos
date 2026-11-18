@@ -654,15 +654,17 @@ textarea.memo::placeholder{color:var(--i5)}
 .avatar svg{display:block;margin:0;position:relative;top:1.3px}
 {{OTX_CSS}}
 
+/* 설정(B) v009: 유리 패널을 걷어내고 행·카드를 폭 345로 바로 올려요 */
+.wpanel{background:none;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;padding:24px 0 28px}
 /* 슬라이드 드래그 중 선택 방지 */
 .pg{user-select:none;-webkit-user-select:none}.pg input,.pg textarea{user-select:text;-webkit-user-select:text}
 /* ===== v008 · 홈/상세(C) + 기록(D) 새 레이아웃 =====
    본문은 유리 패널 없이 페이지 배경(#f5f8f8) 위에 바로 올리고, 카드 그림은 Figma 내보내기 래스터(.art) + 그 위 글자로 구성해요 */
-.pg{position:absolute;left:0;top:115px;width:393px;height:737px;padding:24px 48px 160px;overflow:hidden auto;display:flex;flex-direction:column;gap:20px;z-index:4;scrollbar-width:none;color:var(--i1);touch-action:pan-y}
+.pg{position:absolute;left:0;top:115px;width:393px;height:737px;padding:24px 24px 160px;overflow:hidden auto;display:flex;flex-direction:column;gap:20px;z-index:4;scrollbar-width:none;color:var(--i1);touch-action:pan-y}
 .pg::-webkit-scrollbar{display:none}
 .pg>*{flex:none}
-.pg.g12{gap:12px}
-.panel.pg{border:0;border-radius:0;background:none;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;top:115px;height:737px;padding:24px 48px 160px;gap:20px;overflow:hidden auto;user-select:auto;-webkit-user-select:auto}
+.pg.g12{gap:24px}
+.panel.pg{border:0;border-radius:0;background:none;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;top:115px;height:737px;padding:24px 24px 160px;gap:20px;overflow:hidden auto;user-select:auto;-webkit-user-select:auto}
 .panel.pg .scr{overflow:visible;flex:none;margin:0;padding:0;gap:20px;min-height:auto}
 .art{-webkit-mask-image:linear-gradient(90deg,transparent,#000 8px,#000 calc(100% - 8px),transparent),linear-gradient(180deg,transparent,#000 8px,#000 calc(100% - 8px),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 8px,#000 calc(100% - 8px),transparent),linear-gradient(180deg,transparent,#000 8px,#000 calc(100% - 8px),transparent);mask-composite:intersect;position:absolute;max-width:none;pointer-events:none;user-select:none;-webkit-user-drag:none;display:block}
 /* 서체 기본 */
@@ -673,17 +675,17 @@ textarea.memo::placeholder{color:var(--i5)}
 .ntop>div:first-child{padding-left:8px}
 .ndate{font-size:14px;line-height:20px;font-weight:500;letter-spacing:-.02em}
 .nloc{display:flex;align-items:center;gap:4px;font-size:20px;line-height:24px;font-weight:500;letter-spacing:-.03em;margin-left:-2px}
-.nchip{height:44px;border-radius:24px;padding:0 14px 0 12px;display:flex;align-items:center;gap:6px;font-size:14px;font-weight:500;letter-spacing:-.02em;border:1.5px solid rgba(255,255,255,.95);box-shadow:0 2px 8px rgba(20,40,46,.08),inset 0 1px 0 #fff;white-space:nowrap}
-.nmask{position:relative;width:297px;height:253px;border-radius:32px;cursor:pointer;margin-top:0}
+.nchip{width:195px;height:44px;border-radius:24px;padding:0;display:flex;align-items:center;justify-content:center;gap:4px;font-size:14px;font-weight:500;letter-spacing:-.02em;background:#fff;border:1px solid;box-shadow:none;white-space:nowrap}
+.nmask{position:relative;width:345px;height:253px;border-radius:32px;cursor:pointer;margin-top:0}
 .nmask h3{position:absolute;left:24px;top:149px;margin:0;font-size:20px;line-height:24px;font-weight:500;letter-spacing:-.04em}
 .nmask p{position:absolute;left:24px;top:181px;margin:0;width:190px;font-size:16px;line-height:24px;color:var(--i2);white-space:pre-line;letter-spacing:-.04em;font-weight:400}
-.nmask .chk{left:225px;top:181px;right:auto;margin:0}
+.nmask .chk{left:273px;top:181px;right:auto;margin:0}
 .nmask .chk:not(.done) .c{color:#8a959b}
-.ngrid{display:grid;grid-template-columns:143px 143px;gap:12px}
-.ngrid:not(.r) .np{width:110.5px;gap:0}
-.ngrid.r .np{width:102.5px}
+.ngrid{display:grid;grid-template-columns:166.5px 166.5px;gap:12px}
+.ngrid:not(.r) .np{width:134.5px;gap:0}
+.ngrid.r .np{width:126.5px}
 .nrec .np{font-weight:500}
-.nm{position:relative;width:143px;height:120px;border-radius:24px;text-align:left;display:block;cursor:pointer}
+.nm{position:relative;width:166.5px;height:120px;border-radius:24px;text-align:left;display:block;cursor:pointer}
 .ngrid.r .nm{height:121px}
 .np{position:absolute;left:16px;top:16px;height:24px;border-radius:99px;display:flex;align-items:center;justify-content:center;gap:4px;padding:0 8px;font-size:14px;line-height:24px;font-weight:400;letter-spacing:-.02em;white-space:nowrap;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.95);box-shadow:inset 0 1px 0 #fff,0 1px 4px rgba(20,40,46,.05);z-index:2}
 .np .i{margin-right:0;opacity:.8}
@@ -694,20 +696,23 @@ textarea.memo::placeholder{color:var(--i5)}
 .nm.gl b{top:66px;font-size:26px;line-height:39px;letter-spacing:-.02em}
 .nm.gl b i{font-style:normal;color:var(--teal)}
 /* 기록 홈 큰 카드 */
-.nrec{position:relative;width:297px;display:block;text-align:left;cursor:pointer;border-radius:32px}
-.nrec.s{height:253px}.nrec.p{height:192px}
-.nrec .s1{position:absolute;left:16px;top:131px;font-size:15px;line-height:23px;font-weight:400;color:var(--i1)}
-.nrec .s2{position:absolute;left:16px;top:160px;font-size:26px;line-height:39px;font-weight:400;letter-spacing:0;color:var(--i1)}
+.nrec{position:relative;width:345px;display:block;text-align:left;cursor:pointer;border-radius:32px}
+.nrec.s{height:240px}.nrec.p{height:190px}
+.nrec .s1{position:absolute;left:16px;top:118px;font-size:15px;line-height:23px;font-weight:400;color:var(--i1)}
+.nrec .s2{position:absolute;left:16px;top:147px;font-size:26px;line-height:39px;font-weight:400;letter-spacing:0;color:var(--i1)}
 .nrec.p p{position:absolute;left:24px;top:58px;margin:0;font-size:18px;line-height:27px;color:var(--i2);letter-spacing:-.05em;white-space:pre-line}
-.nrec .chk{left:225px;top:72px;right:auto;margin:0}
+.nrec .chk{left:273px;top:71px;right:auto;margin:0}
 /* 상세 히어로 */
-.nh{position:relative;width:297px;height:406px;color:#fff;margin-bottom:10px}
+.nh{position:relative;width:297px;height:406px;color:#fff;margin:0 24px 14px;isolation:isolate}
 .nhl{position:absolute;left:24px;top:24px;font-size:18px;line-height:22px;font-weight:400;letter-spacing:-.03em}
 .nht{position:absolute;left:20px;top:46px;display:flex;align-items:baseline;gap:8px;font-size:40px;line-height:56px;font-weight:700;letter-spacing:-.03em;white-space:nowrap}
 .nht b{font-size:24px;font-weight:400}
 .nhc{position:absolute;left:20px;top:350px;font-size:14px;line-height:21px;font-weight:500;letter-spacing:-.02em;white-space:pre-line;width:262px}
-.nch{position:absolute;top:182px;width:24px;height:24px;color:var(--i5);display:grid;place-items:center}
-.nch.l{left:-32px}.nch.r{right:-32px}.nch.r .i{transform:scaleX(-1)}
+.nch{position:absolute;top:169px;width:48px;height:48px;border-radius:50%;color:var(--i5);display:grid;place-items:center;z-index:-2;border:1.25px solid #fff;background:linear-gradient(135deg,rgba(255,255,255,.8),rgba(255,255,255,.18));box-shadow:0 2px 8px rgba(20,40,46,.12),inset 0 1px 4px #fff;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+/* 화살표 원은 카드 '아래층'에 깔려요. 카드 그림은 가장자리 번짐(그림자)이 바탕색으로 구워져 있어 원을 덮으므로, 좌우 번짐만 투명하게 걷고 그 자리에 실제 그림자를 겹쳐서 카드가 원 위로 드리우는 느낌을 내요 */
+.nch.l{left:-37px}.nch.r{right:-36px}.nch.r .i{transform:scaleX(-1)}
+.nh::before{content:'';position:absolute;inset:0;border-radius:32px;z-index:-1;box-shadow:0 2px 16px rgba(20,40,46,.20);pointer-events:none}
+.nh>.art,.nh>.artw{-webkit-mask-image:linear-gradient(90deg,transparent,#000 8px,#000 calc(100% - 8px),transparent),linear-gradient(180deg,transparent,#000 8px,#000 calc(100% - 8px),transparent),linear-gradient(90deg,transparent 24px,#000 31px,#000 calc(100% - 31px),transparent calc(100% - 24px)),linear-gradient(180deg,#000 150px,transparent 185px,transparent 265px,#000 300px);mask-image:linear-gradient(90deg,transparent,#000 8px,#000 calc(100% - 8px),transparent),linear-gradient(180deg,transparent,#000 8px,#000 calc(100% - 8px),transparent),linear-gradient(90deg,transparent 24px,#000 31px,#000 calc(100% - 31px),transparent calc(100% - 24px)),linear-gradient(180deg,#000 150px,transparent 185px,transparent 265px,#000 300px);-webkit-mask-composite:source-in,source-in,source-over;mask-composite:intersect,intersect,add}
 .nh+.sec,.nh+.scr{margin-top:21px}
 .panel.pg .scr>.sec+.sec{margin-top:15px}
 .panel.pg .scr .sec .card:has(.hs){margin-top:-11px}
@@ -717,6 +722,10 @@ textarea.memo::placeholder{color:var(--i5)}
 .panel.pg .lbl{font-weight:400}
 .panel.pg .bars button.f,.panel.pg .xl .f{opacity:1}
 .panel.pg .sts{margin-top:20px}
+/* 상세(C_2_x) 본문 폭 345: 관측 현황 칸은 글자 시작점이 x24·157·290, 적용 기준 버튼은 107×39 */
+.panel.pg .row3{grid-template-columns:133px 133px 1fr}
+.panel.pg .seg{gap:12px}.panel.pg .seg button{height:39px}
+.panel.pg .sts{padding-left:16px;gap:4px}
 /* 공통 제목 */
 .nt{font-size:18px;line-height:24px;font-weight:400;letter-spacing:-.03em;color:var(--i1)}
 .nb{height:204px;display:flex;flex-direction:column;justify-content:center;gap:4px;padding-bottom:8px}
@@ -729,16 +738,17 @@ textarea.memo::placeholder{color:var(--i5)}
 .nb .gd2{font-size:36px;line-height:48px;font-weight:700;letter-spacing:-.05em}
 .nb .gd5{font-size:48px;font-weight:700;color:var(--teal);line-height:48px}
 .nb .b4{font-size:32px;color:var(--i4);font-weight:400;font-family:var(--serif)}
-.nhr{width:263px;margin:-15px auto -5px;border:0;height:.5px;background:rgba(51,51,51,.2)}
+.nhr{width:100%;margin:-15px 0 -5px;border:0;height:.5px;background:rgba(51,51,51,.2)}
 .ng{display:flex;flex-direction:column;gap:20px}
 .nseg{display:flex;gap:12px}
-.nseg button{width:91px;height:39px;border-radius:99px;border:1px solid var(--ol);text-align:center;font-size:14px;font-weight:500;color:var(--i1);transition:background .25s,color .25s}
+.nseg button{width:107px;height:39px;border-radius:99px;border:1px solid var(--ol);text-align:center;font-size:14px;font-weight:500;color:var(--i1);transition:background .25s,color .25s}
 .nseg button.on{background:var(--i2);border-color:var(--i2);color:#fff}
 .ng.c{gap:2px;margin-top:14px}
-.nchart{padding:12px 21px 0;height:138px}
+.nchart{padding:12px 36px 0;height:138px}
 .nchart .bars{height:92px;padding:0;gap:8px;justify-content:space-between}
 .nchart .xl{padding:8px 0 0;font-size:12px}
-.nchart .xl span{width:26px;margin:0}
+.nchart .xl span{width:42px;margin:0}
+.nchart .bars button{width:42px}
 .nins{display:flex;align-items:center;gap:16px;padding:8px;height:58px;font-size:14px;line-height:21px;letter-spacing:-.02em;white-space:pre-line;color:var(--i1)}
 .nins>.i{color:#b4323a}.nins.ok>.i{color:var(--teal)}
 .nchart+.nins,.ng+.nins{margin-top:-9px}
@@ -750,7 +760,7 @@ textarea.memo::placeholder{color:var(--i5)}
 .nch2 .cm button{width:16px;height:24px;display:grid;place-items:center;color:var(--i1)}
 .nch2 .clg{display:flex;gap:12px;font-size:12px;white-space:nowrap}
 .nch2 .lg{display:flex;align-items:center;gap:4px}
-.ncal{width:297px;border-radius:12px;padding:8px 0 8px}
+.ncal{width:100%;border-radius:12px;padding:8px 0 8px}
 .ncal .wk{display:grid;grid-template-columns:repeat(7,40px);justify-content:center;font-size:10px;font-weight:700;text-align:center;line-height:16px;height:20px}
 .ncal .rw{display:grid;grid-template-columns:repeat(7,40px);justify-content:center;height:48px;align-items:center}
 .ncal .dy{width:36px;height:36px;margin:0 auto;border-radius:24px;display:grid;place-items:center;font-size:14px;line-height:20px;position:relative}
@@ -763,11 +773,19 @@ textarea.memo::placeholder{color:var(--i5)}
 .nsy{display:flex;flex-direction:column;gap:24px;margin-top:2px}
 .nl{font-size:14px;line-height:21px;font-weight:500;letter-spacing:-.02em;margin-bottom:11px}
 .nopt{display:flex;justify-content:space-between}
-.nopt button{width:60px;height:39px;border-radius:99px;border:1px solid var(--ol);text-align:center;font-size:14px;font-weight:400;transition:background .25s,color .25s}
-.nopt button.on{background:var(--i2);border-color:var(--i2);color:#fff}
-.nmemo{width:297px;height:97px;border-radius:24px;border:1px solid #c9d1d4;background:none;padding:12px 20px;font-size:12px;line-height:18px;resize:none;color:var(--i1);display:block}
+.nopt button{width:70px;height:39px;border-radius:99px;border:1px solid var(--ol);text-align:center;font-size:14px;font-weight:400;transition:background .25s,color .25s}
+.nopt button{display:flex;align-items:center;justify-content:center;gap:6px;border-color:rgba(21,26,31,.22);color:#151a1f;background:none}
+.nopt .sd{display:block;flex:none;border-radius:50%;box-sizing:border-box}
+.nopt .l3 .sd{width:10px;height:10px;background:#ad4d5c}.nopt .l2 .sd{width:7px;height:7px;background:#b87533}
+.nopt .l1 .sd{width:5px;height:5px;background:#618057}.nopt .l0 .sd{width:6px;height:6px;border:1.2px solid #99a3ab}
+.nopt button.on{border-width:1.5px;font-weight:600}
+.nopt button.l3.on{background:rgba(173,77,92,.1);border-color:#ad4d5c;color:#ad4d5c}
+.nopt button.l2.on{background:rgba(184,117,51,.1);border-color:#b87533;color:#b87533}
+.nopt button.l1.on{background:rgba(97,128,87,.1);border-color:#618057;color:#618057}
+.nopt button.l0.on{background:rgba(102,114,122,.1);border-color:#66727a;color:#66727a}
+.nmemo{width:100%;height:87px;border-radius:24px;border:1px solid #c9d1d4;background:none;padding:12px 20px;font-size:12px;line-height:18px;resize:none;color:var(--i1);display:block}
 .nmemo::placeholder{color:#8a959b}
-.nsave{width:297px;height:52px;border-radius:24px;background:var(--i2);color:#fff;font-weight:700;font-size:16px;letter-spacing:.07em;text-align:center}
+.nsave{width:100%;height:52px;border-radius:24px;background:var(--i2);color:#fff;font-weight:700;font-size:16px;letter-spacing:.07em;text-align:center}
 /* D3 */
 .nhash{display:flex;gap:8px;margin-top:10px}
 .nhash span{height:22px;padding:0 10px;border-radius:24px;background:var(--teal);color:#fff;font-size:12px;line-height:22px;white-space:nowrap}
@@ -782,7 +800,7 @@ textarea.memo::placeholder{color:var(--i5)}
 .nrow .m b{font-size:14px;line-height:19px;font-weight:500}.nrow .m small{color:var(--i5);font-size:11px;line-height:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .nrow button{color:var(--i5);width:24px;height:24px;display:grid;place-items:center}.nrow.hi button{color:var(--teal)}
 /* D4 */
-.ncl{width:297px;min-height:164px;padding:6px 0;display:flex;flex-direction:column;gap:16px}
+.ncl{width:100%;min-height:164px;padding:6px 0;display:flex;flex-direction:column;gap:16px}
 .ncl .it{display:flex;align-items:center;gap:4px;height:24px;font-size:14px;font-weight:400;color:var(--i1);text-align:left;width:100%;border:0;background:none;padding:0}
 .ncl .it .bx{display:grid;place-items:center;width:18px;height:18px;margin:3px;border:1.5px solid var(--i1);background:none;border-radius:3px;color:#fff;flex:none}
 .ncl .it.on .bx{background:var(--teal);border-color:var(--teal)}
@@ -1157,7 +1175,7 @@ const WCOND='sunny';
 const HUE={mask:[-115,150,45,0],pollen:[90,0,-105,-150],fine:[-115,150,45,0],ultra:[200,105,0,-40]};
 const hueF=(k,L)=>k&&HUE[k]&&HUE[k][L]?`filter:hue-rotate(${HUE[k][L]}deg)`:'';
 /* 카드 그림 속 주인공(해·꽃·먼지·마스크·연필·차트)만 둥글게 오려 한 겹 더 얹어 천천히 떠다니게 해요: [중심x, 중심y, 가로반경, 세로반경] (카드 좌표) */
-const FLO={hero_weather:[172,272,215,205,32],hero_pollen:[180,268,175,160,32],hero_fine:[185,262,190,170,32],hero_ultra:[180,245,175,160,32],home_weather:[100,80,88,76,24],home_pollen:[102,82,86,74,24],home_fine:[92,80,100,80,24],home_ultra:[96,80,100,80,24],mask:[145,115,200,125,32],rec_season:[208,172,170,140,32],rec_pencil:[225,75,150,125,32]};
+const FLO={hero_weather:[172,272,215,205,32],hero_pollen:[180,268,175,160,32],hero_fine:[185,262,190,170,32],hero_ultra:[180,245,175,160,32],home_weather:[123.5,80,88,76,24],home_pollen:[125.5,82,86,74,24],home_fine:[115.5,80,100,80,24],home_ultra:[119.5,80,100,80,24],mask:[169,115,200,125,32],rec_season:[256,159,170,140,32],rec_pencil:[273,74,150,125,32]};
 /* 카드 테두리 안쪽(8px 안)을 부드럽게 도려낸 모양을 SVG 마스크로 만들어요. inv=true면 정확히 반대 모양(테두리 띠) */
 const rrPath=(x,y,w,h,r)=>`M${x+r} ${y}H${x+w-r}A${r} ${r} 0 0 1 ${x+w} ${y+r}V${y+h-r}A${r} ${r} 0 0 1 ${x+w-r} ${y+h}H${x+r}A${r} ${r} 0 0 1 ${x} ${y+h-r}V${y+r}A${r} ${r} 0 0 1 ${x+r} ${y}Z`;
 const insetMask=(W,H,m,r,inv)=>{const i=9,d=rrPath(m+i,m+i,W-2*(m+i),H-2*(m+i),Math.max(0,r-i)),p=inv?`M-80 -80H${W+80}V${H+80}H-80Z${d}`:d;
@@ -1193,7 +1211,7 @@ function dust(kind,r,flt,n,seed,ins=0,cls='',fk=''){
   const f=Math.round(ins*2.4),ed=ins?`linear-gradient(90deg,transparent,#000 ${f}px,#000 calc(100% - ${f}px),transparent),linear-gradient(180deg,transparent,#000 ${f}px,#000 calc(100% - ${f}px),transparent)`:'',mk=ins?`-webkit-mask-image:${ed};mask-image:${ed};-webkit-mask-composite:source-in;mask-composite:intersect;`:'';
   return (cls?'':glow(kind,Math.max(0,r-2),flt,seed,fk))+`<span class="dust ${cls}" aria-hidden="true" style="inset:${ins}px;border-radius:${Math.max(0,r-ins)}px;${mk}${flt||''}">${h}</span>`}
 const kindOf=img=>img.replace(/^(home|hero|rec)_/,'').replace(/^(mask)$/,'mask');
-const nmini=(to,img,hk,L,tag,ic,l1,l2)=>`<button class="nm" data-a="go" data-v="c:${to}">${artImg(img,143,120,10,hueF(hk,L))}${dust(kindOf(img),24,hueF(hk,L),12,'m'+to,7,'',img)}<span class="np">${tag}${I(ic,24)}</span><small>${l1}</small><b>${l2}</b></button>`;
+const nmini=(to,img,hk,L,tag,ic,l1,l2)=>`<button class="nm" data-a="go" data-v="c:${to}">${artImg(img,166.5,120,10,hueF(hk,L))}${dust(kindOf(img),24,hueF(hk,L),12,'m'+to,7,'',img)}<span class="np">${tag}${I(ic,24)}</span><small>${l1}</small><b>${l2}</b></button>`;
 const CHEV=(d)=>`<button class="nch ${d<0?'l':'r'}" data-a="cgo" data-v="${d}" aria-label="${d<0?'이전':'다음'} 화면">${I('arrow_back_ios_new',24)}</button>`;
 /* 상세 히어로: 그림 위에 글자를 올리고, 양옆 화살표로 이웃 상세 화면으로 넘어가요 */
 const nhero=(img,hk,L,label,title,cap)=>`<div class="nh">${artImg(img,297,406,30,hueF(hk,L))}${dust(kindOf(img),32,hueF(hk,L),32,'h'+R.t,9,'',img)}<div class="nhl">${label}</div><div class="nht">${title}</div><div class="nhc">${cap}</div>${CHEV(-1)}${CHEV(1)}</div>`;
@@ -1202,8 +1220,8 @@ V.c=()=>{
   const k=['good','good',GK[pol()],GK[g10()],GK[g25()]][R.t];
   let body='';
   if(R.t===0){const h=homeTxt(),L=lvAll(),cc=CHC[L];
-   body=`<div class="ntop"><div><div class="ndate">10월 07일 수요일</div><div class="nloc">${I('location_on',18)}${S.region}</div></div><div class="nchip" style="color:${cc[1]};background:linear-gradient(135deg,rgba(255,255,255,.55),${rgba(cc[0],.3)} 60%,rgba(255,255,255,.3))">${I(h.c[0],24)}${h.c[1]}</div></div>
-   <div class="nmask" data-a="card" role="button" tabindex="0">${artImg('mask',297,253,10,hueF('mask',L))}${dust('mask',32,hueF('mask',L),20,'k',9,'','mask')}<h3>오늘의 비염 관리</h3><p>${h.t}</p>
+   body=`<div class="ntop"><div><div class="ndate">10월 07일 수요일</div><div class="nloc">${I('location_on',18)}${S.region}</div></div><div class="nchip" style="color:${cc[1]};border-color:${rgba(cc[1],.25)}">${I(h.c[0],24)}${h.c[1]}</div></div>
+   <div class="nmask" data-a="card" role="button" tabindex="0">${artImg('mask',345,253,10,hueF('mask',L))}${dust('mask',32,hueF('mask',L),20,'k',9,'','mask')}<h3>오늘의 비염 관리</h3><p>${h.t}</p>
     <button class="chk ${allDone()?'done':''}" data-a="chk" aria-label="오늘 챙김 완료 ${allDone()?'취소':'체크'}"><span class="rg a"></span><span class="rg b"></span><span class="c">${I('check',26)}</span></button></div>
    <div class="ngrid">${nmini(1,'home_weather',null,0,'오늘의 날씨','device_thermostat','24.5°C','맑음')}${nmini(2,'home_pollen','pollen',pol(),'꽃가루지수','local_florist','24.5°C',PN[pol()].replace(' ',''))}${nmini(3,'home_fine','fine',g10(),'미세먼지','grain',sc().pm10+'㎍/m³',PN[g10()].replace(' ',''))}${nmini(4,'home_ultra','ultra',g25(),'초미세먼지','snowing',sc().pm25+'㎍/m³',PN[g25()].replace(' ',''))}</div>`}
   else if(R.t===1)body=wthr();
@@ -1246,8 +1264,8 @@ const calCells=()=>{const e0=addD(TODAY,-TODAY.getDay()+U.cal*7-7);const c=[];fo
 const calHead=(cells,legend)=>{const last=cells[13];return `<div class="nch2"><div class="cm"><button data-a="calp" aria-label="이전 주">${I('chevron_left',16)}</button><span>${last.getFullYear()}년 ${last.getMonth()+1}월</span><button data-a="caln" aria-label="다음 주">${I('chevron_right',16)}</button></div>${legend?`<div class="clg"><span class="lg"><i class="dot f"></i>챙김 완료</span><span class="lg"><i class="dot"></i>미완료</span></div>`:''}</div>`};
 V.d=()=>{setPal('cd');let b='';
  if(R.t===0){
-  b=`<button class="nrec s" data-a="tab" data-v="1">${artImg('rec_season',297,253,10)}${dust('season',32,'',20,'s',9,'','rec_season')}<span class="np" style="left:16px;top:16px">시즌별 패턴${I('waterfall_chart',24)}</span><span class="s1">환절기 시즌이에요</span><span class="s2">이맘때쯤<br>증상이 심해져요</span></button>
-  <div class="nrec p" data-a="tab" data-v="2" role="button" tabindex="0">${artImg('rec_pencil',297,192,10)}${dust('pencil',32,'',18,'p',9,'','rec_pencil')}<span class="np" style="left:22px;top:22px">증상 기록하기${I('edit-ul',24)}</span><p>오늘 겪었던 불편함을\n기록해요\n꾸준히 적을수록\n내 패턴이 더 잘 보여요</p><span class="chk"><span class="rg a"></span><span class="rg b"></span><span class="c">${I('add',30)}</span></span></div>
+  b=`<button class="nrec s" data-a="tab" data-v="1">${artImg('rec_season',345,240,10)}${dust('season',32,'',20,'s',9,'','rec_season')}<span class="np" style="left:16px;top:16px">시즌별 패턴${I('waterfall_chart',24)}</span><span class="s1">환절기 시즌이에요</span><span class="s2">이맘때쯤<br>증상이 심해져요</span></button>
+  <div class="nrec p" data-a="tab" data-v="2" role="button" tabindex="0">${artImg('rec_pencil',345,190,10)}${dust('pencil',32,'',18,'p',9,'','rec_pencil')}<span class="np" style="left:24px;top:24px">증상 기록하기${I('edit-ul',24)}</span><p>오늘 겪었던 불편함을\n기록해요\n꾸준히 적을수록\n내 패턴이 더 잘 보여요</p><span class="chk"><span class="rg a"></span><span class="rg b"></span><span class="c">${I('add',30)}</span></span></div>
   <div class="ngrid r"><button class="nm gl" data-a="tab" data-v="3"><span class="np">기록 요약${I('article_shortcut',24)}</span><small>최근 7일 평균 증상</small><b>${avg7()}</b></button>
   <button class="nm gl" data-a="tab" data-v="4"><span class="np">챙김 기록${I('check_box',24)}</span><small>이번 주 체크</small><b><i>${weekN()}</i>/7일</b></button></div>`}
  else if(R.t===1){
@@ -1264,7 +1282,7 @@ V.d=()=>{setPal('cd');let b='';
   b=`<div class="nt">증상 기록</div><div class="ndh">${I('calendar_month',24)}<span>느낀 증상을 선택해주세요.</span></div>
   <div class="ng" style="gap:4px">${calHead(cells,false)}<div class="ncal"><div class="wk">${WK.map(w=>`<span>${w}</span>`).join('')}</div>${[0,7].map(o=>`<div class="rw">${cells.slice(o,o+7).map(d=>{const k=dk(d),off=d.getMonth()!==cells[13].getMonth();return `<button class="dy ${k===TK?'td':''} ${k===e?'sel':''} ${off?'off':''}" data-a="pickDay" data-v="${k}" aria-label="${d.getMonth()+1}월 ${d.getDate()}일${k===TK?' 오늘':''}${k===e?' 선택됨':''}"><span>${d.getDate()}</span></button>`}).join('')}</div>`).join('')}</div></div>
   <hr class="nhr">
-  <div class="nsy">${SYM.map((x,i)=>`<div><div class="nl">${x}</div><div class="nopt">${[3,2,1,0].map(v=>`<button class="${r.v[i]===v?'on':''}" data-a="sym" data-v="${i}:${v}">${LV[v]}</button>`).join('')}</div></div>`).join('')}</div>
+  <div class="nsy">${SYM.map((x,i)=>`<div><div class="nl">${x}</div><div class="nopt">${[3,2,1,0].map(v=>`<button class="l${v} ${r.v[i]===v?'on':''}" data-a="sym" data-v="${i}:${v}"><i class="sd"></i>${LV[v]}</button>`).join('')}</div></div>`).join('')}</div>
   <div><div class="nl">메모 (선택)</div><textarea class="nmemo" id="memo" data-in="memo" placeholder="예시 : 저녁부터 코막힘이 심해졌어요.">${r.memo}</textarea></div>
   <button class="nsave" data-a="saveRec">저장하기</button>`}
  else if(R.t===3){
@@ -1291,7 +1309,7 @@ V.b=()=>{setPal('wh');const sl=slider(['notifications_active-fill','computer-fil
   <div class="fld"><span class="l">이메일</span><div class="pill dis">${S.email}</div></div>
   <div class="fld"><label for="b3r">관심지역</label><div class="pill rg">${I('location_on',20)}<input id="b3r" data-in="b_q" value="${f.q??S.region}" autocomplete="off"><span style="color:var(--mute)">${I('search',18)}</span></div>${U.sugOpen?`<div class="sug">${REG.filter(r=>!f.q||r.includes(f.q)||f.q===S.region).slice(0,4).map(r=>`<button data-a="pickReg2" data-v="${r}">${I('location_on',18)}${r}</button>`).join('')}</div>`:''}</div>
   <div class="fld"><span class="l">비염 증상 정도</span><div class="sev">${['경미','보통','심함'].map(x=>`<button class="${(f.sev??S.sev)===x?'on':''}" data-a="bSev" data-v="${x}">${x}</button>`).join('')}</div></div>`}
- return `${hdrGlass()}${sl}<section class="wpanel fade" style="height:${[341,341,545][R.t]}px">${b}</section>${R.t===2?`<div style="position:absolute;left:24px;right:24px;top:748px;z-index:5"><button class="dark" data-a="b_save">저장하기</button></div>`:''}`};
+ return `${hdrGlass()}${sl}<section class="wpanel fade" style="height:${[344,344,548][R.t]}px">${b}</section>${R.t===2?`<div style="position:absolute;left:24px;right:24px;top:748px;z-index:5"><button class="dark" data-a="b_save">저장하기</button></div>`:''}`};
 V.promise=()=>{setPal('dg');const p=S.pr;const chip=(g,x)=>`<button class="${p[g].includes(x)?'on':''}" data-a="prc" data-v="${g}:${x}">${x}</button>`;
  return `${hdrGlass()}<section class="wpanel fade" style="top:139px;gap:16px;padding-bottom:24px"><h2>내 대처 약속</h2><p style="margin:-8px 0 0 8px;font-size:12px;line-height:18px;color:var(--sub)">앱은 조건을 감지하고, 약속은 내가 정해요.</p>
  <div class="fld" style="gap:8px"><span class="l">비염을 일으키는 것</span><div class="chips">${['꽃가루','미세먼지','찬 공기','집먼지'].map(x=>chip('types',x)).join('')}</div></div>
