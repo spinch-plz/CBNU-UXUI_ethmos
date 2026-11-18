@@ -20,7 +20,7 @@ input,select,textarea{font:inherit;color:inherit;letter-spacing:inherit}
 :focus-visible{outline:2px solid #fff;outline-offset:2px;box-shadow:0 0 0 4px rgba(14,116,124,.55)}
 .stage{min-height:100%;display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
 .wrap{position:relative;flex:none}
-.phone{position:absolute;left:0;top:0;width:393px;height:852px;transform-origin:0 0;border-radius:52px;overflow:hidden;background:#fff;
+.phone{position:absolute;left:0;top:0;width:393px;height:var(--H,852px);transform-origin:0 0;border-radius:52px;overflow:hidden;background:#fff;
   box-shadow:0 0 0 10px #1b2226,0 0 0 11px #3a464c,0 30px 60px rgba(20,40,46,.28);isolation:isolate}
 .phone.bare{border-radius:0;box-shadow:none}
 .phone.bare .sb,.phone.bare .island{display:none}
@@ -32,7 +32,7 @@ input,select,textarea{font:inherit;color:inherit;letter-spacing:inherit}
 .lyr i{position:absolute;border-radius:50%;display:block}
 .lyr::after{content:"";position:absolute;inset:0;opacity:.32;mix-blend-mode:soft-light;pointer-events:none;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .7 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
-#air{position:absolute;inset:0;z-index:1;pointer-events:none;width:393px;height:852px}
+#air{position:absolute;inset:0;z-index:1;pointer-events:none;width:393px;height:var(--H,852px)}
 #view{position:absolute;inset:0;z-index:3;transition:opacity .22s ease}
 #view.out{opacity:0}
 
@@ -660,11 +660,11 @@ textarea.memo::placeholder{color:var(--i5)}
 .pg{user-select:none;-webkit-user-select:none}.pg input,.pg textarea{user-select:text;-webkit-user-select:text}
 /* ===== v008 · 홈/상세(C) + 기록(D) 새 레이아웃 =====
    본문은 유리 패널 없이 페이지 배경(#f5f8f8) 위에 바로 올리고, 카드 그림은 Figma 내보내기 래스터(.art) + 그 위 글자로 구성해요 */
-.pg{position:absolute;left:0;top:115px;width:393px;height:737px;padding:24px 24px 160px;overflow:hidden auto;display:flex;flex-direction:column;gap:20px;z-index:4;scrollbar-width:none;color:var(--i1);touch-action:pan-y}
+.pg{position:absolute;left:0;top:115px;width:393px;height:calc(var(--H,852px) - 115px);padding:24px 24px 160px;overflow:hidden auto;display:flex;flex-direction:column;gap:20px;z-index:4;scrollbar-width:none;color:var(--i1);touch-action:pan-y}
 .pg::-webkit-scrollbar{display:none}
 .pg>*{flex:none}
 .pg.g12{gap:24px}
-.panel.pg{border:0;border-radius:0;background:none;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;top:115px;height:737px;padding:24px 24px 160px;gap:20px;overflow:hidden auto;user-select:auto;-webkit-user-select:auto}
+.panel.pg{border:0;border-radius:0;background:none;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;top:115px;height:calc(var(--H,852px) - 115px);padding:24px 24px 160px;gap:20px;overflow:hidden auto;user-select:auto;-webkit-user-select:auto}
 .panel.pg .scr{overflow:visible;flex:none;margin:0;padding:0;gap:20px;min-height:auto}
 .art{-webkit-mask-image:linear-gradient(90deg,transparent,#000 8px,#000 calc(100% - 8px),transparent),linear-gradient(180deg,transparent,#000 8px,#000 calc(100% - 8px),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 8px,#000 calc(100% - 8px),transparent),linear-gradient(180deg,transparent,#000 8px,#000 calc(100% - 8px),transparent);mask-composite:intersect;position:absolute;max-width:none;pointer-events:none;user-select:none;-webkit-user-drag:none;display:block}
 /* 서체 기본 */
@@ -819,7 +819,7 @@ textarea.memo::placeholder{color:var(--i5)}
 .nch2 .lg .dot{display:inline-block;width:12px;height:12px;border-radius:50%;border:1.5px solid var(--i1);box-sizing:border-box}.nch2 .lg .dot.f{background:var(--teal);border-color:var(--teal)}
 /* D 하단 서브 내비 */
 /* 하단 내비: 홈 ⇄ 기록(D) 사이를 하나의 요소로 이어서 움직여요 (피그마 스마트 애니메이트 느낌). 좌표는 피그마 프레임(345×72) 기준이에요 */
-#unav{position:absolute;left:24px;top:748px;width:345px;height:72px;z-index:4;border-radius:32px;background:rgba(255,255,255,.4);
+#unav{position:absolute;left:24px;top:calc(var(--H,852px) - 104px);width:345px;height:72px;z-index:4;border-radius:32px;background:rgba(255,255,255,.4);
   box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.96),0 0 0 1px #e1e7e9,0 6px 18px rgba(20,40,46,.08);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   opacity:0;pointer-events:none;transition:opacity .22s ease;--e:cubic-bezier(.32,.72,.24,1);--pi:0}
 #unav.show{opacity:1;pointer-events:auto}
@@ -1309,7 +1309,7 @@ V.b=()=>{setPal('wh');const sl=slider(['notifications_active-fill','computer-fil
   <div class="fld"><span class="l">이메일</span><div class="pill dis">${S.email}</div></div>
   <div class="fld"><label for="b3r">관심지역</label><div class="pill rg">${I('location_on',20)}<input id="b3r" data-in="b_q" value="${f.q??S.region}" autocomplete="off"><span style="color:var(--mute)">${I('search',18)}</span></div>${U.sugOpen?`<div class="sug">${REG.filter(r=>!f.q||r.includes(f.q)||f.q===S.region).slice(0,4).map(r=>`<button data-a="pickReg2" data-v="${r}">${I('location_on',18)}${r}</button>`).join('')}</div>`:''}</div>
   <div class="fld"><span class="l">비염 증상 정도</span><div class="sev">${['경미','보통','심함'].map(x=>`<button class="${(f.sev??S.sev)===x?'on':''}" data-a="bSev" data-v="${x}">${x}</button>`).join('')}</div></div>`}
- return `${hdrGlass()}${sl}<section class="wpanel fade" style="height:${[344,344,548][R.t]}px">${b}</section>${R.t===2?`<div style="position:absolute;left:24px;right:24px;top:748px;z-index:5"><button class="dark" data-a="b_save">저장하기</button></div>`:''}`};
+ return `${hdrGlass()}${sl}<section class="wpanel fade" style="height:${[344,344,548][R.t]}px">${b}</section>${R.t===2?`<div style="position:absolute;left:24px;right:24px;top:calc(var(--H,852px) - 104px);z-index:5"><button class="dark" data-a="b_save">저장하기</button></div>`:''}`};
 V.promise=()=>{setPal('dg');const p=S.pr;const chip=(g,x)=>`<button class="${p[g].includes(x)?'on':''}" data-a="prc" data-v="${g}:${x}">${x}</button>`;
  return `${hdrGlass()}<section class="wpanel fade" style="top:139px;gap:16px;padding-bottom:24px"><h2>내 대처 약속</h2><p style="margin:-8px 0 0 8px;font-size:12px;line-height:18px;color:var(--sub)">앱은 조건을 감지하고, 약속은 내가 정해요.</p>
  <div class="fld" style="gap:8px"><span class="l">비염을 일으키는 것</span><div class="chips">${['꽃가루','미세먼지','찬 공기','집먼지'].map(x=>chip('types',x)).join('')}</div></div>
@@ -1543,9 +1543,13 @@ document.getElementById('demo').addEventListener('click',e=>{const b=e.target.cl
 
 /* ============ 크기 맞춤 ============ */
 function fit(){const w=innerWidth-32,h=innerHeight-32,narrow=innerWidth<=500;let s=narrow?Math.min(w+32,innerWidth)/393:Math.min(1,w/393,h/852);
-  if(narrow)s=innerWidth/393;const wr=document.getElementById('wrap');wr.style.width=393*s+'px';wr.style.height=852*s+'px';phone.style.transform=`scale(${s})`;phone.classList.toggle('bare',narrow);
+  if(narrow)s=innerWidth/393;
+  /* 폰 화면(좁은 폭)에서는 보이는 높이에 맞춰 앱 높이(--H)를 늘이고 줄여요. 주소창 때문에 화면이 852보다 낮아도 하단 내비·스크롤 끝이 잘리지 않게 해요(너무 낮으면 700에서 멈추고 페이지가 스크롤돼요) */
+  const H=narrow?Math.round(Math.max(700,Math.min(960,innerHeight/s))):852;
+  phone.style.setProperty('--H',H+'px');
+  const wr=document.getElementById('wrap');wr.style.width=393*s+'px';wr.style.height=H*s+'px';phone.style.transform=`scale(${s})`;phone.classList.toggle('bare',narrow);
   document.body.style.paddingLeft=narrow?'0':'';document.body.style.paddingRight=narrow?'0':'';document.body.style.paddingBlock=narrow?'0':''}
-addEventListener('resize',fit);fit();showSb();
+addEventListener('resize',()=>{const a=document.activeElement;if(a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName))return;fit()});fit();showSb();
 if(S.scn&&!SCN[S.scn])S.scn='bad';
 OTX.start(document.getElementById('phone'));
 nav('splash',true);

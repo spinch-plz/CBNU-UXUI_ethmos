@@ -23,7 +23,7 @@ shell = '''<!doctype html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#e8eef0">
 <meta name="description" content="한눈에 보는 비염 — 에스모스(Ethmos) 모바일 앱 프로토타입">
 <meta name="robots" content="noindex,nofollow">
