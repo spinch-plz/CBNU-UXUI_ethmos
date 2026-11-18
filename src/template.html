@@ -660,11 +660,13 @@ textarea.memo::placeholder{color:var(--i5)}
 .pg{user-select:none;-webkit-user-select:none}.pg input,.pg textarea{user-select:text;-webkit-user-select:text}
 /* ===== v008 · 홈/상세(C) + 기록(D) 새 레이아웃 =====
    본문은 유리 패널 없이 페이지 배경(#f5f8f8) 위에 바로 올리고, 카드 그림은 Figma 내보내기 래스터(.art) + 그 위 글자로 구성해요 */
-.pg{position:absolute;left:0;top:115px;width:393px;height:calc(var(--H,852px) - 115px);padding:24px 24px 160px;overflow:hidden auto;display:flex;flex-direction:column;gap:20px;z-index:4;scrollbar-width:none;color:var(--i1);touch-action:pan-y}
+.pg{position:absolute;left:0;top:115px;width:393px;height:calc(var(--H,852px) - 115px);padding:24px 24px 0;overflow:hidden auto;display:flex;flex-direction:column;gap:20px;z-index:4;scrollbar-width:none;color:var(--i1);touch-action:pan-y}
 .pg::-webkit-scrollbar{display:none}
+/* 아래 여백(160)은 padding 대신 끝 칸으로: iOS 사파리는 flex 스크롤 영역의 아래 padding을 스크롤 길이에 넣지 않아, 내용이 짧은 화면(홈·기록 첫화면·시즌패턴·챙김기록)이 스크롤되지 않았어요. 위 간격 20이 더해져 합계 160 */
+.pg::after,.panel.pg::after{content:'';display:block;flex:none;height:140px}
 .pg>*{flex:none}
 .pg.g12{gap:24px}
-.panel.pg{border:0;border-radius:0;background:none;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;top:115px;height:calc(var(--H,852px) - 115px);padding:24px 24px 160px;gap:20px;overflow:hidden auto;user-select:auto;-webkit-user-select:auto}
+.panel.pg{border:0;border-radius:0;background:none;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;top:115px;height:calc(var(--H,852px) - 115px);padding:24px 24px 0;gap:20px;overflow:hidden auto;user-select:auto;-webkit-user-select:auto}
 .panel.pg .scr{overflow:visible;flex:none;margin:0;padding:0;gap:20px;min-height:auto}
 .art{-webkit-mask-image:linear-gradient(90deg,transparent,#000 8px,#000 calc(100% - 8px),transparent),linear-gradient(180deg,transparent,#000 8px,#000 calc(100% - 8px),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 8px,#000 calc(100% - 8px),transparent),linear-gradient(180deg,transparent,#000 8px,#000 calc(100% - 8px),transparent);mask-composite:intersect;position:absolute;max-width:none;pointer-events:none;user-select:none;-webkit-user-drag:none;display:block}
 /* 서체 기본 */
@@ -821,31 +823,34 @@ textarea.memo::placeholder{color:var(--i5)}
 /* 하단 내비: 홈 ⇄ 기록(D) 사이를 하나의 요소로 이어서 움직여요 (피그마 스마트 애니메이트 느낌). 좌표는 피그마 프레임(345×72) 기준이에요 */
 #unav{position:absolute;left:24px;top:calc(var(--H,852px) - 104px);width:345px;height:72px;z-index:4;border-radius:32px;background:rgba(255,255,255,.4);
   box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.96),0 0 0 1px #e1e7e9,0 6px 18px rgba(20,40,46,.08);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  opacity:0;pointer-events:none;transition:opacity .22s ease;--e:cubic-bezier(.32,.72,.24,1);--pi:0}
+  opacity:0;pointer-events:none;transition:opacity .22s ease;--e:cubic-bezier(.32,.72,.24,1);--pi:0;will-change:opacity;transform:translateZ(0)}
 #unav.show{opacity:1;pointer-events:auto}
 #unav .pl,#unav button{position:absolute;top:16px;height:40px;border-radius:99px;display:grid;place-items:center;box-sizing:border-box;color:rgba(21,26,31,.3);background:none;padding:0}
 #unav button.on{color:#fff}
-#unav .pl{left:24px;width:129px;background:var(--i2);z-index:2;transition:left .38s var(--e),width .38s var(--e)}
-#unav[data-s=r] .pl{left:192px}
-#unav[data-m=sub] .pl{left:calc(48px + 57px * var(--pi));width:45px}
+#unav .pl{left:0;transform:translateX(24px);width:129px;background:var(--i2);z-index:2;will-change:transform,width;transition:transform .38s var(--e),width .38s var(--e)}
+#unav[data-s=r] .pl{transform:translateX(192px)}
+#unav[data-m=sub] .pl{transform:translateX(calc(48px + 57px * var(--pi)));width:45px}
 #unav.drg .pl{transition:none}
 #unav .uh{left:24px;width:129px;z-index:3;transition:opacity .3s ease .02s,transform .42s var(--e),color .3s}
 #unav[data-m=sub] .uh{opacity:0;transform:translateX(-16px);pointer-events:none;transition:opacity .22s ease,transform .42s var(--e),color .3s}
-#unav .u0{left:192px;width:129px;z-index:3;transition:left .44s var(--e),width .44s var(--e),color .3s}
-#unav[data-m=sub] .u0{left:48px;width:45px}
-#unav .ut{left:48px;width:45px;z-index:1;opacity:0;pointer-events:none;transition:left .38s var(--e),opacity .22s ease,color .3s}
-#unav[data-m=sub] .ut{left:calc(48px + 57px * var(--j));opacity:1;pointer-events:auto;z-index:3;
-  transition:left .42s var(--e) calc(.03s + var(--j) * .012s),opacity .24s ease .05s,color .3s,z-index 0s linear .5s}
+#unav .u0{left:0;width:45px;transform:translateX(234px);z-index:3;will-change:transform;transition:transform .44s var(--e),color .3s}
+#unav[data-m=main] .u0::before{content:'';position:absolute;left:-42px;right:-42px;top:0;bottom:0}
+#unav[data-m=sub] .u0{transform:translateX(48px)}
+#unav .ut{left:0;width:45px;transform:translateX(48px);z-index:1;opacity:0;pointer-events:none;will-change:transform,opacity;transition:transform .38s var(--e),opacity .22s ease,color .3s}
+#unav[data-m=sub] .ut{transform:translateX(calc(48px + 57px * var(--j)));opacity:1;pointer-events:auto;z-index:3;
+  transition:transform .42s var(--e) calc(.03s + var(--j) * .012s),opacity .24s ease .05s,color .3s,z-index 0s linear .5s}
 #unav .ub{left:8px;width:32px;z-index:3;color:var(--i1);opacity:0;transform:translateX(-14px);pointer-events:none;transition:opacity .26s ease,transform .42s var(--e)}
 #unav[data-m=sub] .ub{opacity:1;transform:none;pointer-events:auto;transition:opacity .3s ease .04s,transform .42s var(--e) .02s}
+/* 전환 중(약 0.7초)에는 카드 배경 애니메이션을 멈춰요 */
+#phone.navmv .glow>u,#phone.navmv .dust>i,#phone.navmv .a2.flo{animation-play-state:paused!important}
 /* 카드 배경 애니메이션 */
 .dust{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .dust.lg{animation:dfade 3.4s ease .5s both}
 @keyframes dfade{from{opacity:0}to{opacity:1}}
 .glow{position:absolute;inset:2px;overflow:hidden;pointer-events:none}
-.glow>u{position:absolute;display:block;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,var(--c),transparent);opacity:.5;will-change:transform;animation:gl 12s ease-in-out infinite alternate}
+.glow>u{position:absolute;display:block;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,var(--c),transparent);opacity:.5;animation:gl 12s ease-in-out infinite alternate}
 @keyframes gl{from{transform:translate(0,0) scale(.85)}to{transform:translate(var(--gx),var(--gy)) scale(1.25)}}
-.dust>i{position:absolute;display:block;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff 0,var(--c) 55%,transparent 100%);opacity:0;will-change:transform,opacity;animation:dst 12s linear infinite}
+.dust>i{position:absolute;display:block;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff 0,var(--c) 55%,transparent 100%);opacity:0;animation:dst 12s linear infinite}
 .dust>i.bk{filter:blur(1.4px);background:radial-gradient(circle,var(--c) 0,transparent 70%)}
 @keyframes dst{0%{opacity:0;transform:translate(0,0) scale(.8)}14%{opacity:var(--o)}86%{opacity:var(--o)}100%{opacity:0;transform:translate(var(--x),var(--y)) scale(1.12)}}
 @keyframes flo{0%,100%{transform:none}50%{transform:scale(calc(1 + var(--s))) rotate(calc(var(--r) * -1deg))}}
@@ -1344,7 +1349,7 @@ let lastP={n:null,t:null};
 const unav=document.getElementById('unav');
 unav.innerHTML=`<span class="pl"></span><button class="uh" data-k="h" data-a="uhome" aria-label="홈">${I('home-fill',20)}</button><button class="u0" data-k="r" data-a="urec" aria-label="기록">${I('record-fill',20)}</button>${SNI.slice(1).map(([n,l],j)=>`<button class="ut" data-k="s${j+1}" style="--j:${j+1}" data-a="utab" data-v="${j+1}" aria-label="${l}">${I(n,20)}</button>`).join('')}<button class="ub" data-a="uhome" aria-label="홈으로">${I('arrow_back_ios_new',24)}</button>`;
 const navSt=(n,t)=>n==='c'?'h':n==='d'?'s'+(+t||0):null;
-function setNav(st){unav.dataset.s=st;unav.classList.remove('drg');const sub=st[0]==='s';unav.dataset.m=sub?'sub':'main';if(sub)unav.style.setProperty('--pi',st[1]);
+function setNav(st){phone.classList.add('navmv');clearTimeout(setNav._t);setNav._t=setTimeout(()=>phone.classList.remove('navmv'),750);unav.dataset.s=st;unav.classList.remove('drg');const sub=st[0]==='s';unav.dataset.m=sub?'sub':'main';if(sub)unav.style.setProperty('--pi',st[1]);
   unav.querySelectorAll('[data-k]').forEach(b=>{const k=b.dataset.k;b.classList.toggle('on',k===st||(k==='r'&&st==='s0'))})}
 function paint(){
   const same=lastP.n===R.n&&lastP.t===R.t;
@@ -1485,8 +1490,8 @@ const A={
  bar:v=>{U.bar=U.bar===+v?null:+v;rp()},
  std:v=>{S.std=v;save();rp();toast(STD[v][0]+'으로 바꿨어요')},
  sym:v=>{const [i,x]=v.split(':').map(Number);U.draft.v[i]=x;rp()},
- saveRec:()=>{const r=U.draft;S.rec[U.editD]={v:r.v.map(x=>x??0),memo:r.memo,ctx:S.rec[U.editD]?.ctx||(pol()>=2&&lvAll()>=2&&Math.max(g10(),g25())>=2?'꽃가루 지수 및 미세먼지 높음':pol()>=2?'꽃가루 지수 높음':lvAll()===0?'공기가 맑았던 날':'마스크 착용함')};save();U.draft=null;U.editing=false;U.editD=TK;toast('기록을 저장했어요');R.t=3;rp()},
- editRec:v=>{U.editD=v;U.editing=true;U.draft=null;R.t=2;rp()},
+ saveRec:()=>{const r=U.draft;S.rec[U.editD]={v:r.v.map(x=>x??0),memo:r.memo,ctx:S.rec[U.editD]?.ctx||(pol()>=2&&lvAll()>=2&&Math.max(g10(),g25())>=2?'꽃가루 지수 및 미세먼지 높음':pol()>=2?'꽃가루 지수 높음':lvAll()===0?'공기가 맑았던 날':'마스크 착용함')};save();U.draft=null;U.editing=false;U.editD=TK;toast('기록을 저장했어요');A.tab(3)},
+ editRec:v=>{U.editD=v;U.editing=true;U.draft=null;A.tab(2)},
  pickDay:v=>{if(v>TK){toast('오늘 이후는 기록할 수 없어요');return}U.editD=v;U.editing=!!S.rec[v];U.draft=null;rp()},
  cgo:v=>{const n=((R.t-1+(+v))+4)%4+1;slideTab(n,+v)||nav('c:'+n,true)},
  calp:()=>{U.cal--;rp()},caln:()=>{if(U.cal<0)U.cal++;rp()},
