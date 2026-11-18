@@ -1549,10 +1549,11 @@ document.getElementById('demo').addEventListener('click',e=>{const b=e.target.cl
 /* ============ 크기 맞춤 ============ */
 function fit(){const w=innerWidth-32,h=innerHeight-32,narrow=innerWidth<=500;let s=narrow?Math.min(w+32,innerWidth)/393:Math.min(1,w/393,h/852);
   if(narrow)s=innerWidth/393;
-  /* 폰 화면(좁은 폭)에서는 보이는 높이에 맞춰 앱 높이(--H)를 늘이고 줄여요. 주소창 때문에 화면이 852보다 낮아도 하단 내비·스크롤 끝이 잘리지 않게 해요(너무 낮으면 700에서 멈추고 페이지가 스크롤돼요) */
-  const H=narrow?Math.round(Math.max(700,Math.min(960,innerHeight/s))):852;
-  phone.style.setProperty('--H',H+'px');
-  const wr=document.getElementById('wrap');wr.style.width=393*s+'px';wr.style.height=H*s+'px';phone.style.transform=`scale(${s})`;phone.classList.toggle('bare',narrow);
+  /* 폰 화면(좁은 폭)에서는 보이는 높이에 맞춰 앱 높이(--H)를 늘이고 줄여요. 주소창 때문에 화면이 852보다 낮아도 하단 내비·스크롤 끝이 잘리지 않게 해요(너무 낮으면 700에서 멈추고 페이지가 스크롤돼요).
+     또 시안의 맨 위 59px은 아이폰 상태 표시줄 자리라서, 실제 폰에서는 상태 표시줄이 따로 있으므로 그만큼(T) 위를 잘라내 로고 위 여백을 줄여요 */
+  const T=narrow?48:0,H=narrow?Math.round(Math.max(700,Math.min(960,innerHeight/s+T))):852;
+  phone.style.setProperty('--H',H+'px');phone.style.top=(-T*s)+'px';
+  const wr=document.getElementById('wrap');wr.style.width=393*s+'px';wr.style.height=(H-T)*s+'px';wr.style.overflow=narrow?'hidden':'';phone.style.transform=`scale(${s})`;phone.classList.toggle('bare',narrow);
   document.body.style.paddingLeft=narrow?'0':'';document.body.style.paddingRight=narrow?'0':'';document.body.style.paddingBlock=narrow?'0':''}
 addEventListener('resize',()=>{const a=document.activeElement;if(a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName))return;fit()});fit();showSb();
 if(S.scn&&!SCN[S.scn])S.scn='bad';
