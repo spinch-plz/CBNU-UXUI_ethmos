@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""intro-src/index.template.html → public/intro/index.html (단일 파일, 외부 요청 없음)
+"""intro-src/index.template.html → public/intro/index.html (QR 옆 안내 영상은 같은 폴더의 guide.mp4를 불러옴)
 
 사용:  pip install segno fonttools brotli
        python3 intro-src/build_intro.py [QR이 가리킬 주소]
@@ -53,9 +53,10 @@ def sub(name):
                            f"--output-file={out}", "--layout-features=kern,liga", "--no-hinting"])
     return base64.b64encode(open(out, "rb").read()).decode()
 
+poster = "data:image/jpeg;base64," + base64.b64encode(open(f"{HERE}/guide-poster.jpg", "rb").read()).decode()
 shape = lambda n: base64.b64encode(open(f"{HERE}/shapes/{n}.png", "rb").read()).decode()
 html = (tpl.replace("{{LOGO1}}", L1).replace("{{LOGO2}}", L2).replace("<!--QR_SVG-->", qr)
-        .replace("{{URL_TEXT}}", URL_TEXT).replace("{{URL}}", URL)
+        .replace("{{POSTER}}", poster).replace("{{URL_TEXT}}", URL_TEXT).replace("{{URL}}", URL)
         .replace("{{MASK_PNG}}", shape("mask")).replace("{{PILL_PNG}}", shape("pill")).replace("{{FONT_REG}}", sub("Regular")).replace("{{FONT_SEMI}}", sub("SemiBold")))
 assert "{{" not in html.split("<script>")[0], "치환되지 않은 자리표시자가 남아 있어요"
 os.makedirs(f"{ROOT}/public/intro", exist_ok=True)
