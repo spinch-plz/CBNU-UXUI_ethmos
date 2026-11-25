@@ -70,7 +70,7 @@ body.clear{--fg:var(--ink);--fg2:var(--sub);--halo:rgba(255,255,255,.0)}
   background:rgba(245,248,248,.46);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   opacity:0;pointer-events:none;transition:opacity .35s}
 .modal.open{opacity:1;pointer-events:auto}
-.card{position:relative;margin:auto;width:min(980px,100%);color:var(--ink);border-radius:32px;padding:26px 26px 22px;text-align:center;overflow:hidden;isolation:isolate;
+.card{position:relative;margin:auto;width:min(1640px,100%);color:var(--ink);border-radius:32px;padding:26px 26px 22px;text-align:center;overflow:hidden;isolation:isolate;
   background:radial-gradient(120% 70% at 50% 0%,#b8f1f5 0%,rgba(184,241,245,0) 70%),radial-gradient(70% 50% at 100% 100%,rgba(196,208,255,.7),rgba(196,208,255,0)),#fff;
   border:1.5px solid #fff;box-shadow:0 0 0 1px #e1e7e9,0 18px 48px rgba(20,40,46,.16);
   transform:translateY(16px) scale(.96);transition:transform .45s cubic-bezier(.2,.9,.25,1.15)}
@@ -89,9 +89,9 @@ body.clear{--fg:var(--ink);--fg2:var(--sub);--halo:rgba(255,255,255,.0)}
 .x{position:absolute;z-index:5;right:14px;top:12px;width:34px;height:34px;border-radius:50%;border:1.5px solid #fff;background:rgba(255,255,255,.6);color:var(--ink);font-size:20px;line-height:1;cursor:pointer;box-shadow:0 0 0 1px #e1e7e9}
 .x:hover{background:#fff}
 /* QR 옆 안내 영상 (좁은 화면에서는 QR 아래로) */
-.cols{display:flex;align-items:center;gap:32px}
+.cols{display:flex;align-items:center;justify-content:center;gap:32px}
 .qrcol{flex:none;width:300px}
-.guide{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;z-index:1}
+.guide{flex:1 1 0;min-width:0;max-width:min(1200px,calc((100vh - 200px)*16/9));display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;z-index:1}
 .guide .cap{font-size:11px;font-weight:600;letter-spacing:.2em;color:var(--deep);opacity:.8}
 .guide .vbox{width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#eef1f0;box-shadow:0 0 0 1px #e1e7e9,0 6px 18px rgba(20,40,46,.08)}
 .guide video{display:block;width:100%;height:100%;object-fit:cover}
@@ -100,6 +100,7 @@ body.clear{--fg:var(--ink);--fg2:var(--sub);--halo:rgba(255,255,255,.0)}
   .card{width:min(420px,100%)}
   .cols{flex-direction:column;gap:22px}
   .qrcol{width:100%}
+  .guide{flex:none;width:100%;max-width:none}
 }
 </style>
 </head>
